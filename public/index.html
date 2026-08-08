@@ -355,10 +355,8 @@ function PlanificadorComidas() {
   function empezarEdicionItem(fk, comida, item) { setEditando({ fk, comida, itemId: item.id }); setBorrador(item.texto); }
   function cancelarEdicion() { setEditando(null); setBorrador(""); }
 
-  function confirmarBorrador() {
-    if (!editando) return;
-    const { fk, comida, itemId } = editando;
-    const textoFinal = borrador.trim();
+  function guardarItemTexto(fk, comida, itemId, textoRaw) {
+    const textoFinal = textoRaw.trim();
     setPlanesPorFecha((prev) => {
       const actual = normalizarSlots(prev[fk]);
       let items = actual[comida].items.slice();
@@ -375,6 +373,17 @@ function PlanificadorComidas() {
       guardarPlanes(next);
       return next;
     });
+  }
+
+  function confirmarBorrador() {
+    if (!editando) return;
+    guardarItemTexto(editando.fk, editando.comida, editando.itemId, borrador);
+    setEditando(null); setBorrador("");
+  }
+
+  function elegirAutocompletado(texto) {
+    if (!editando) return;
+    guardarItemTexto(editando.fk, editando.comida, editando.itemId, texto);
     setEditando(null); setBorrador("");
   }
 
@@ -484,6 +493,32 @@ function PlanificadorComidas() {
   }, [historial]);
 
   const hayHistorial = COMIDAS.some((c) => sugerenciasPorCategoria[c.key]?.length > 0);
+
+  function sugerenciasAutocompletar(comida) {
+    const entradas = Object.entries(historial[comida] || {});
+    const filtro = borrador.trim().toLowerCase();
+    let filtradas = entradas;
+    if (filtro) filtradas = entradas.filter(([texto]) => texto.toLowerCase().includes(filtro) && texto.toLowerCase() !== filtro);
+    filtradas.sort((a, b) => b[1].veces - a[1].veces);
+    return filtradas.slice(0, 6);
+  }
+
+  function ListaAutocompletar({ comida }) {
+    const sugs = sugerenciasAutocompletar(comida);
+    if (sugs.length === 0) return null;
+    return (
+      <div style={{ display: "flex", flexDirection: "column", gap: "0.2rem", maxHeight: 150, overflowY: "auto" }}>
+        {sugs.map(([texto, datos]) => (
+          <button key={texto} onMouseDown={(e) => e.preventDefault()} onClick={() => elegirAutocompletado(texto)}
+            style={{ display: "flex", alignItems: "center", gap: "0.4rem", background: "#3A3D34", border: "1px solid #4C4F43", borderRadius: 6, color: "#F1EAD8", fontSize: "0.75rem", padding: "0.32rem 0.45rem", cursor: "pointer", textAlign: "left" }}>
+            <span style={{ fontSize: 14, flex: "0 0 auto" }}>{emojiParaTexto(texto)}</span>
+            <span style={{ flex: 1, lineHeight: 1.2 }}>{texto}</span>
+            <span style={{ fontSize: "0.6rem", color: "#7C7F70", flex: "0 0 auto" }}>×{datos.veces}</span>
+          </button>
+        ))}
+      </div>
+    );
+  }
 
   function formatoFechaCorta(iso) {
     if (!iso) return null;
@@ -721,6 +756,7 @@ function PlanificadorComidas() {
                             <textarea autoFocus value={borrador} onChange={(e) => setBorrador(e.target.value)} onBlur={confirmarBorrador}
                               onKeyDown={(e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); e.target.blur(); } if (e.key === "Escape") { e.preventDefault(); cancelarEdicion(); } }}
                               style={{ width: "100%", background: "#3A3D34", border: `1px solid ${tint}`, borderRadius: 6, color: "#F1EAD8", fontSize: "0.82rem", resize: "none", fontFamily: "inherit", padding: "0.3rem 0.4rem", minHeight: 36 }} />
+                            <ListaAutocompletar comida={key} />
                             <SelectorCategoria texto={borrador || item.texto} actual={categoriaEfectiva(borrador || item.texto)} onElegir={asignarCategoria} />
                           </div>
                         ) : (
@@ -753,6 +789,7 @@ function PlanificadorComidas() {
                             onKeyDown={(e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); e.target.blur(); } if (e.key === "Escape") { e.preventDefault(); cancelarEdicion(); } }}
                             placeholder={`Añadir ${label.toLowerCase()}...`}
                             style={{ width: "100%", background: "#3A3D34", border: `1px solid ${tint}`, borderRadius: 6, color: "#F1EAD8", fontSize: "0.82rem", resize: "none", fontFamily: "inherit", padding: "0.3rem 0.4rem", minHeight: 36 }} />
+                          <ListaAutocompletar comida={key} />
                           {borrador.trim() && <SelectorCategoria texto={borrador} actual={categoriaEfectiva(borrador)} onElegir={asignarCategoria} />}
                         </div>
                       ) : (
