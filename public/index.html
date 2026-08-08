@@ -220,6 +220,8 @@ const CLAVE_PLANES = "planes-por-fecha";
 const CLAVE_COMPRA = "lista-compra-check";
 const CLAVE_CATEGORIAS = "categorias-manuales";
 const CLAVE_INGREDIENTES = "ingredientes-manuales";
+const CLAVE_CAFE = "cafe-dias";
+const CLAVE_ACOMPAÑAMIENTO = "acompanamiento-dias";
 
 function PlanificadorComidas() {
   const [pestaña, setPestaña] = useState("planificador");
@@ -228,6 +230,8 @@ function PlanificadorComidas() {
   const [marcados, setMarcados] = useState({});
   const [categoriasManuales, setCategoriasManuales] = useState({});
   const [ingredientesManuales, setIngredientesManuales] = useState({});
+  const [cafeDias, setCafeDias] = useState({});
+  const [acompañamientoDias, setAcompañamientoDias] = useState({});
   const [añadiendoIngredientes, setAñadiendoIngredientes] = useState(null);
   const [borradorIngredientes, setBorradorIngredientes] = useState("");
   const [editando, setEditando] = useState(null);
@@ -254,6 +258,8 @@ function PlanificadorComidas() {
       try { const c = await window.storage.get(CLAVE_COMPRA); if (c?.value) setMarcados(JSON.parse(c.value)); } catch (_) {}
       try { const cat = await window.storage.get(CLAVE_CATEGORIAS); if (cat?.value) setCategoriasManuales(JSON.parse(cat.value)); } catch (_) {}
       try { const ing = await window.storage.get(CLAVE_INGREDIENTES); if (ing?.value) setIngredientesManuales(JSON.parse(ing.value)); } catch (_) {}
+      try { const cafe = await window.storage.get(CLAVE_CAFE); if (cafe?.value) setCafeDias(JSON.parse(cafe.value)); } catch (_) {}
+      try { const acomp = await window.storage.get(CLAVE_ACOMPAÑAMIENTO); if (acomp?.value) setAcompañamientoDias(JSON.parse(acomp.value)); } catch (_) {}
       setCargando(false);
     })();
   }, []);
@@ -271,11 +277,29 @@ function PlanificadorComidas() {
   const guardarMarcados = useCallback((n) => persistir(CLAVE_COMPRA, n), [persistir]);
   const guardarCategorias = useCallback((n) => persistir(CLAVE_CATEGORIAS, n), [persistir]);
   const guardarIngredientes = useCallback((n) => persistir(CLAVE_INGREDIENTES, n), [persistir]);
+  const guardarCafe = useCallback((n) => persistir(CLAVE_CAFE, n), [persistir]);
+  const guardarAcompañamiento = useCallback((n) => persistir(CLAVE_ACOMPAÑAMIENTO, n), [persistir]);
+
+  function alternarCafe(fk) {
+    setCafeDias((prev) => { const next = { ...prev, [fk]: !prev[fk] }; guardarCafe(next); return next; });
+  }
+
+  const ORDEN_ACOMPAÑAMIENTO = [undefined, "pan", "galletas"];
+  function ciclarAcompañamiento(fk) {
+    setAcompañamientoDias((prev) => {
+      const actualIdx = ORDEN_ACOMPAÑAMIENTO.indexOf(prev[fk]);
+      const siguiente = ORDEN_ACOMPAÑAMIENTO[(actualIdx + 1) % ORDEN_ACOMPAÑAMIENTO.length];
+      const next = { ...prev, [fk]: siguiente };
+      if (siguiente === undefined) delete next[fk];
+      guardarAcompañamiento(next);
+      return next;
+    });
+  }
 
   function getSlots(fk) { return normalizarSlots(planesPorFecha[fk]); }
 
   function exportarDatos() {
-    const payload = { version: 1, exportadoEn: new Date().toISOString(), planesPorFecha, marcados, categoriasManuales, ingredientesManuales };
+    const payload = { version: 1, exportadoEn: new Date().toISOString(), planesPorFecha, marcados, categoriasManuales, ingredientesManuales, cafeDias, acompañamientoDias };
     try {
       const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
       const url = URL.createObjectURL(blob);
@@ -304,6 +328,8 @@ function PlanificadorComidas() {
         if (datos.marcados) { setMarcados(datos.marcados); guardarMarcados(datos.marcados); }
         if (datos.categoriasManuales) { setCategoriasManuales(datos.categoriasManuales); guardarCategorias(datos.categoriasManuales); }
         if (datos.ingredientesManuales) { setIngredientesManuales(datos.ingredientesManuales); guardarIngredientes(datos.ingredientesManuales); }
+        if (datos.cafeDias) { setCafeDias(datos.cafeDias); guardarCafe(datos.cafeDias); }
+        if (datos.acompañamientoDias) { setAcompañamientoDias(datos.acompañamientoDias); guardarAcompañamiento(datos.acompañamientoDias); }
         setAviso("Copia importada correctamente");
       } catch (_) {
         setAviso("El archivo no es una copia válida");
@@ -512,7 +538,7 @@ function PlanificadorComidas() {
           <button key={texto} onMouseDown={(e) => e.preventDefault()} onClick={() => elegirAutocompletado(texto)}
             style={{ display: "flex", alignItems: "center", gap: "0.4rem", background: "#3A3D34", border: "1px solid #4C4F43", borderRadius: 6, color: "#F1EAD8", fontSize: "0.75rem", padding: "0.32rem 0.45rem", cursor: "pointer", textAlign: "left" }}>
             <span style={{ fontSize: 14, flex: "0 0 auto" }}>{emojiParaTexto(texto)}</span>
-            <span style={{ flex: 1, lineHeight: 1.2 }}>{texto}</span>
+            <span style={{ flex: 1, lineHeight: 1.2, overflowWrap: "anywhere", wordBreak: "break-word", minWidth: 0 }}>{texto}</span>
             <span style={{ fontSize: "0.6rem", color: "#7C7F70", flex: "0 0 auto" }}>×{datos.veces}</span>
           </button>
         ))}
@@ -529,24 +555,29 @@ function PlanificadorComidas() {
     const conteo = {}; CATEGORIAS.forEach((c) => (conteo[c.key] = 0));
     let total = 0;
     clavesFecha.forEach((fk) => {
-      const slotsRaw = planesPorFecha[fk]; if (!slotsRaw) return;
-      const slots = normalizarSlots(slotsRaw);
-      COMIDAS.forEach(({ key }) => {
-        slots[key].items.forEach((it) => {
-          const texto = it.texto.trim(); if (!texto) return;
-          const cat = categoriaEfectiva(texto);
-          conteo[cat] = (conteo[cat] || 0) + 1; total += 1;
+      const slotsRaw = planesPorFecha[fk];
+      if (slotsRaw) {
+        const slots = normalizarSlots(slotsRaw);
+        COMIDAS.forEach(({ key }) => {
+          slots[key].items.forEach((it) => {
+            const texto = it.texto.trim(); if (!texto) return;
+            const cat = categoriaEfectiva(texto);
+            conteo[cat] = (conteo[cat] || 0) + 1; total += 1;
+          });
         });
-      });
+      }
+      if (cafeDias[fk]) { conteo.lacteo = (conteo.lacteo || 0) + 1; total += 1; }
+      if (acompañamientoDias[fk] === "pan") { conteo.carbohidrato = (conteo.carbohidrato || 0) + 1; total += 1; }
+      if (acompañamientoDias[fk] === "galletas") { conteo.otros = (conteo.otros || 0) + 1; total += 1; }
     });
     return { total, categorias: CATEGORIAS.map((c) => ({ ...c, cantidad: conteo[c.key], pct: total ? Math.round((conteo[c.key] / total) * 100) : 0 })) };
   }
 
-  const distribucionSemana = useMemo(() => calcularDistribucion(fechasSemana.map(claveFecha)), [planesPorFecha, fechasSemana, categoriasManuales]);
+  const distribucionSemana = useMemo(() => calcularDistribucion(fechasSemana.map(claveFecha)), [planesPorFecha, fechasSemana, categoriasManuales, cafeDias, acompañamientoDias]);
   const distribucionAñoSel = useMemo(() => {
     const claves = Object.keys(planesPorFecha).filter((k) => k.startsWith(String(añoSeleccionado)));
     return calcularDistribucion(claves);
-  }, [planesPorFecha, añoSeleccionado, categoriasManuales]);
+  }, [planesPorFecha, añoSeleccionado, categoriasManuales, cafeDias, acompañamientoDias]);
 
   const datosPorMes = useMemo(() => {
     return Array.from({ length: 12 }, (_, m) => {
@@ -555,7 +586,7 @@ function PlanificadorComidas() {
       const dist = calcularDistribucion(claves);
       return { mes: m, total: dist.total, categorias: dist.categorias };
     });
-  }, [planesPorFecha, añoSeleccionado, categoriasManuales]);
+  }, [planesPorFecha, añoSeleccionado, categoriasManuales, cafeDias, acompañamientoDias]);
 
   const claveSemana = claveFecha(semanaBase);
   const listaCompra = useMemo(() => {
@@ -735,6 +766,18 @@ function PlanificadorComidas() {
                   <div className="fraunces" style={{ fontSize: "1.05rem", fontWeight: 600, color: esHoy ? "#E8A93C" : "#F1EAD8" }}>{NOMBRES_DIA[idx]}</div>
                   <div style={{ fontSize: "0.72rem", color: esHoy ? "#E8A93C" : "#8A8D80" }}>{formatoDiaMes(d)}{esHoy ? " · Hoy" : ""}</div>
                   <button onClick={() => copiarDiaAnterior(idx)} title="Copiar el menú del día anterior" style={{ position: "absolute", top: 0, right: 0, background: "transparent", border: "none", color: "#7C7F70", cursor: "pointer", padding: 2 }}><Icono nombre="copy" size={12} /></button>
+                  <button onClick={() => alternarCafe(fk)} title={cafeDias[fk] ? "Café tomado hoy (cuenta como lácteo)" : "Marcar café de hoy"} style={{ marginTop: "0.3rem", display: "inline-flex", alignItems: "center", gap: "0.25rem", background: cafeDias[fk] ? "#6FA8C733" : "transparent", border: `1px solid ${cafeDias[fk] ? "#6FA8C7" : "#43463C"}`, borderRadius: 20, padding: "0.15rem 0.5rem", fontSize: "0.68rem", color: cafeDias[fk] ? "#6FA8C7" : "#7C7F70", cursor: "pointer" }}>
+                    ☕ {cafeDias[fk] ? "Café ✓" : "Café"}
+                  </button>
+                  {(() => {
+                    const acomp = acompañamientoDias[fk];
+                    const info = acomp === "pan" ? { emoji: "🍞", texto: "Pan", tint: "#E8A93C" } : acomp === "galletas" ? { emoji: "🍪", texto: "Galletas", tint: "#8A7FBF" } : { emoji: "＋", texto: "Pan/galletas", tint: "#7C7F70" };
+                    return (
+                      <button onClick={() => ciclarAcompañamiento(fk)} title="Toca para elegir: nada · pan · galletas" style={{ marginTop: "0.3rem", marginLeft: "0.3rem", display: "inline-flex", alignItems: "center", gap: "0.25rem", background: acomp ? `${info.tint}33` : "transparent", border: `1px dashed ${acomp ? info.tint : "#43463C"}`, borderRadius: 20, padding: "0.15rem 0.5rem", fontSize: "0.68rem", color: info.tint, cursor: "pointer" }}>
+                        {info.emoji} {info.texto}
+                      </button>
+                    );
+                  })()}
                 </div>
               );
             })}
@@ -747,7 +790,7 @@ function PlanificadorComidas() {
                   const items = getSlots(fk)[key].items;
                   const editandoNuevoAqui = editando && editando.fk === fk && editando.comida === key && editando.itemId === null;
                   return (
-                    <div key={fk + key} style={{ background: "#33362E", border: "1px solid #43463C", borderRadius: 10, minHeight: 104, padding: "0.75rem", display: "flex", flexDirection: "column", gap: "0.35rem" }}>
+                    <div key={fk + key} style={{ background: "#33362E", border: "1px solid #43463C", borderRadius: 10, minHeight: 104, minWidth: 0, padding: "0.75rem", display: "flex", flexDirection: "column", gap: "0.35rem" }}>
                       {items.map((item) => {
                         const emojiPlato = emojiParaTexto(item.texto);
                         const editandoEste = editando && editando.fk === fk && editando.comida === key && editando.itemId === item.id;
@@ -760,8 +803,8 @@ function PlanificadorComidas() {
                             <SelectorCategoria texto={borrador || item.texto} actual={categoriaEfectiva(borrador || item.texto)} onElegir={asignarCategoria} />
                           </div>
                         ) : (
-                          <div key={item.id} className="item-fila" style={{ display: "flex", alignItems: "flex-start", gap: "0.4rem", borderRadius: 6, padding: "0.15rem" }}>
-                            <button className="celda-btn" onClick={() => empezarEdicionItem(fk, key, item)} style={{ flex: "1 1 auto", display: "flex", alignItems: "flex-start", gap: "0.5rem", background: "transparent", border: "none", textAlign: "left", color: "#F1EAD8", cursor: "pointer", fontSize: "0.98rem", fontFamily: "inherit", lineHeight: 1.4 }}>
+                          <div key={item.id} className="item-fila" style={{ display: "flex", alignItems: "flex-start", gap: "0.4rem", borderRadius: 6, padding: "0.15rem", minWidth: 0 }}>
+                            <button className="celda-btn" onClick={() => empezarEdicionItem(fk, key, item)} style={{ flex: "1 1 auto", minWidth: 0, display: "flex", alignItems: "flex-start", gap: "0.5rem", background: "transparent", border: "none", textAlign: "left", color: "#F1EAD8", cursor: "pointer", fontSize: "0.98rem", fontFamily: "inherit", lineHeight: 1.4 }}>
                               <span style={{ flex: "0 0 auto", width: 44, height: 44, position: "relative", display: "flex", alignItems: "center", justifyContent: "center", background: `${tint}26`, border: `1px solid ${tint}66`, borderRadius: 8, fontSize: 24 }}>
                                 {emojiPlato}
                                 {(() => {
@@ -773,8 +816,8 @@ function PlanificadorComidas() {
                                   );
                                 })()}
                               </span>
-                              <span style={{ paddingTop: "0.1rem" }}>
-                                <span style={{ whiteSpace: "pre-wrap" }}>{item.texto}</span>
+                              <span style={{ paddingTop: "0.1rem", minWidth: 0, flex: "1 1 auto" }}>
+                                <span style={{ whiteSpace: "pre-wrap", overflowWrap: "anywhere", wordBreak: "break-word" }}>{item.texto}</span>
                                 {item.creadoEn && <span style={{ display: "flex", alignItems: "center", gap: "0.25rem", fontSize: "0.65rem", color: "#8A8D80", marginTop: "0.15rem" }}><Icono nombre="clock" size={10} />{formatoSello(item.creadoEn)}</span>}
                               </span>
                             </button>
@@ -815,7 +858,19 @@ function PlanificadorComidas() {
             <div className="fraunces" style={{ fontSize: "1.25rem", fontWeight: 600, marginBottom: "0.3rem" }}>Estimación nutricional aproximada</div>
             <div style={{ fontSize: "0.78rem", color: "#7C7F70", marginBottom: "1.1rem" }}>Distribución por tipo de plato, calculada según las palabras de cada plato planificado. Es una orientación, no un análisis nutricional real (no calcula calorías ni gramos).</div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.2rem" }}>
-              <BloqueDistribucion titulo={`Esta semana (${etiquetaSemana})`} datos={distribucionSemana} />
+              <div>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "0.4rem" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.3rem" }}>
+                    <button onClick={() => setSemanaBase((prev) => { const d = new Date(prev); d.setDate(d.getDate() - 7); return d; })} style={{ background: "transparent", border: "1px solid #43463C", borderRadius: 6, padding: "0.2rem", color: "#F1EAD8", cursor: "pointer", display: "flex" }} title="Semana anterior"><Icono nombre="chevron-left" size={13} /></button>
+                    <span style={{ fontSize: "0.78rem", color: "#B7B9AC" }}>Semana ({etiquetaSemana})</span>
+                    <button onClick={() => setSemanaBase((prev) => { const d = new Date(prev); d.setDate(d.getDate() + 7); return d; })} style={{ background: "transparent", border: "1px solid #43463C", borderRadius: 6, padding: "0.2rem", color: "#F1EAD8", cursor: "pointer", display: "flex" }} title="Semana siguiente"><Icono nombre="chevron-right" size={13} /></button>
+                  </div>
+                  {!esSemanaActual && (
+                    <button onClick={() => setSemanaBase(lunesDe(new Date()))} style={{ background: "transparent", border: "none", color: "#E8A93C", fontSize: "0.72rem", cursor: "pointer", padding: 0 }}>Esta semana</button>
+                  )}
+                </div>
+                <BloqueDistribucion titulo="" datos={distribucionSemana} />
+              </div>
               <div>
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "0.4rem" }}>
                   <div style={{ display: "flex", alignItems: "center", gap: "0.3rem" }}>
@@ -858,7 +913,7 @@ function PlanificadorComidas() {
                         return (
                           <div key={texto} className="sug-tile" onClick={() => insertarSugerencia(key, texto)} style={{ aspectRatio: "1 / 1", background: "#33362E", border: "1px solid #43463C", borderRadius: 12, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "0.35rem", padding: "0.75rem", textAlign: "center", position: "relative" }}>
                             <span style={{ width: 48, height: 48, borderRadius: 10, background: `${tint}26`, border: `1px solid ${tint}66`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 26 }}>{emojiPlato}</span>
-                            <span style={{ fontSize: "0.74rem", lineHeight: 1.25, color: "#F1EAD8" }}>{texto}</span>
+                            <span style={{ fontSize: "0.74rem", lineHeight: 1.25, color: "#F1EAD8", overflowWrap: "anywhere", wordBreak: "break-word" }}>{texto}</span>
                             {datos.ultimo && <span style={{ fontSize: "0.62rem", color: "#8A8D80" }}>Última vez: {formatoFechaCorta(datos.ultimo)}</span>}
                             <span style={{ position: "absolute", top: 4, right: 6, fontSize: "0.62rem", color: "#7C7F70" }}>×{datos.veces}</span>
                           </div>
@@ -890,6 +945,18 @@ function PlanificadorComidas() {
               ))}
             </div>
             <div style={{ fontSize: "0.72rem", color: "#7C7F70", marginTop: "0.5rem" }}>Se eligen solos cada semana y se marcan según lo que vayas planificando. Consigue los 3 para ganar un trofeo.</div>
+
+            <div style={{ marginTop: "1rem", background: "#33362E", border: "1px solid #43463C", borderRadius: 10, padding: "0.7rem 0.85rem" }}>
+              <div style={{ fontSize: "0.78rem", color: "#B7B9AC", marginBottom: "0.5rem" }}>Vista rápida de esta semana ({distribucionSemana.total} platos en total)</div>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
+                {distribucionSemana.categorias.map((c) => (
+                  <span key={c.key} style={{ display: "flex", alignItems: "center", gap: "0.3rem", background: "#3A3D34", border: `1px solid ${c.tint}55`, borderRadius: 20, padding: "0.25rem 0.6rem", fontSize: "0.75rem", color: "#F1EAD8" }}>
+                    <span style={{ width: 8, height: 8, borderRadius: "50%", background: c.tint, flex: "0 0 auto" }} />
+                    {c.label}: {c.cantidad}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
 
           <div style={{ fontSize: "0.8rem", color: "#7C7F70", marginBottom: "0.8rem" }}>Semana del {etiquetaSemana}</div>
@@ -921,7 +988,7 @@ function PlanificadorComidas() {
                           {hecho && <Icono nombre="check" size={16} style={{ color: "#1E201C" }} />}
                         </span>
                         <span style={{ flex: "0 0 auto", width: 44, height: 44, borderRadius: 10, background: "#3A3D34", border: "1px solid #4C4F44", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22 }}>{emojiPlato}</span>
-                        <span style={{ flex: "1 1 auto", fontSize: "0.92rem", textDecoration: hecho ? "line-through" : "none" }}>{item.texto}</span>
+                        <span style={{ flex: "1 1 auto", fontSize: "0.92rem", textDecoration: hecho ? "line-through" : "none", minWidth: 0, overflowWrap: "anywhere", wordBreak: "break-word" }}>{item.texto}</span>
                         {item.veces > 1 && <span style={{ fontSize: "0.72rem", color: "#7C7F70" }}>×{item.veces}</span>}
                       </div>
 
