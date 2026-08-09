@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>¿Qué toca comer?</title>
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAlpUlEQVR42u19W3Cc53ne+36H/7D/LgARPIAEKFMHmgfIsp3KdhQ7ttTajT1266YZ18nUTVInbi/qepq0M5nJdafTy87UN73ITWfaTi86nfamUzeTpulMR6qsseOKpCRSpCQCJHgmgN39D9/h7cW7u1iC2AUI7L/YBfe7kQiCu///fc/3np73gIsvn4XJmqytlphswWRNwDFZE3BM1gQckzUBx2RNwDFZE3BM1gQckzUBx2RNwDFZE3BM1mRNwDFZE3BM1gQckzUBx2RNwDFZI7XUU/W2RPT4DxFx7788Acd4o0EIIaXoLEQUQgAA/+/j/9B7jwjOeQByzntP3nvvPRF1PvZgY0UdYEAIIZSSvJSSHUzs4lD5Mxkx3nvnvHPOWuec894fVKCoA4YJRFRKaa20VlJKRkPn2DqX3jlHBHyufOSbbbG2OGl/QGsppbo/ioisddZaY6y1tvMME3CMFia01kGgtdZSbgCic358xV3rv75ztNt+fgcWQqAQUkohpexSTyilDEPNSscYWxTGWstoG3eUqLGGBSJqrYIg0ForxSoD+dT5KlvGhfObcPBEyoWIvCfnCMB2/rkQQkqptWLNJYRQSikloyh0zhlji6IwxvJDTsAxVFEhhAjDIAwDpZQQLUw4542xxhhjLIuH7tu/ly9lLHX/hM2OoigAQEqhlNJasy7roMRal+d5URTOjaUgUWMHCyklw0JKiQhEwJgoCmOM6TYPSz2Mbrh4T3le5HnB8qOj3bSWSlXiOCqKIssKa+14QUSNETKklFEUhmEoRGt/jbF5XnRfzf3a+o6JUxRFURRCiCDQbcEmoigKw7AoTJpmYwQRNRawEEJUKnEHFkRkjMmyvKPUR2evOyjJsjzLcqVUFIVBoFkPBoHuQGT08aFGHBaIGMdRHEccsOKrmaZ55/6N7Bbzg1lr63XblnlBByJZlqdp5r0fZYiokYUFAARBUKnESsktYTEW2pCf0znfaDSzLI+iMIpCRnwYBs1mmmUFwIh6NGo0kSGlqFQqYRjwT1gUG2PGNHjA1itDJM/zOI6CIBBCVKtJGAaNRjqaWkYePXZ41JARRWGtVtVaAYBzrtFIm80mS+CxDishAiJ674vCOOc4OsLOFyIYM3ISUY0ULITAajUJw5D/mOd5sznqinl3iqYojDE2jqM4DhFFpVLRWtfrTefc6LzsqEgOItJa1Wq1INAAYK2r1xtZlsMBZT75pYwxxhjZXmEYeO+tHRV8jAQ4OqpESgEAWZbX6/WRukPlQYS1DABwRCQMA0QsCjMK765GABlQrVaiKGKUsFU/7ubFk4qQZjO11iZJIqWI40hKub5e33deZj8lBxsZtVqVjQxr7fp6Y0QuzfAhwkxNR8UEQcAM0T7uxr6Bg8PhU1NVrTUAFEWxtlY/YLbnk+KDCPI8Z6pZCBEEgXPWuX3bE7G/yODcmTTN1tbqY2174mDwAYjYaDQbjSYHe6amalrrneSdHBBwdJAhpWR122g0EVEKkALEGObDewJHgIMTIc1mVq832eZg4bov+Bi2WulGBpufzTQTiIiwnlGzIOMgVGMjPxAhN/SZUwECPmyQEgPDB2cqdRg7TloasmQV+4iMer2ZZblEJILCwtc/Hf3ht2rf+HRYOKDHLqJAEAJGDTUIUFg4XBPffTVuFn6AYg8RjbHr6y07bF/kx/AkRxsZNdYm9XqTjS+BkBv6w29W//jbtZef1d/6bBxq/N/v5oFCah8AIqQFZQakRCmARklyeIJQ4z/7ZvUv3i3urZOWA3s8RHTOW2s5+DF8+SGGuI9YqyVSCiJaX290kJEaenFOfecL8f26X2vSg7r/zhei08dVZggREMATZAV96ln9+mKYhJgWJHBLU24/LGsAKeBB3YcKf/BXK4WlwT4Gy4+1tXXvqb2BcmjyY3hBsG7fhJHBh1pYOHdChwpzQ0oCESDCVCycBwTwAETwx79e+/VXYoFw/Z77o/+w+t5NG2v0tKFxjAMA0BI8DRsdEjEzdPOh+8ano//0Zvr2NZNE+Fipw17x0Wg0qtVECDE1VV1dXR8OPoYhOYgoSWKOZ6Rp1mymmwTj4oJiYUAEWsL9uv/4rg0UIkIjp9dfCr73K5W0oLWUXjwm//HXq0QbopsI6hlNxTgVYz2joWMDhIC0oLXUhxp///VECBi42kPEPC8ajSYASClrteSAqBXmTTg6XhSGvdbO3zoPlQDPnlDGASIQgFZ47Y67u+61bJ39554PcktEoATUM5qfkbW2XOHj+YNvVv/9Dw/9ux8e+uHXq85tNhilAEQQAkQ5egcRCkv1jNKcfvl08LVPRWspSTF4fHDyGABorSuVeAjCQ5SNDK1VklSglTBX70YGIhgHx6bFycOKtTVLjkvLprCACM5DJcTTc8r6DeisrLpG7jkiUs/o7/xy/I++ltRinI7xR7+WfPuVqJ63zobtldUm5YbWU8oMlYEPBDAOHjS8FGAsff+1Si1G68tAITYazTwvAIATycrGR7ng4PwMRGTH1T9qEQiEwtKLx9RMBa1reSXWw4Uly16rcTQ3I56dlaYNHSXhwrLNCxAIniBQ+JVz4XpK1kFhIc3p1dOBgJYn7AkQ4R9+Nfk3P3jmX/7W1HNH1ZbG7EAcFgZHs6DzJ9Tf/lxcL0F4dPDhnAOAJKkoVa5xKkoVG5VKhR3XRqO5ZSac87C4oFXb/VMCVpv+yi0bKACAwsKLx9R0RXSg4zxcXDIcTrAODk+Jk7PSOBJt3XF33TMmECE19KOvV//ob1Q/86z+W6/E/+rvTc/WBOuvgZse9xsECAKxWdD3vhQff0aw8Bt8NNb7er3BGflJkpTq1orykBGGYRSFAMBJ+o+/BhEECs7Nq5ZjQhAo/PieW3notUQC8B7Od0FHClht0pUVF0gAgNzSc0fk4VoLOmx/vHPdtGJTDo7PiL/+cnh3zacF3V71p47KXz0bNvMSlAvCg7pnP6uwMH9Ifu9LlUZejhZDNMY2mykAaK0qlag84SFKQoaUIkliALDWPe6edAyO2Zp4/qgqzIbB8d4N28xJCvAEgYbzJxSfPUPn+n238tBpxSndcG5eB6rlvkoB9Ywur1jdkjr03BE1HQtHwKyNc2AcDfymEYBAuN/wzgMiSAH1lH7j8/G5+VK0GOMjTXOuxIyiqLzIaVmSo1KJhRDMnvitvH4EKCydOqyOdIl6Ariw1Lr61sHhmnzuqCosodiATiMnKYAIpITFBeU9YEsI4c0Hbum+C+QGdEINvG9KQD2n925arQYdCyEQAh42fAd51sNUjL/3WlKKCmt/a6ORcmQ9SeKSlIsoQ2wEQcD5O3meG7N18g4iWAfn5lWoN65+g89Ptq7+qUe1BrShwwcwUxEvHlOs2j2BVvD+il1LSUrwBOpR6GiFNx64G/ddIHGw14wAJMJaSplpectSwHpKX3s5ePV0sJ6RKMcydc6xcuGiujKEhyjjuSuVCAD46Xt23AIQAhbnNSODCAKJKw/d0j0XKOTjP3eiH3ROzsq5GdG5rwLg4pL1HkQLOvhCF3QCBZdXHEOnDKesnnlWIrSBGPz91xMtoCSTABH57rFnK0t4MTFwsRFFIYfJm83M95bgzsF0jKePS+NafqnWcHnFrjZJSvAAUsDigmaNRARa4sqqv37PMnSMhTMnVCVA51tecWbg0rJRG9BRc9Mb0EGEC0vG+xJ4XQIpoJnTeuYlttAhEOoZff4F/WufjtbLcWt5WxqNlD2XOB68ZSoGfYdEHLeCoR0CZeuooqP5Q+r4jOyQVRLhwpJ1HkQbOi/OycJ2QhpwhaEjWp+wuKA7e6Ql3F5zH91tSR3j4MwJVQkfgc67y4a5mzIM0szCWkqiizFmxuf7r1WmE7SuLOFhreUCjjAMtFaDxYcYrNjgimci4kBvz29FMBbOHFfVqPv8qPvqL8zKuRm5oTUEXFgyzrWiHUmEZ45vBN0Djdduu3t1z4w5whbQ+fCu66QBDD5Iamm14WUXscJpBp88rr7z+Xg9K0t4IGKWteq+4jiGgUrGQT6ylJLt0KIoetmh3SJx8aTqxCeUhLvr/sM7XVf/uK52Xf3cwKVl24HO8Rm5MCsLSwKBCKSAi8vGtIPuVYaOBfaQA41Xb7v7DB0q44TAeXjQ8G2tsnEHmjn91hcrJ2dlbsvyXJzzLDy01kEwSOEhBig2oigUAokoTfNt3sdDJcSznavvIWC+re47Ia/FhU7fPlAS7tX9tTu2A53Tc2o6RqbZ2PG5uNwKuregc0gWrmUhKgEXl1rQKWl5gvsNv+nzOSZ2fEb89q9W0nJiYm3hkTvnEIEJzpEDB1fzsdjoXzPO4a+5aXFytmVwELT5NgOizbc9ojUUXrtj7617lhzew/kFxSlhfPYPGv6DWy3oFA5enFNTlQ3oGAcXl6woM4UMAe7X6fEvYLf2269EL51UzdLw4b1nQk5rFQQDi4mJQYkN7kziPaVp3l+hMN/2wjH1TCL68G0nH+XbLi3b3LSM01DjuXltXVtrKPz4rru12jI4yMNiBzrUhs5tGygsj6VChAeNrZ0zVnN//7WEueVShYcQyJp9hMAhhGhXrRlurrKtWllcUN2kycOGv7LSj2+7sGT42lkLh6fEc0dkYQnb9ua7N2xatILuUQDn5pXtkjof33O3V8syOFjxCYQHDb/l8bPw+OpL4RfPlBUTY+FRFIYIgkArpQbypmIgYiMINCeHsmW07VYGCs7Pa95KTxAyabK6Bd9GLb5tAzq5o+eOyNkq8vFzKuGF5VbQ3Tg4XBOnuhNEFLx7wzaLsvyFDgJWm77onTIiEH7weqIllhcTy7Lcey8EhmEwkHQ0MZDH4vYj3Jy1v05p8W1V8dzRR65+N98Wajg/3+LbqMW3+ZWHvsO3nV/QgWrlkHLKz/s3u/i2o2q22kXVEly4bkrNPiYAIXA9o9RsBEk3IaOe0SvP629+JlwrLSbG+w8AXO2y/+AgIqUky7E8N9uaQi2+7Yg6UpMd94EALixZaPNtszX53JFNfJvp5tvOz6tO5DRQeOOBW+7i286f0EFX0H09o/dXrFZQYloMgURo5tTMqVcOqUAoLPzuV5JDCRpXVgFOnhdEIKUciFk6AHwFQSAE95kodmK4GebbgkdJkxumm2+b3cy3teyYFt82pzYipxIuP8q3nX+Uqu1Ap7zE9E6aMUfQqceLNws6PSe/+2qlXhobZ4yx1iJCEAT7LzkQkXvxGGN3Um9DHdKEuqj2h275gY8DFAKch3PzKtrEt93o4tsOy8dIky6+LXmcb7Ml8W2PhTSoE93vZZfUc/rNV+PnjsjcUBmeCxGxWcod2fcTHJw/LIQgAm5PswO9CNMxnp7bCF9qCVdu2durbi2l1SY5T4vz3XwbrKz66/etbvNtZ3uQJrBB1crHoVN2xRPbwg+brYht7yg7HJ0Wv/3lSlqUlA2PRWGYits71bJXyaG1FgKd88aYbQP7zLctHFLHZwR7E0JAs6DPfkL/yT945p98I3n9fHj2hH7xWDffhldv23pG7Kq0+DbagE6HNOkE3SsBbKZqSzU42q/mCR42fX95wG7t3/yl6DOnVBl5hOwWWOsGolnU3h4FuSEkTxjZVqewUfbJE7IaYUcCE8FULH7ljPzyucA6WE29Eti6+gRSwP+9Utxd8zglpMBqhJ98NHJ69Y67X/eVADfzbdBF1UocRrETwcpDt62ycB6SGL//WvIH/3a1nKALGWM6sz6c87vWX2ovD8HfTwSccrLDtbig8bH9qmfECbrdcUyB0Czo9fOhEnDllr20bGcScfJQi29zHqSE925Y60Ag2E18m4cgxKu3WtApu0ySAypvXzOdqpl+wiOj186HXz4X/q9LeS0eZO0kL2MMUcRTzJxzu6Zq9yQ5tFasU3bYgNdzfdtx/XhypcDWK/iu5guIYCx8/oXgS2eCzMDKqlttbgQ6+W/fuJwXlojQeTg5K+fbfJvrpmpDKLsy3xNEGi+v2Ku33JnjKt22gIrg916vvHklp0EjgzMIvfdKSa01cy77YHOwTuGBeDuy51ukiehTjY5beYAPGpQbOjolzh7X3XIlNXRuXr/8Ca0U3F33zx6WXB8Fj1K1wymg5bzzn14rAr2NiSMQGjn90in9rc/GayWkenhP1joAVEruJfd495KDWzOzE7uTpohsqz87K6cq4oly9jtCxVgo4JF/iAD/9JvVtKCVh/4vPyqOTktWMRtU7YoNy+TbNnvpEt64XPzdL1a2PRHuSvI7X6n82cU8LUjigBFsjOF5RVLKXTdW3yVouRMLO7E7YdqgndFze807T1KAdeD9kzkRiFu4f2ysnJyVv/H5+AsvBFm7BKbFt62VyLc9rjQjjZeW7Y0HLtzOP0KEzMALR+V3X43r6eBjYtY6vrE8c2LYaoWHMBKRc25neIJI4/s37Z/8ebMS4jMJ1mJkB9V5cH6X5SQMl9zQwyal7chSN982zA50WsK9df+zD02otzeBmRX6zVfjF+ZkWgwyJsYtgdh/3EsobPdtn6Io1Fpba9O02OGLEYCW+NYHxRtXio/v+fWUtMKpGGsRhhqFQE/gd5X0wEKl8w85NfA//p/0vRs20ji0rh0cWakE+NWXwtxuE+ZCAOvhUCICjf/zQhEO9DmJIAiUUsp72mF8cmA2ByIKIdkaJXqyLqqhxp9dM29eKbTE6Yp4dlaeOaFeWtBnTqj5Q3I6xrSgPXZu5E4e75XNt/XwWX5x3dxd90mEbrvILIPpleeCmURkZrCWB/Gg9Y6AH6ZBilKK9hM8MagrISaIRJAZemfJ/Owjg5BWI5ybkafn1I++nhztWw5PfT13FhvX7tiy+batv1rB8gP3zpL9yrmgnhKKbax05ymJsBZjI/dSDRIdrO55MrK1u2mDLHa1BSQlcsbADg2Ox28YGxkSoRLgTAWnKygQ3r9prt22hxLRJ6NOIEjcMFNoqw8PFLx/066Xz7dtqeCshTev5DvpeogAjqAa4mwi3KAJIOec97AXs2OX1lp7HN8uwdEtAxgozrPRgK+dD6cropc84i5hmaHpCs4kmISoRBtqbd+H+3NcujEMvm1L3IcafnrV9GdoN3bAQ6jxyLRwA84wRe+JyHcOa3hqRQiBiN6T9zSoQhpPIAWcOa6soy0/0XmYruBPfpH/+CeNzz2vz55Q5+b1qSNytioCBc5DYck4SEJMC3jrg+2DUSVpllDhtTvuyop9+Vnd3C6iwzkMc9NysEF0RDYHiSerDxUcUkpEJGJnehAv065+5kSenvFThLvr/qM79s6a+69vQxjAkZp8/qg8N68XF9SLx9ShmnjY9P/6vzfeu2GTEP1+9LMVAtKU3rpa/JXnNeU7ujtzM6W0O+B0eCmHC47uJxgU0gtDp+d0dyLPFhraw8VlGwc4FaMn8AT36v7mQ/cXlwop4ZlEHJsW9+v+9qpPov1BBrSrsN64XPzulys7CQR7D8empSyhHn9/8jkYjM75AYLDODhzXFXCrQ0ODrA+bNKVFaMVWA/Ot1I6qiHOJFgNMS3o8k272qRqjLR/PbB9O9z38T23bfSCCy+OTImwhHhM22GRQw2fl2LnAyye1L3401Ya+r12BQNt/Lzb94kCVBK83+d3URIeNOntaybcrpEQAjhPhxJRCXGAczkGox93FwFDFAPUKWxsJl3Vs1uCgyPijd4JE1ziRqPRN18gvHG52N5BRbAepis4UxF20OggIrZJhyo5+Mv8gG5op+B4oZ3I00t4XFgyYzGLhUm4d66blVXfP0qLrTQXMVsbfKiDD4gHQI2rWuHq2dNd1c9bWDkCGjm9f9MOjWXdY/xGK1hZ9b/4uNiW3OG46tGpgYc69kOtlGTEnV/QvaKK7QqGVtsnT2MgPLg95psfGNwuJs5lL3PTYtRAL0YEGZHeqH7e8he0gsu37Fqz3JLXgb/U21fNg8YOJvQQHH9Gjtogqv3fac7nO1wTrRLI3pTKhetm1ATvdsoCr9+z7900/d1URHAER6eEEqOlMUcAHNyo+qiarYpeRaTdbZ8IxmbxY79xZftGdc7DkSkZBaOlMXefJggDGgPLkuP8vOpFhXDA8c66//CODRSSHxtwsPv91gdFIyeJfUMdjg4lWNtBCsgunEqiXQYddknZ75Hue/zsueUo9rDXwq62T2MkObgJ0Qe37Id3+oVKOUhai8VMRTg/yFAH86Mc7Rg/tYKPdBumXuEvKeHSsi1sWdOWyltKwFqT3vrABH1DpZ4gDvBwTVg/QlbpLsHB0RUG5h51Sqv6ebpn6tdG26cxHFbNjPybHxT9m+R7Ai3h2LQcrMXNop25+2HaHK1j27vBYRycOaE7hfOPb64SzLfZQIGncQOHh0jjxSWz/MAF/UOlCHMzAy7AEqLT6HW4koOIEAWXruxRs7y0oLZzCLlZIBKNn+TQCu6u+7/82ER96xWIYG5GDrZAoSM5hgwO1/563EsdKvNtZ7bn20wzH5vw15Zv8eblgvpKUO/h2JQY1DgYIuZHsZPyMzxwcCYH4p4clg2+bVZtx7dZGNvFPsvPPjT31n2vUCkb5oenRCUYWNG9EILJ813n+e6SsufsUUTYS0HVBt8Wb8O3cdunsdMpHXCHCpYfuIvLvSusEJynmYqoRcLRQGxSrliBnZckDjII5r0DwD02nvIEiye359uW7o8N39bT7rbw5pWiVy4gZ0DWYjwyJXrlVz/pklIiQvsaD7eQmsuZuKBq18iINJw70Zdv42aBzTE2ONooh59eLeq9Gy44D0mw0bdoIOAAQO/drnOydr/lzjluTMYDVnbnxB6eEqf6820CLyyNE9/Wx+y4ettdvuX611i/9Fjbo93KKtHO890PcFjbqrbbnWbB9nTP7fg2Gju+rafxlNH/u256RTsQoXDwyRMbA4r2IKhISpRSEnEXFxgqOLqK/Fv9fXYhOVp8W4/mKpxZPo58W59Xvrjcc84cm+cLh2T3aLNdL6VUu0GGHzY4ONTBzch211tog28j6sW3tcas1P0BkBwcsLl80/YZ6WXbTVr3ziIxOLz3O+kcPHhwAIAxFoBb/DzZ17f5NtHpNrzlbkoJl5ZsYcaPb9vS7AgkLt93Nx443dvzEgIWF/Y6EKPd0IesdXtJAt8jOIz3JIRQ6sma5T7Kt1E/vm3ZDK3jW+lmh2x16e9jdlgepB3sPk7Ks+J30QJ0kOBARGsd90DVWu/CVTl7QiU749voQKCDqxAuLFkE7HNnPnFEHqlJu4eJdFpr1inG2L2Uue+19zl3i9NaPaliQ4DFBUX9AgP48djybX3MjneXTWq27lTGDdR5GE2+h1CY1pr7XPNUwP0BBwAUReE9SCm0foIBH+3BsNrYfnzbe2POt22BeIkf3XW3Vl0vNqAzxsrtKhTG8xKUGoBO2Ss4eCKy964zWGPnBsfxacHTPfGA8m1b60oJDxr+6u2e7dhZ9SzyFLPdyEvSWnNYctd94gYmObwnHh3FszV29JUIhYPTx1v1bdgjZFQfc76tp7Fl4dKykbJ3KMzSC8fkTGU3KYN8SxGhbQ7ifoKjrVnoiUZHkYfFhYPPt20pPKSAC8u2lz7dGLp7+IlDYTyqgEeqFUWx/2O8ELE9ownCMNhRe3yCcDu+LVBwhfk2CQdpsUlx9Za93/Cqx91wPD7gxG4YuDDsjFQze3/awYwO5blzSimlZH/Atvi22jZ8GyK0+DY4aODQEm+v+Y/vuT5DkGmrwSPbn6UQbPkVhdlLYHSQ4ADAPC+4mXIUhdt6sIWl54+q2drO6tsIDtjiUYHv9jan2C45c/zJGDgiiiIeCg57GaMxYHBw4zoeDam17k/StoOAqldoa3N924EDB9+QC9eNoz4GO80/IQOHiEEQIoIxxhgzkGLEgcUQsqzg9I4oCvtolgNc3/ZEZsflFVvPSPVK/HlCBo6IwjDg8Eae5wMTcgPy0NBay8KDx3z0ujGtwbDb8W0Xl8ayvm1Hzj+Blrh83y33ZuDoCRk4RIyiCACstUUxGLEBgy2HTNO8v/Do8G3HpkXRl2+7eID4ti2iOBLWM7q8AwauM193J2IDANI0G2CjtoGBoy08DACEYbil28Km1tkTqhIK35tve8B820G0RjsSdCcM3Kkj8vCUNNsxcEKIOB682ICBF1KnaUpEQiA/7pavvbiwfT/JWw+9PqDWaNuhhXeXTbPHnEBm4A5VxfNHZdGXgSOiKApZjzebgxQbAwYHk/hZlgNAEASPU3Ftvm2b+rb3bphmcXD4tl534KO77vaa0729tlDBue0YOCklhw+KwhRFgQPNwx7wCSBimmYcgUmSuPtZW3zbDvpJvnOw+LattSczcLdcoHoycM7D4oLqE+whokolZpqt2UwHH5IZvDXufZpmAKCUiuOoIzxafNuc7t9Psp7T+weOb+sV6bq4bHqWOSEUll48pmaSrRk4IgqCIAwDAMiyfNcjIIcKDkTMsoKTCeI46s4gJA+LC6oP36ZbfJs7YHzblsJDCri41I+BKxwcmxYnZ7cOhQkhkiQGAOdcmmZYQmFPSYqdGo2UGytXKi3l0uLb+vaTDFt8mz9gfFsvs+PqbXu/0TPW53szcKxQ2nZo6stp9l4KONitZeUSBDqOIyCyDo7U5KnDTyPf1sthub3mP77rAvlkDBwHNtgOzfM8zwsspx6wLJcAEZvNlMMecRyFoc4K/9xR+dTybVvFJ3bDwPG45ySpsEJpNFIsrVK0RH8RERuNJrO1tWpCIM7Nq3CH9W1PATjYJbmwZHxfBm5TDRwiVqsJeyj1etOXOT2k3GCCc67RaAIACjE9nZyd1873rW+7fWD5ti1trEDB+yt2rS8DNxXjJ48zA4dsanD9aZqmg2Jf9wcciJjnBRsfUainksD36LPZ4tuWDyzf1kNY4o2+NXDMwJ06IgmAyEdRxKHnoiiazQxLbj1QehiSlYsxxnq8fs9L0ZNJOvB82xZxnQ4D18fMIvAE3vsgCKrVlqlRrzex/KYUw4hRI+LaWl2C+x8XoVFAIMH6R/bCeQg13Hzgfv6hifXTYnBAm4F757rB3i3xrYeff1jEkU6qCQB479fW6n4og8qGRGA4T0Vaf3/F/fjPvJIwHUOoABF4wmMUYBzgj3/SuLvutYKnBxyeIA7xzy/mt1Z9HIB1rTFkPLXOOjgyJf70nezta25utgaARLS+3hhIfuiOBNvRY4eHIzyc9wLs1XvBL5aJCIWASgDVSCiJS/fdv/gv9f/286waHfDA6ONLSbi/Tsv33V97KazFSARSQBxgJRSRhj99J//n/7lRrdW0lgDQaDQHzq71O7XFl88O0QSjMNQ6TKzHJKSqTE9MU2rwwlKx2qTa04eMjstaz+lTJ/XvfLlybl5JhKu33fs37c8+LN74wE5P1aJQek+NRjPLchxi/6uhgqOFj0BPTVU9YF74+w/XrbGVUCgJzsNTu4SANCfr4XBNSIR7dZ8ZH2h54siUVNJ7aDQaQ0bG8NRKt36xzhnjwjAItJhKQiW8taM2UXUf3NpAYagwN5BZ0Aqmk+DwoRoK1ib7gAzYl5EaiGiMWVure08EWEmS/gnrT49x6gmkBIGkta4kCaAAgHp9f5AB+zVvpQsfnuPBSVKZ4AMAvKcoimq1KgfI19f3DRmwj8N4GB+rq+vcfDmOo6mpKjfAe1o1CwFAklSq1Qr35Vlbq+f5viFjH2yOTfjgkl/ZXkGgnfND8+NHChlSylqtypld1rq1tXoZyV1jAw5oT6jjjATu8MG7wz0/nhKIEFEYhrVawrUnRVGsrzdY4e7vg+0zONoQaRWGMz6CQCuluE3iwcYHJ8tVqwknYxNRmmb1enNELoYakW1i/tY5lySJ1ioItFK1NM2Y0T14EGELIwyDTrYf02lls/DjJzkeNUEKRFCqJUK0Vt575/xBQoj3pJSsVhMuLACAPM+HSZqMHzg6EqIojLVOKcld98MwkFI455yjcQcI1xJXKlG1WuGcHc6HajZHUUCOFjg6EHHO5XlBRAwRpVQYBkJ0xofhOMKCm9tUqwn3xyKiLMvr9ea+eyWjbnNsKULSNCsKE8dRGAZCiEqlEoZhlhV5nns/NoqmA4soitgfYenYbKYMi5F9DTXK28oipF5v5HkRx1EQaKVkksRRFBSFybKcA2ijublscnJDCm47wD/nog3uzDTi6FYjfu14+7iVURDoKGpBhG0RY2yeF8YYPolR2OvOk2itQmYXBQ/iY1jk3ARyLISegnFYHUO1KEwQaN50KYWUQRgG3JeCIyX7hZJO1J/jvEEQKNWaNOI9FYXN87woDMNiXGym8QDH4xBhEzUItJRSa81F2865ojDGGGs3BpuVdxLdX6GUaodnFJ8+ETjni8KwbONfGy9TepzA0X3Y1lprbZqKrmsqtOa4SOS9t9Ya46y1mybg7eV4Nn2OUlK1lpRSdiZAE5ExG8IMxjZEo2A8F283e4NZlksptVYdlPCJhSEREY+y4mC8c8574tTtJ5wehEIgouQ5N+0lOsKAp4I7Z4rCcEvn8dIgBwocm1DinHeuhRKlWoqGD68NFKCu5b3vDMfjP276WCFa83L5f4Tg/2L3efNHMfKMaWGi81QHIKA79uBoHwbwSCLvfZ47pnn5drPMl/KR4+2tLjZ/4KZfY0jx8ENred6N72DrgHFACg7c6pwQ2yXcs5WvvhAtlLB7ybxGr1vOcTbvPQADwjPLw1Kn2xo9qNSxgoO7us+MiKz1AO7xX9jydDvHv1XDTISnI9dEwVOzeh0n25Ldf0m00UnnactJe8TwgsmCzU2VECdbMgHHZE3AMVkTcEzWBByTNQHHZE3AMVkTcEzWBByTNQHHZE3AMVkTcEzWZE3AMVkTcEzWBByTNQHHZO3b+v/kvJo9rwJ+RwAAAABJRU5ErkJggg==" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Qué toca comer" />
+<link rel="icon" href="data:image/png;base64,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" />
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+  * { box-sizing: border-box; }
+  html, body, #root { margin: 0; padding: 0; }
+  .fraunces { font-family: 'Fraunces', serif; }
+  textarea::placeholder { color: #8A8D80; }
+  .celda-btn:focus-visible, textarea:focus-visible, button:focus-visible {
+    outline: 2px solid #E8A93C;
+    outline-offset: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+  .chip:hover { transform: translateY(-1px); }
+  .tab-btn { transition: color 0.15s, border-color 0.15s; }
+  .sug-tile { transition: transform 0.12s, border-color 0.12s; cursor: pointer; }
+  .sug-tile:hover { transform: translateY(-2px); border-color: #E8A93C; }
+  .compra-fila:hover { background: #383B33; }
+  .nav-btn:hover { background: #3A3D34; }
+  .barra-fondo { background: #3A3D34; border-radius: 6px; overflow: hidden; height: 10px; }
+  .barra-relleno { height: 100%; border-radius: 6px; transition: width 0.4s ease; }
+  .item-fila:hover { background: #3A3D34; }
+  .btn-anadir:hover { background: #3A3D34; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
+<script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.26.3/babel.min.js"></script>
+
+<script type="text/plain" id="codigo-app">
+const { useState, useEffect, useMemo, useCallback, useRef, Fragment } = React;
+
+// ---------- Almacenamiento COMPARTIDO (Netlify Blobs, vía la función /api/datos) ----------
+// Todos los dispositivos que abran esta misma web leen y escriben aquí, así que
+// el menú, la lista de la compra, etc. se comparten entre todos.
+window.__almacenamientoLimitado = false;
+
+window.storage = {
+  get: async function (key) {
+    const resp = await fetch(`/api/datos?key=${encodeURIComponent(key)}`);
+    if (!resp.ok) throw new Error("Error al leer los datos compartidos");
+    const datos = await resp.json();
+    if (datos.value === null || datos.value === undefined) {
+      throw new Error("clave no encontrada: " + key);
+    }
+    return { key, value: datos.value, shared: true };
+  },
+  set: async function (key, value) {
+    const resp = await fetch("/api/datos", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ key, value }),
+    });
+    if (!resp.ok) throw new Error("Error al guardar los datos compartidos");
+    return { key, value, shared: true };
+  },
+};
+
+
+// ---------- Icono de línea genérico (sustituye a lucide-react para no depender de paquetes externos) ----------
+function Icono({ nombre, size = 16, style = {} }) {
+  const comun = { width: size, height: size, viewBox: "0 0 24 24", fill: "none", stroke: style.color || "currentColor", strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round", style: { display: "block", flexShrink: 0, ...style } };
+  switch (nombre) {
+    case "x": return <svg {...comun}><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>;
+    case "plus": return <svg {...comun}><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg>;
+    case "check": return <svg {...comun}><polyline points="20 6 9 17 4 12" /></svg>;
+    case "chevron-down": return <svg {...comun}><polyline points="6 9 12 15 18 9" /></svg>;
+    case "chevron-left": return <svg {...comun}><polyline points="15 18 9 12 15 6" /></svg>;
+    case "chevron-right": return <svg {...comun}><polyline points="9 18 15 12 9 6" /></svg>;
+    case "rotate-ccw": return <svg {...comun}><path d="M3 12a9 9 0 1 0 2.6-6.4" /><polyline points="3 3 3 9 9 9" /></svg>;
+    case "copy": return <svg {...comun}><rect x="9" y="9" width="13" height="13" rx="2" ry="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>;
+    case "calendar": return <svg {...comun}><rect x="3" y="4" width="18" height="18" rx="2" ry="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" /></svg>;
+    case "clock": return <svg {...comun}><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>;
+    case "sparkles": return <svg {...comun}><path d="M12 3l1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6L12 3z" /><path d="M19 17l0.6 1.6L21 19l-1.4 0.6L19 21l-0.6-1.4L17 19l1.4-0.4z" /></svg>;
+    case "info": return <svg {...comun}><circle cx="12" cy="12" r="10" /><line x1="12" y1="16" x2="12" y2="12" /><circle cx="12" cy="8" r="0.5" fill={style.color || "currentColor"} /></svg>;
+    case "cart": return <svg {...comun}><circle cx="9" cy="21" r="1" /><circle cx="20" cy="21" r="1" /><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6" /></svg>;
+    case "download": return <svg {...comun}><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>;
+    case "upload": return <svg {...comun}><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="17 8 12 3 7 8" /><line x1="12" y1="3" x2="12" y2="15" /></svg>;
+    case "share": return <svg {...comun}><circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" /><line x1="8.6" y1="10.5" x2="15.4" y2="6.5" /><line x1="8.6" y1="13.5" x2="15.4" y2="17.5" /></svg>;
+    case "undo": return <svg {...comun}><path d="M3 7v6h6" /><path d="M3.5 13a9 9 0 1 0 2.6-7.4L3 8" /></svg>;
+    case "chart": return <svg {...comun}><line x1="12" y1="20" x2="12" y2="10" /><line x1="18" y1="20" x2="18" y2="4" /><line x1="6" y1="20" x2="6" y2="16" /></svg>;
+    default: return null;
+  }
+}
+
+// ---------- Comidas y categorías ----------
+const NOMBRES_DIA = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
+
+const COMIDAS = [
+  { key: "comida", label: "Comida", emoji: "🍽️", tint: "#3E7C7B" },
+  { key: "cena", label: "Cena", emoji: "🌙", tint: "#6E6FB0" },
+];
+
+const CATEGORIAS = [
+  { key: "proteina", label: "Proteínas", tint: "#C0524A", letra: "P" },
+  { key: "carbohidrato", label: "Carbohidratos", tint: "#E8A93C", letra: "C" },
+  { key: "verdura", label: "Verduras", tint: "#5B8A57", letra: "V" },
+  { key: "fruta", label: "Frutas", tint: "#D06C9E", letra: "F" },
+  { key: "lacteo", label: "Lácteos", tint: "#6FA8C7", letra: "L" },
+  { key: "otros", label: "Dulces / otros", tint: "#8A7FBF", letra: "O" },
+];
+
+// Reparto ideal orientativo (en % del total de platos/registros), basado en guías generales
+// (SENC/AESAN, "plato de Harvard" adaptado). Es una referencia aproximada, no un análisis clínico.
+const IDEAL_PCT = { verdura: 30, proteina: 20, carbohidrato: 20, fruta: 15, lacteo: 10, otros: 5 };
+
+// ---------- Objetivos alimentarios automáticos ----------
+function catCant(dist, key) { return dist.categorias.find((c) => c.key === key)?.cantidad || 0; }
+function catPct(dist, key) { return dist.categorias.find((c) => c.key === key)?.pct || 0; }
+
+const POOL_OBJETIVOS = [
+  { id: "verdura3", texto: "Verduras en 3 o más platos", check: (d) => catCant(d, "verdura") >= 3 },
+  { id: "fruta2", texto: "Fruta en 2 o más platos", check: (d) => catCant(d, "fruta") >= 2 },
+  { id: "proteina4", texto: "Proteína en 4 o más platos", check: (d) => catCant(d, "proteina") >= 4 },
+  { id: "lacteo2", texto: "Lácteos en 2 o más platos", check: (d) => catCant(d, "lacteo") >= 2 },
+  { id: "carbo3", texto: "Carbohidratos en 3 o más platos", check: (d) => catCant(d, "carbohidrato") >= 3 },
+  { id: "dulceMax2", texto: "Máximo 2 dulces/otros esta semana", check: (d) => d.total > 0 && catCant(d, "otros") <= 2, imposible: (d) => catCant(d, "otros") > 2 },
+  { id: "verduraPct", texto: "Verdura en al menos 1 de cada 3 platos", check: (d) => d.total > 0 && catPct(d, "verdura") >= 33 },
+  { id: "planificar8", texto: "Planificar 8 o más platos", check: (d) => d.total >= 8 },
+  { id: "variedadCat", texto: "4 o más categorías distintas en la semana", check: (d) => d.categorias.filter((c) => c.cantidad > 0).length >= 4 },
+  { id: "frutaVerduraMitad", texto: "Fruta o verdura en la mitad de los platos", check: (d) => d.total > 0 && catCant(d, "fruta") + catCant(d, "verdura") >= Math.ceil(d.total / 2) },
+];
+
+function hashCadena(s) {
+  let h = 0;
+  for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) | 0;
+  return h;
+}
+function mulberry32(seed) {
+  return function () {
+    let t = (seed += 0x6d2b79f5);
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+function objetivosParaSemana(claveMonday) {
+  const rand = mulberry32(hashCadena(claveMonday));
+  const indices = POOL_OBJETIVOS.map((_, i) => i);
+  for (let i = indices.length - 1; i > 0; i--) {
+    const j = Math.floor(rand() * (i + 1));
+    [indices[i], indices[j]] = [indices[j], indices[i]];
+  }
+  return indices.slice(0, 3).map((i) => POOL_OBJETIVOS[i]);
+}
+function fechaDesdeClave(fk) {
+  const [y, m, d] = fk.split("-").map(Number);
+  return new Date(y, m - 1, d);
+}
+
+// Palabras clave -> emoji + categoría nutricional aproximada
+const MAPA_ICONOS = [
+  { claves: ["ensalada", "lechuga", "verdura", "brócoli", "brocoli", "espinaca"], emoji: "🥗", categoria: "verdura" },
+  { claves: ["zanahoria"], emoji: "🥕", categoria: "verdura" },
+  { claves: ["pizza"], emoji: "🍕", categoria: "otros" },
+  { claves: ["sandwich", "sándwich", "bocadillo"], emoji: "🥪", categoria: "otros" },
+  { claves: ["huevo", "tortilla", "revuelto"], emoji: "🍳", categoria: "proteina" },
+  { claves: ["pescado", "salmón", "salmon", "atún", "atun", "merluza", "gamba", "marisco"], emoji: "🐟", categoria: "proteina" },
+  { claves: ["carne", "filete", "ternera", "cerdo", "pollo", "pavo", "hamburguesa", "solomillo"], emoji: "🍖", categoria: "proteina" },
+  { claves: ["manzana", "pera", "melón", "melon", "sandía", "sandia"], emoji: "🍎", categoria: "fruta" },
+  { claves: ["plátano", "platano", "banana"], emoji: "🍌", categoria: "fruta" },
+  { claves: ["cereza", "fresa", "frutos rojos", "fruta"], emoji: "🍒", categoria: "fruta" },
+  { claves: ["yogur", "leche", "queso", "lácteo", "lacteo"], emoji: "🥛", categoria: "lacteo" },
+  { claves: ["pasta", "arroz", "pan", "cereal", "macarrones", "espagueti", "legumbre", "lenteja", "garbanzo"], emoji: "🍞", categoria: "carbohidrato" },
+  { claves: ["café", "cafe", "tostada", "infusión", "infusion"], emoji: "☕", categoria: "otros" },
+  { claves: ["galleta", "dulce", "postre", "bizcocho", "chocolate"], emoji: "🍪", categoria: "otros" },
+];
+
+function infoParaTexto(texto) {
+  const t = (texto || "").toLowerCase();
+  for (const grupo of MAPA_ICONOS) {
+    if (grupo.claves.some((c) => t.includes(c))) return grupo;
+  }
+  return { emoji: "🧑‍🍳", categoria: "otros" };
+}
+function emojiParaTexto(texto) { return infoParaTexto(texto).emoji; }
+function categoriaParaTexto(texto) { return infoParaTexto(texto).categoria; }
+
+function lunesDe(fecha) {
+  const d = new Date(fecha);
+  const dia = d.getDay();
+  const diferencia = dia === 0 ? -6 : 1 - dia;
+  d.setDate(d.getDate() + diferencia);
+  d.setHours(0, 0, 0, 0);
+  return d;
+}
+function claveFecha(d) {
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${y}-${m}-${day}`;
+}
+function clavesDelMes(year, mes0) {
+  const dias = new Date(year, mes0 + 1, 0).getDate();
+  return Array.from({ length: dias }, (_, i) => claveFecha(new Date(year, mes0, i + 1)));
+}
+function clavesDelAño(year) {
+  let claves = [];
+  for (let m = 0; m < 12; m++) claves = claves.concat(clavesDelMes(year, m));
+  return claves;
+}
+function formatoSello(iso) {
+  if (!iso) return null;
+  const d = new Date(iso);
+  return d.toLocaleString("es-ES", { day: "2-digit", month: "short", hour: "2-digit", minute: "2-digit" });
+}
+function generarId() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 7); }
+
+function normalizarSlot(v) {
+  if (!v) return { items: [] };
+  if (Array.isArray(v.items)) return { items: v.items.map((it) => ({ id: it.id || generarId(), texto: it.texto || "", creadoEn: it.creadoEn || null })) };
+  if (typeof v === "string") return v.trim() ? { items: [{ id: generarId(), texto: v, creadoEn: null }] } : { items: [] };
+  if (typeof v.texto === "string") return v.texto.trim() ? { items: [{ id: generarId(), texto: v.texto, creadoEn: v.creadoEn || null }] } : { items: [] };
+  return { items: [] };
+}
+function slotsVacios() { return { comida: { items: [] }, cena: { items: [] } }; }
+function normalizarSlots(raw) {
+  const base = raw || {};
+  const resultado = {};
+  COMIDAS.forEach(({ key }) => (resultado[key] = normalizarSlot(base[key])));
+  return resultado;
+}
+
+const CLAVE_PLANES = "planes-por-fecha";
+const CLAVE_COMPRA = "lista-compra-check";
+const CLAVE_CATEGORIAS = "categorias-manuales";
+const CLAVE_INGREDIENTES = "ingredientes-manuales";
+const CLAVE_CAFE = "cafe-dias";
+const CLAVE_ACOMPAÑAMIENTO = "acompanamiento-dias";
+const CLAVE_FRUTA = "fruta-dias";
+const CLAVE_FRUTOS_SECOS = "frutos-secos-dias";
+const CLAVE_TIENDAS = "tienda-por-plato";
+
+function PlanificadorComidas() {
+  const [pestaña, setPestaña] = useState("planificador");
+  const [planesPorFecha, setPlanesPorFecha] = useState({});
+  const [semanaBase, setSemanaBase] = useState(() => lunesDe(new Date()));
+  const [marcados, setMarcados] = useState({});
+  const [categoriasManuales, setCategoriasManuales] = useState({});
+  const [ingredientesManuales, setIngredientesManuales] = useState({});
+  const [cafeDias, setCafeDias] = useState({});
+  const [acompañamientoDias, setAcompañamientoDias] = useState({});
+  const [frutaDias, setFrutaDias] = useState({});
+  const [frutosSecosDias, setFrutosSecosDias] = useState({});
+  const [tiendaPorPlato, setTiendaPorPlato] = useState({});
+  const [añadiendoIngredientes, setAñadiendoIngredientes] = useState(null);
+  const [borradorIngredientes, setBorradorIngredientes] = useState("");
+  const [editando, setEditando] = useState(null);
+  const [borrador, setBorrador] = useState("");
+  const [borrarAbierto, setBorrarAbierto] = useState(false);
+  const [cargando, setCargando] = useState(true);
+  const [aviso, setAviso] = useState(null);
+  const [estadoGuardado, setEstadoGuardado] = useState({ ok: true, en: null });
+  const [añoSeleccionado, setAñoSeleccionado] = useState(() => new Date().getFullYear());
+  const [mesSeleccionado, setMesSeleccionado] = useState(() => { const d = new Date(); d.setDate(1); return d; });
+  const [periodoObjetivo, setPeriodoObjetivo] = useState("semana");
+  const [ultimoBorrado, setUltimoBorrado] = useState(null);
+  const [sugerenciasAbiertas, setSugerenciasAbiertas] = useState({});
+  const [eligiendoDia, setEligiendoDia] = useState(null);
+  const inputImportarRef = useRef(null);
+
+  const hoyClave = useMemo(() => claveFecha(new Date()), []);
+  const añoActual = new Date().getFullYear();
+
+  const fechasSemana = useMemo(
+    () => Array.from({ length: 7 }, (_, i) => { const d = new Date(semanaBase); d.setDate(d.getDate() + i); return d; }),
+    [semanaBase]
+  );
+
+  useEffect(() => {
+    (async () => {
+      try { const p = await window.storage.get(CLAVE_PLANES); if (p?.value) setPlanesPorFecha(JSON.parse(p.value)); } catch (_) {}
+      try { const c = await window.storage.get(CLAVE_COMPRA); if (c?.value) setMarcados(JSON.parse(c.value)); } catch (_) {}
+      try { const cat = await window.storage.get(CLAVE_CATEGORIAS); if (cat?.value) setCategoriasManuales(JSON.parse(cat.value)); } catch (_) {}
+      try { const ing = await window.storage.get(CLAVE_INGREDIENTES); if (ing?.value) setIngredientesManuales(JSON.parse(ing.value)); } catch (_) {}
+      try { const cafe = await window.storage.get(CLAVE_CAFE); if (cafe?.value) setCafeDias(JSON.parse(cafe.value)); } catch (_) {}
+      try { const acomp = await window.storage.get(CLAVE_ACOMPAÑAMIENTO); if (acomp?.value) setAcompañamientoDias(JSON.parse(acomp.value)); } catch (_) {}
+      try { const fr = await window.storage.get(CLAVE_FRUTA); if (fr?.value) setFrutaDias(JSON.parse(fr.value)); } catch (_) {}
+      try { const fs = await window.storage.get(CLAVE_FRUTOS_SECOS); if (fs?.value) setFrutosSecosDias(JSON.parse(fs.value)); } catch (_) {}
+      try { const t = await window.storage.get(CLAVE_TIENDAS); if (t?.value) setTiendaPorPlato(JSON.parse(t.value)); } catch (_) {}
+      setCargando(false);
+    })();
+  }, []);
+
+  const persistir = useCallback(async (clave, valor) => {
+    try {
+      const res = await window.storage.set(clave, JSON.stringify(valor));
+      if (!res) throw new Error("sin resultado");
+      setEstadoGuardado({ ok: true, en: new Date() });
+    } catch (_) {
+      setEstadoGuardado({ ok: false, en: new Date() });
+    }
+  }, []);
+  const guardarPlanes = useCallback((n) => persistir(CLAVE_PLANES, n), [persistir]);
+  const guardarMarcados = useCallback((n) => persistir(CLAVE_COMPRA, n), [persistir]);
+  const guardarCategorias = useCallback((n) => persistir(CLAVE_CATEGORIAS, n), [persistir]);
+  const guardarIngredientes = useCallback((n) => persistir(CLAVE_INGREDIENTES, n), [persistir]);
+  const guardarCafe = useCallback((n) => persistir(CLAVE_CAFE, n), [persistir]);
+  const guardarAcompañamiento = useCallback((n) => persistir(CLAVE_ACOMPAÑAMIENTO, n), [persistir]);
+  const guardarFruta = useCallback((n) => persistir(CLAVE_FRUTA, n), [persistir]);
+  const guardarFrutosSecos = useCallback((n) => persistir(CLAVE_FRUTOS_SECOS, n), [persistir]);
+
+  function alternarFruta(fk) {
+    setFrutaDias((prev) => { const next = { ...prev, [fk]: !prev[fk] }; guardarFruta(next); return next; });
+  }
+  function alternarFrutosSecos(fk) {
+    setFrutosSecosDias((prev) => { const next = { ...prev, [fk]: !prev[fk] }; guardarFrutosSecos(next); return next; });
+  }
+
+  const guardarTiendas = useCallback((n) => persistir(CLAVE_TIENDAS, n), [persistir]);
+  function elegirTienda(dishNorm, tienda) {
+    setTiendaPorPlato((prev) => {
+      const next = { ...prev };
+      if (prev[dishNorm] === tienda) delete next[dishNorm];
+      else next[dishNorm] = tienda;
+      guardarTiendas(next);
+      return next;
+    });
+  }
+
+  function alternarCafe(fk) {
+    setCafeDias((prev) => { const next = { ...prev, [fk]: !prev[fk] }; guardarCafe(next); return next; });
+  }
+
+  const ORDEN_ACOMPAÑAMIENTO = [undefined, "galletas", "pan"];
+  function ciclarAcompañamiento(fk) {
+    setAcompañamientoDias((prev) => {
+      const actualIdx = ORDEN_ACOMPAÑAMIENTO.indexOf(prev[fk]);
+      const siguiente = ORDEN_ACOMPAÑAMIENTO[(actualIdx + 1) % ORDEN_ACOMPAÑAMIENTO.length];
+      const next = { ...prev, [fk]: siguiente };
+      if (siguiente === undefined) delete next[fk];
+      guardarAcompañamiento(next);
+      return next;
+    });
+  }
+
+  function getSlots(fk) { return normalizarSlots(planesPorFecha[fk]); }
+
+  function exportarDatos() {
+    const payload = { version: 1, exportadoEn: new Date().toISOString(), planesPorFecha, marcados, categoriasManuales, ingredientesManuales, cafeDias, acompañamientoDias, frutaDias, frutosSecosDias, tiendaPorPlato };
+    try {
+      const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `menu-semanal-${claveFecha(new Date())}.json`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      setAviso("Copia exportada");
+    } catch (_) {
+      setAviso("No se pudo exportar la copia");
+    }
+    setTimeout(() => setAviso(null), 2400);
+  }
+
+  function importarDatos(e) {
+    const archivo = e.target.files && e.target.files[0];
+    if (!archivo) return;
+    const lector = new FileReader();
+    lector.onload = () => {
+      try {
+        const datos = JSON.parse(lector.result);
+        if (datos.planesPorFecha) { setPlanesPorFecha(datos.planesPorFecha); guardarPlanes(datos.planesPorFecha); }
+        if (datos.marcados) { setMarcados(datos.marcados); guardarMarcados(datos.marcados); }
+        if (datos.categoriasManuales) { setCategoriasManuales(datos.categoriasManuales); guardarCategorias(datos.categoriasManuales); }
+        if (datos.ingredientesManuales) { setIngredientesManuales(datos.ingredientesManuales); guardarIngredientes(datos.ingredientesManuales); }
+        if (datos.cafeDias) { setCafeDias(datos.cafeDias); guardarCafe(datos.cafeDias); }
+        if (datos.acompañamientoDias) { setAcompañamientoDias(datos.acompañamientoDias); guardarAcompañamiento(datos.acompañamientoDias); }
+        if (datos.frutaDias) { setFrutaDias(datos.frutaDias); guardarFruta(datos.frutaDias); }
+        if (datos.frutosSecosDias) { setFrutosSecosDias(datos.frutosSecosDias); guardarFrutosSecos(datos.frutosSecosDias); }
+        if (datos.tiendaPorPlato) { setTiendaPorPlato(datos.tiendaPorPlato); guardarTiendas(datos.tiendaPorPlato); }
+        setAviso("Copia importada correctamente");
+      } catch (_) {
+        setAviso("El archivo no es una copia válida");
+      }
+      setTimeout(() => setAviso(null), 2600);
+    };
+    lector.readAsText(archivo);
+    e.target.value = "";
+  }
+
+
+  function categoriaEfectiva(texto) {
+    const norm = (texto || "").trim().toLowerCase();
+    if (norm && categoriasManuales[norm]) return categoriasManuales[norm];
+    return categoriaParaTexto(texto);
+  }
+  function asignarCategoria(texto, catKey) {
+    const norm = (texto || "").trim().toLowerCase();
+    if (!norm) return;
+    setCategoriasManuales((prev) => { const next = { ...prev, [norm]: catKey }; guardarCategorias(next); return next; });
+  }
+
+  function abrirAñadirIngredientes(dishNorm) { setAñadiendoIngredientes(dishNorm); setBorradorIngredientes(""); }
+  function confirmarIngredientes(dishNorm) {
+    const partes = borradorIngredientes.split(",").map((s) => s.trim()).filter(Boolean);
+    if (partes.length) {
+      setIngredientesManuales((prev) => {
+        const actuales = prev[dishNorm] || [];
+        const combinados = [...actuales];
+        partes.forEach((p) => { const pNorm = p.toLowerCase(); if (!combinados.some((c) => c.toLowerCase() === pNorm)) combinados.push(p); });
+        const next = { ...prev, [dishNorm]: combinados };
+        guardarIngredientes(next);
+        return next;
+      });
+    }
+    setAñadiendoIngredientes(null);
+    setBorradorIngredientes("");
+  }
+  function quitarIngrediente(dishNorm, ingrediente) {
+    setIngredientesManuales((prev) => {
+      const actuales = (prev[dishNorm] || []).filter((i) => i !== ingrediente);
+      const next = { ...prev, [dishNorm]: actuales };
+      guardarIngredientes(next);
+      return next;
+    });
+  }
+
+  function empezarNuevoItem(fk, comida) { setEditando({ fk, comida, itemId: null }); setBorrador(""); }
+  function empezarEdicionItem(fk, comida, item) { setEditando({ fk, comida, itemId: item.id }); setBorrador(item.texto); }
+  function cancelarEdicion() { setEditando(null); setBorrador(""); }
+
+  function guardarItemTexto(fk, comida, itemId, textoRaw) {
+    const textoFinal = textoRaw.trim();
+    setPlanesPorFecha((prev) => {
+      const actual = normalizarSlots(prev[fk]);
+      let items = actual[comida].items.slice();
+      if (itemId === null) {
+        if (textoFinal) items.push({ id: generarId(), texto: textoFinal, creadoEn: new Date().toISOString() });
+      } else {
+        const idx = items.findIndex((it) => it.id === itemId);
+        if (idx >= 0) {
+          if (!textoFinal) items.splice(idx, 1);
+          else if (textoFinal !== items[idx].texto) items[idx] = { ...items[idx], texto: textoFinal, creadoEn: new Date().toISOString() };
+        }
+      }
+      const next = { ...prev, [fk]: { ...actual, [comida]: { items } } };
+      guardarPlanes(next);
+      return next;
+    });
+  }
+
+  function confirmarBorrador() {
+    if (!editando) return;
+    guardarItemTexto(editando.fk, editando.comida, editando.itemId, borrador);
+    setEditando(null); setBorrador("");
+  }
+
+  function elegirAutocompletado(texto) {
+    if (!editando) return;
+    guardarItemTexto(editando.fk, editando.comida, editando.itemId, texto);
+    setEditando(null); setBorrador("");
+  }
+
+  function borrarItem(fk, comida, itemId) {
+    setPlanesPorFecha((prev) => {
+      const actual = normalizarSlots(prev[fk]);
+      const itemBorrado = actual[comida].items.find((it) => it.id === itemId);
+      if (itemBorrado) {
+        setUltimoBorrado({ fk, comida, item: itemBorrado });
+        setTimeout(() => { setUltimoBorrado((u) => (u && u.item.id === itemBorrado.id ? null : u)); }, 6000);
+      }
+      const items = actual[comida].items.filter((it) => it.id !== itemId);
+      const next = { ...prev, [fk]: { ...actual, [comida]: { items } } };
+      guardarPlanes(next);
+      return next;
+    });
+  }
+
+  function deshacerBorrado() {
+    if (!ultimoBorrado) return;
+    const { fk, comida, item } = ultimoBorrado;
+    setPlanesPorFecha((prev) => {
+      const actual = normalizarSlots(prev[fk]);
+      const items = [...actual[comida].items, item];
+      const next = { ...prev, [fk]: { ...actual, [comida]: { items } } };
+      guardarPlanes(next);
+      return next;
+    });
+    setUltimoBorrado(null);
+  }
+
+  function copiarDiaAnterior(idx) {
+    const actual = fechasSemana[idx];
+    const anterior = new Date(actual); anterior.setDate(anterior.getDate() - 1);
+    const fkAnterior = claveFecha(anterior); const fkActual = claveFecha(actual);
+    setPlanesPorFecha((prev) => {
+      const origen = normalizarSlots(prev[fkAnterior]);
+      const copiado = {};
+      COMIDAS.forEach(({ key }) => { copiado[key] = { items: origen[key].items.map((it) => ({ id: generarId(), texto: it.texto, creadoEn: new Date().toISOString() })) }; });
+      const next = { ...prev, [fkActual]: copiado };
+      guardarPlanes(next);
+      return next;
+    });
+  }
+
+  function limpiarSemanaVisible() {
+    setPlanesPorFecha((prev) => {
+      const next = { ...prev };
+      fechasSemana.forEach((d) => (next[claveFecha(d)] = slotsVacios()));
+      guardarPlanes(next);
+      return next;
+    });
+    setBorrarAbierto(false);
+  }
+
+  function insertarSugerenciaEnDia(comida, texto, fk) {
+    const idx = fechasSemana.findIndex((d) => claveFecha(d) === fk);
+    setPlanesPorFecha((prev) => {
+      const actual = normalizarSlots(prev[fk]);
+      const items = [...actual[comida].items, { id: generarId(), texto, creadoEn: new Date().toISOString() }];
+      const next = { ...prev, [fk]: { ...actual, [comida]: { items } } };
+      guardarPlanes(next);
+      return next;
+    });
+    setEligiendoDia(null);
+    setAviso(`"${texto}" añadido a la ${COMIDAS.find((c) => c.key === comida)?.label.toLowerCase() || comida} del ${idx >= 0 ? NOMBRES_DIA[idx] : ""}.`);
+    setTimeout(() => setAviso(null), 2600);
+  }
+
+  function alternarMarcado(claveItem) {
+    setMarcados((prev) => { const next = { ...prev, [claveItem]: !prev[claveItem] }; guardarMarcados(next); return next; });
+  }
+
+  const totalPlatos = fechasSemana.reduce((acc, d) => acc + COMIDAS.reduce((a, c) => a + getSlots(claveFecha(d))[c.key].items.length, 0), 0);
+
+  const historial = useMemo(() => {
+    const h = {}; COMIDAS.forEach((c) => (h[c.key] = {}));
+    Object.values(planesPorFecha).forEach((slotsRaw) => {
+      const slots = normalizarSlots(slotsRaw);
+      COMIDAS.forEach(({ key }) => {
+        slots[key].items.forEach((it) => {
+          const texto = it.texto.trim(); if (!texto) return;
+          const grupo = h[key]; const norm = texto.toLowerCase();
+          const existente = Object.keys(grupo).find((k) => k.toLowerCase() === norm);
+          const claveFinal = existente || texto;
+          const previo = grupo[claveFinal];
+          const veces = (previo?.veces || 0) + 1;
+          const ultimo = !previo?.ultimo || (it.creadoEn && it.creadoEn > previo.ultimo) ? it.creadoEn : previo.ultimo;
+          grupo[claveFinal] = { veces, ultimo };
+        });
+      });
+    });
+    return h;
+  }, [planesPorFecha]);
+
+  const sugerenciasPorCategoria = useMemo(() => {
+    const resultado = {};
+    COMIDAS.forEach(({ key }) => {
+      const entradas = Object.entries(historial[key] || {});
+      entradas.sort((a, b) => b[1].veces - a[1].veces);
+      resultado[key] = entradas.slice(0, 8);
+    });
+    return resultado;
+  }, [historial]);
+
+  const hayHistorial = COMIDAS.some((c) => sugerenciasPorCategoria[c.key]?.length > 0);
+
+  function sugerenciasAutocompletar(comida) {
+    const entradas = Object.entries(historial[comida] || {});
+    const filtro = borrador.trim().toLowerCase();
+    let filtradas = entradas;
+    if (filtro) filtradas = entradas.filter(([texto]) => texto.toLowerCase().includes(filtro) && texto.toLowerCase() !== filtro);
+    filtradas.sort((a, b) => b[1].veces - a[1].veces);
+    return filtradas.slice(0, 6);
+  }
+
+  function ListaAutocompletar({ comida }) {
+    const sugs = sugerenciasAutocompletar(comida);
+    if (sugs.length === 0) return null;
+    return (
+      <div style={{ display: "flex", flexDirection: "column", gap: "0.2rem", maxHeight: 150, overflowY: "auto" }}>
+        {sugs.map(([texto, datos]) => (
+          <button key={texto} onMouseDown={(e) => e.preventDefault()} onClick={() => elegirAutocompletado(texto)}
+            style={{ display: "flex", alignItems: "center", gap: "0.4rem", background: "#3A3D34", border: "1px solid #4C4F43", borderRadius: 6, color: "#F1EAD8", fontSize: "0.75rem", padding: "0.32rem 0.45rem", cursor: "pointer", textAlign: "left" }}>
+            <span style={{ fontSize: 14, flex: "0 0 auto" }}>{emojiParaTexto(texto)}</span>
+            <span style={{ flex: 1, lineHeight: 1.2, overflowWrap: "anywhere", wordBreak: "break-word", minWidth: 0 }}>{texto}</span>
+            <span style={{ fontSize: "0.6rem", color: "#7C7F70", flex: "0 0 auto" }}>×{datos.veces}</span>
+          </button>
+        ))}
+      </div>
+    );
+  }
+
+  function formatoFechaCorta(iso) {
+    if (!iso) return null;
+    return new Date(iso).toLocaleDateString("es-ES", { day: "numeric", month: "short" });
+  }
+
+  function calcularDistribucion(clavesFecha) {
+    const conteo = {}; CATEGORIAS.forEach((c) => (conteo[c.key] = 0));
+    let total = 0;
+    clavesFecha.forEach((fk) => {
+      const slotsRaw = planesPorFecha[fk];
+      if (slotsRaw) {
+        const slots = normalizarSlots(slotsRaw);
+        COMIDAS.forEach(({ key }) => {
+          slots[key].items.forEach((it) => {
+            const texto = it.texto.trim(); if (!texto) return;
+            const cat = categoriaEfectiva(texto);
+            conteo[cat] = (conteo[cat] || 0) + 1; total += 1;
+          });
+        });
+      }
+      if (cafeDias[fk]) { conteo.lacteo = (conteo.lacteo || 0) + 1; total += 1; }
+      if (acompañamientoDias[fk] === "pan") { conteo.carbohidrato = (conteo.carbohidrato || 0) + 1; total += 1; }
+      if (acompañamientoDias[fk] === "galletas") { conteo.otros = (conteo.otros || 0) + 1; total += 1; }
+      if (frutaDias[fk]) { conteo.fruta = (conteo.fruta || 0) + 1; total += 1; }
+      if (frutosSecosDias[fk]) { conteo.proteina = (conteo.proteina || 0) + 1; total += 1; }
+    });
+    return { total, categorias: CATEGORIAS.map((c) => ({ ...c, cantidad: conteo[c.key], pct: total ? Math.round((conteo[c.key] / total) * 100) : 0 })) };
+  }
+
+  const distribucionSemana = useMemo(() => calcularDistribucion(fechasSemana.map(claveFecha)), [planesPorFecha, fechasSemana, categoriasManuales, cafeDias, acompañamientoDias, frutaDias, frutosSecosDias]);
+  const distribucionAñoSel = useMemo(() => calcularDistribucion(clavesDelAño(añoSeleccionado)), [planesPorFecha, añoSeleccionado, categoriasManuales, cafeDias, acompañamientoDias, frutaDias, frutosSecosDias]);
+  const distribucionMes = useMemo(() => calcularDistribucion(clavesDelMes(mesSeleccionado.getFullYear(), mesSeleccionado.getMonth())), [planesPorFecha, mesSeleccionado, categoriasManuales, cafeDias, acompañamientoDias, frutaDias, frutosSecosDias]);
+
+  const datosPorMes = useMemo(() => {
+    return Array.from({ length: 12 }, (_, m) => {
+      const claves = clavesDelMes(añoSeleccionado, m);
+      const dist = calcularDistribucion(claves);
+      return { mes: m, total: dist.total, categorias: dist.categorias };
+    });
+  }, [planesPorFecha, añoSeleccionado, categoriasManuales, cafeDias, acompañamientoDias, frutaDias, frutosSecosDias]);
+
+  const claveSemana = claveFecha(semanaBase);
+  const listaCompra = useMemo(() => {
+    const mapa = new Map();
+    fechasSemana.forEach((d) => {
+      const slots = getSlots(claveFecha(d));
+      COMIDAS.forEach(({ key }) => {
+        slots[key].items.forEach((it) => {
+          const valor = it.texto.trim(); if (!valor) return;
+          const norm = valor.toLowerCase();
+          if (mapa.has(norm)) mapa.get(norm).veces += 1;
+          else mapa.set(norm, { texto: valor, veces: 1, claveItem: `${claveSemana}::${norm}`, dishNorm: norm, ingredientes: ingredientesManuales[norm] || [] });
+        });
+      });
+    });
+    return Array.from(mapa.values()).sort((a, b) => a.texto.localeCompare(b.texto));
+  }, [planesPorFecha, fechasSemana, claveSemana, ingredientesManuales]);
+
+  const compraCompletados = listaCompra.filter((it) => marcados[it.claveItem]).length;
+
+  function construirTextoListaCompra() {
+    const lineas = [`🛒 Lista de la compra — semana del ${etiquetaSemana}`, ""];
+    listaCompra.forEach((item) => {
+      lineas.push(`${marcados[item.claveItem] ? "✅" : "⬜"} ${item.texto}${item.veces > 1 ? ` (x${item.veces})` : ""}`);
+      item.ingredientes.forEach((ing) => {
+        const claveIng = `${item.claveItem}::ing::${ing.toLowerCase()}`;
+        lineas.push(`   ${marcados[claveIng] ? "✅" : "⬜"} ${ing}`);
+      });
+    });
+    return lineas.join("\n");
+  }
+
+  function compartirListaCompra() {
+    const texto = construirTextoListaCompra();
+    if (navigator.share) {
+      navigator.share({ title: "Lista de la compra", text: texto }).catch(() => {});
+      return;
+    }
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(texto)
+        .then(() => { setAviso("Lista copiada al portapapeles"); setTimeout(() => setAviso(null), 2200); })
+        .catch(() => { setAviso("No se pudo copiar la lista"); setTimeout(() => setAviso(null), 2200); });
+    } else {
+      setAviso("Tu navegador no permite compartir ni copiar aquí");
+      setTimeout(() => setAviso(null), 2200);
+    }
+  }
+
+  const formatoDiaMes = (d) => d.toLocaleDateString("es-ES", { day: "numeric", month: "short" });
+  const etiquetaSemana = `${formatoDiaMes(fechasSemana[0])} – ${fechasSemana[6].toLocaleDateString("es-ES", { day: "numeric", month: "short", year: "numeric" })}`;
+  const esSemanaActual = claveFecha(semanaBase) === claveFecha(lunesDe(new Date()));
+  const esMesActual = mesSeleccionado.getFullYear() === new Date().getFullYear() && mesSeleccionado.getMonth() === new Date().getMonth();
+  const etiquetaMes = mesSeleccionado.toLocaleDateString("es-ES", { month: "long", year: "numeric" });
+
+  const distribucionObjetivo = periodoObjetivo === "semana" ? distribucionSemana : periodoObjetivo === "mes" ? distribucionMes : distribucionAñoSel;
+  const etiquetaPeriodoObjetivo = periodoObjetivo === "semana" ? etiquetaSemana : periodoObjetivo === "mes" ? etiquetaMes : String(añoSeleccionado);
+
+  const objetivosSemanaActual = useMemo(() => {
+    return objetivosParaSemana(claveSemana).map((o) => {
+      const cumplido = o.check(distribucionSemana);
+      const fallido = !cumplido && !!(o.imposible && o.imposible(distribucionSemana));
+      return { ...o, cumplido, fallido };
+    });
+  }, [claveSemana, distribucionSemana]);
+  const objetivosCumplidosActual = objetivosSemanaActual.filter((o) => o.cumplido).length;
+  const trofeoEstaSemana = objetivosSemanaActual.length > 0 && objetivosCumplidosActual === objetivosSemanaActual.length && distribucionSemana.total > 0;
+
+  const semanasConTrofeo = useMemo(() => {
+    const mondaySet = new Set();
+    Object.keys(planesPorFecha).forEach((fk) => {
+      const monday = lunesDe(fechaDesdeClave(fk));
+      mondaySet.add(claveFecha(monday));
+    });
+    const resultados = [];
+    mondaySet.forEach((claveM) => {
+      const mondayDate = fechaDesdeClave(claveM);
+      const fechas7 = Array.from({ length: 7 }, (_, i) => { const dd = new Date(mondayDate); dd.setDate(dd.getDate() + i); return claveFecha(dd); });
+      const dist = calcularDistribucion(fechas7);
+      if (dist.total === 0) return;
+      const objetivos = objetivosParaSemana(claveM).map((o) => ({ ...o, cumplido: o.check(dist) }));
+      if (objetivos.every((o) => o.cumplido)) resultados.push({ claveM, mondayDate, objetivos });
+    });
+    return resultados.sort((a, b) => b.claveM.localeCompare(a.claveM));
+  }, [planesPorFecha, categoriasManuales]);
+
+  return (
+    <div style={{ minHeight: "100vh", background: "#2B2E28", fontFamily: "'IBM Plex Sans', system-ui, sans-serif", color: "#F1EAD8", padding: "clamp(1rem, 4vw, 3rem)" }}>
+      <div style={{ maxWidth: 1180, margin: "0 auto 1.2rem", position: "relative" }}>
+        <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", flexWrap: "wrap", gap: "1rem" }}>
+          <div>
+            <div style={{ fontSize: "0.75rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#E8A93C", marginBottom: "0.4rem" }}>Menú de la semana</div>
+            <h1 className="fraunces" style={{ fontSize: "clamp(1.9rem, 4vw, 2.8rem)", fontWeight: 600, margin: 0, lineHeight: 1.05 }}>¿Qué toca comer?</h1>
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+            {pestaña === "planificador" && (
+              <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+                <div style={{ fontSize: "0.8rem", color: "#B7B9AC" }}>{totalPlatos} platos planificados</div>
+                {estadoGuardado.ok === false && <div style={{ fontSize: "0.75rem", color: "#E07B5A" }}>⚠ No se ha podido guardar</div>}
+                <button onClick={() => setBorrarAbierto(true)} style={{ display: "flex", alignItems: "center", gap: "0.4rem", background: "transparent", border: "1px solid #55584E", color: "#F1EAD8", borderRadius: 8, padding: "0.5rem 0.8rem", fontSize: "0.85rem", cursor: "pointer" }}>
+                  <Icono nombre="rotate-ccw" size={14} /> Vaciar esta semana
+                </button>
+              </div>
+            )}
+            <div style={{ display: "flex", alignItems: "center", gap: "0.4rem" }}>
+              <input ref={inputImportarRef} type="file" accept="application/json" onChange={importarDatos} style={{ display: "none" }} />
+              <button onClick={exportarDatos} title="Descargar una copia de seguridad de todos tus datos" style={{ background: "transparent", border: "1px solid #43463C", borderRadius: 8, padding: "0.5rem", color: "#B7B9AC", cursor: "pointer", display: "flex" }}>
+                <Icono nombre="download" size={15} />
+              </button>
+              <button onClick={() => inputImportarRef.current?.click()} title="Importar una copia de seguridad" style={{ background: "transparent", border: "1px solid #43463C", borderRadius: 8, padding: "0.5rem", color: "#B7B9AC", cursor: "pointer", display: "flex" }}>
+                <Icono nombre="upload" size={15} />
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <svg width="100%" height="10" style={{ marginTop: "1rem" }} viewBox="0 0 800 10" preserveAspectRatio="none">
+          <path d="M0 5 Q 100 0, 200 5 T 400 5 T 600 5 T 800 5" stroke="#4C4F44" strokeWidth="2" fill="none" />
+        </svg>
+
+        <div style={{ display: "flex", gap: "1.5rem", marginTop: "1.1rem", flexWrap: "wrap" }}>
+          <button className="tab-btn" onClick={() => setPestaña("planificador")} style={{ background: "none", border: "none", cursor: "pointer", padding: "0.3rem 0", fontSize: "0.95rem", fontWeight: 600, color: pestaña === "planificador" ? "#F1EAD8" : "#7C7F70", borderBottom: pestaña === "planificador" ? "2px solid #E8A93C" : "2px solid transparent" }}>Planificador</button>
+          <button className="tab-btn" onClick={() => setPestaña("estadisticas")} style={{ background: "none", border: "none", cursor: "pointer", padding: "0.3rem 0", fontSize: "0.95rem", fontWeight: 600, display: "flex", alignItems: "center", gap: "0.35rem", color: pestaña === "estadisticas" ? "#F1EAD8" : "#7C7F70", borderBottom: pestaña === "estadisticas" ? "2px solid #E8A93C" : "2px solid transparent" }}>
+            <Icono nombre="chart" size={15} /> Estadísticas y objetivos
+          </button>
+          <button className="tab-btn" onClick={() => setPestaña("compra")} style={{ background: "none", border: "none", cursor: "pointer", padding: "0.3rem 0", fontSize: "0.95rem", fontWeight: 600, display: "flex", alignItems: "center", gap: "0.35rem", color: pestaña === "compra" ? "#F1EAD8" : "#7C7F70", borderBottom: pestaña === "compra" ? "2px solid #E8A93C" : "2px solid transparent" }}>
+            <Icono nombre="cart" size={15} /> Compra
+            {listaCompra.length > 0 && <span style={{ fontSize: "0.68rem", background: "#43463C", borderRadius: 10, padding: "0.05rem 0.45rem", color: "#D9DACC" }}>{compraCompletados}/{listaCompra.length}</span>}
+          </button>
+        </div>
+      </div>
+
+      {!cargando && pestaña !== "planificador" && (
+        <div style={{ maxWidth: 1180, margin: "0 auto 1.4rem", background: "#33362E", border: "1px solid #43463C", borderRadius: 10, padding: "0.6rem 0.9rem", display: "flex", flexWrap: "wrap", alignItems: "center", gap: "1.1rem", fontSize: "0.82rem" }}>
+          <span style={{ color: "#E8A93C", fontWeight: 600 }}>Hoy</span>
+          {COMIDAS.map(({ key, label, emoji, tint }) => {
+            const items = getSlots(hoyClave)[key].items;
+            const texto = items.length ? items.map((it) => it.texto).join(", ") : "sin planificar";
+            return (
+              <span key={key} style={{ display: "flex", alignItems: "center", gap: "0.35rem", color: items.length ? "#F1EAD8" : "#7C7F70" }}>
+                <span style={{ fontSize: 14 }}>{emoji}</span>
+                <strong style={{ color: "#D9DACC", fontWeight: 500 }}>{label}:</strong> {texto}
+              </span>
+            );
+          })}
+        </div>
+      )}
+
+      {cargando ? (
+        <div style={{ maxWidth: 1180, margin: "3rem auto", textAlign: "center", color: "#7C7F70" }}>Cargando tu menú...</div>
+      ) : pestaña === "planificador" ? (
+        <>
+          <div style={{ maxWidth: 1180, margin: "0 auto 1rem", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "0.6rem" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "0.4rem" }}>
+              <button className="nav-btn" onClick={() => setSemanaBase((prev) => { const d = new Date(prev); d.setDate(d.getDate() - 7); return d; })} style={{ background: "transparent", border: "1px solid #43463C", borderRadius: 8, padding: "0.4rem", color: "#F1EAD8", cursor: "pointer", display: "flex" }} title="Semana anterior"><Icono nombre="chevron-left" size={16} /></button>
+              <div style={{ display: "flex", alignItems: "center", gap: "0.4rem", fontSize: "0.9rem" }}><Icono nombre="calendar" size={14} style={{ color: "#E8A93C" }} />{etiquetaSemana}</div>
+              <button className="nav-btn" onClick={() => setSemanaBase((prev) => { const d = new Date(prev); d.setDate(d.getDate() + 7); return d; })} style={{ background: "transparent", border: "1px solid #43463C", borderRadius: 8, padding: "0.4rem", color: "#F1EAD8", cursor: "pointer", display: "flex" }} title="Semana siguiente"><Icono nombre="chevron-right" size={16} /></button>
+            </div>
+            {!esSemanaActual && <button onClick={() => setSemanaBase(lunesDe(new Date()))} style={{ background: "transparent", border: "1px solid #E8A93C", color: "#E8A93C", borderRadius: 8, padding: "0.35rem 0.75rem", fontSize: "0.8rem", cursor: "pointer" }}>Ir a esta semana</button>}
+          </div>
+
+          {borrarAbierto && (
+            <div style={{ maxWidth: 1180, margin: "0 auto 1.5rem", background: "#3A3D34", border: "1px solid #55584E", borderRadius: 12, padding: "1rem 1.2rem", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "0.75rem" }}>
+              <span style={{ fontSize: "0.9rem" }}>¿Vaciar el menú de esta semana ({etiquetaSemana})? No afecta a otras semanas ni al historial.</span>
+              <div style={{ display: "flex", gap: "0.5rem" }}>
+                <button onClick={limpiarSemanaVisible} style={{ background: "#C77B4F", border: "none", color: "#1E201C", borderRadius: 8, padding: "0.45rem 0.9rem", fontSize: "0.85rem", cursor: "pointer", fontWeight: 600 }}>Sí, vaciar</button>
+                <button onClick={() => setBorrarAbierto(false)} style={{ background: "transparent", border: "1px solid #55584E", color: "#F1EAD8", borderRadius: 8, padding: "0.45rem 0.9rem", fontSize: "0.85rem", cursor: "pointer" }}>Cancelar</button>
+              </div>
+            </div>
+          )}
+
+          <div style={{ maxWidth: 1180, margin: "0 auto 1rem", display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
+            {COMIDAS.map(({ key, label, emoji, tint }) => (
+              <div key={key} className="chip" style={{ display: "flex", alignItems: "center", gap: "0.4rem", background: "#33362E", border: `1px solid ${tint}55`, borderRadius: 20, padding: "0.3rem 0.7rem", fontSize: "0.78rem", color: "#D9DACC" }}>
+                <span style={{ fontSize: 13 }}>{emoji}</span>{label}
+              </div>
+            ))}
+            <div style={{ display: "flex", alignItems: "center", gap: "0.35rem", fontSize: "0.75rem", color: "#7C7F70" }}><Icono nombre="plus" size={12} /> puedes añadir varias opciones por casilla</div>
+          </div>
+
+          <div style={{ maxWidth: 1180, margin: "0 auto", display: "grid", gridTemplateColumns: "minmax(90px, 120px) repeat(7, minmax(190px, 1fr))", gap: "0.5rem", overflowX: "auto" }}>
+            <div />
+            {fechasSemana.map((d, idx) => {
+              const fk = claveFecha(d); const esHoy = fk === hoyClave;
+              return (
+                <div key={fk} style={{ position: "relative", textAlign: "center", paddingBottom: "0.5rem" }}>
+                  <div className="fraunces" style={{ fontSize: "1.05rem", fontWeight: 600, color: esHoy ? "#E8A93C" : "#F1EAD8" }}>{NOMBRES_DIA[idx]}</div>
+                  <div style={{ fontSize: "0.72rem", color: esHoy ? "#E8A93C" : "#8A8D80" }}>{formatoDiaMes(d)}{esHoy ? " · Hoy" : ""}</div>
+                  <button onClick={() => copiarDiaAnterior(idx)} title="Copiar el menú del día anterior" style={{ position: "absolute", top: 0, right: 0, background: "transparent", border: "none", color: "#7C7F70", cursor: "pointer", padding: 2 }}><Icono nombre="copy" size={12} /></button>
+                  <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "0.25rem", marginTop: "0.3rem" }}>
+                    <button onClick={() => alternarCafe(fk)} title={cafeDias[fk] ? "Café tomado hoy (cuenta como lácteo)" : "Marcar café de hoy"} style={{ display: "inline-flex", alignItems: "center", gap: "0.25rem", background: cafeDias[fk] ? "#6FA8C733" : "transparent", border: `1px solid ${cafeDias[fk] ? "#6FA8C7" : "#43463C"}`, borderRadius: 20, padding: "0.15rem 0.5rem", fontSize: "0.68rem", color: cafeDias[fk] ? "#6FA8C7" : "#7C7F70", cursor: "pointer" }}>
+                      ☕ {cafeDias[fk] ? "Café ✓" : "Café"}
+                    </button>
+                    {(() => {
+                      const acomp = acompañamientoDias[fk];
+                      const info = acomp === "galletas" ? { emoji: "🍪", texto: "Galletas", tint: "#8A7FBF" } : acomp === "pan" ? { emoji: "🍞", texto: "Pan", tint: "#E8A93C" } : { emoji: "＋", texto: "Pan/galletas", tint: "#7C7F70" };
+                      return (
+                        <button onClick={() => ciclarAcompañamiento(fk)} title="Toca para elegir: nada · galletas · pan" style={{ display: "inline-flex", alignItems: "center", gap: "0.25rem", background: acomp ? `${info.tint}33` : "transparent", border: `1px dashed ${acomp ? info.tint : "#43463C"}`, borderRadius: 20, padding: "0.15rem 0.5rem", fontSize: "0.68rem", color: info.tint, cursor: "pointer" }}>
+                          {info.emoji} {info.texto}
+                        </button>
+                      );
+                    })()}
+                    <button onClick={() => alternarFruta(fk)} title={frutaDias[fk] ? "Fruta tomada hoy (cuenta como fruta)" : "Marcar fruta de hoy"} style={{ display: "inline-flex", alignItems: "center", gap: "0.25rem", background: frutaDias[fk] ? "#D06C9E33" : "transparent", border: `1px solid ${frutaDias[fk] ? "#D06C9E" : "#43463C"}`, borderRadius: 20, padding: "0.15rem 0.5rem", fontSize: "0.68rem", color: frutaDias[fk] ? "#D06C9E" : "#7C7F70", cursor: "pointer" }}>
+                      🍎 {frutaDias[fk] ? "Fruta ✓" : "Fruta"}
+                    </button>
+                    <button onClick={() => alternarFrutosSecos(fk)} title={frutosSecosDias[fk] ? "Frutos secos hoy (cuenta como proteína)" : "Marcar frutos secos de hoy"} style={{ display: "inline-flex", alignItems: "center", gap: "0.25rem", background: frutosSecosDias[fk] ? "#C0524A33" : "transparent", border: `1px solid ${frutosSecosDias[fk] ? "#C0524A" : "#43463C"}`, borderRadius: 20, padding: "0.15rem 0.5rem", fontSize: "0.68rem", color: frutosSecosDias[fk] ? "#C0524A" : "#7C7F70", cursor: "pointer" }}>
+                      🥜 {frutosSecosDias[fk] ? "F. secos ✓" : "F. secos"}
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+
+            {COMIDAS.map(({ key, label, emoji, tint }) => (
+              <Fragment key={key}>
+                <div style={{ display: "flex", alignItems: "center", gap: "0.4rem", color: tint, fontSize: "0.85rem", fontWeight: 500, paddingTop: "0.6rem" }}><span style={{ fontSize: 15 }}>{emoji}</span>{label}</div>
+                {fechasSemana.map((d) => {
+                  const fk = claveFecha(d);
+                  const items = getSlots(fk)[key].items;
+                  const editandoNuevoAqui = editando && editando.fk === fk && editando.comida === key && editando.itemId === null;
+                  return (
+                    <div key={fk + key} style={{ background: "#33362E", border: "1px solid #43463C", borderRadius: 10, minHeight: 104, minWidth: 0, padding: "0.75rem", display: "flex", flexDirection: "column", gap: "0.35rem" }}>
+                      {items.map((item) => {
+                        const emojiPlato = emojiParaTexto(item.texto);
+                        const editandoEste = editando && editando.fk === fk && editando.comida === key && editando.itemId === item.id;
+                        return editandoEste ? (
+                          <div key={item.id} style={{ display: "flex", flexDirection: "column", gap: "0.3rem" }}>
+                            <textarea autoFocus value={borrador} onChange={(e) => setBorrador(e.target.value)} onBlur={confirmarBorrador}
+                              onKeyDown={(e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); e.target.blur(); } if (e.key === "Escape") { e.preventDefault(); cancelarEdicion(); } }}
+                              style={{ width: "100%", background: "#3A3D34", border: `1px solid ${tint}`, borderRadius: 6, color: "#F1EAD8", fontSize: "0.82rem", resize: "none", fontFamily: "inherit", padding: "0.3rem 0.4rem", minHeight: 36 }} />
+                            <ListaAutocompletar comida={key} />
+                            <SelectorCategoria texto={borrador || item.texto} actual={categoriaEfectiva(borrador || item.texto)} onElegir={asignarCategoria} />
+                          </div>
+                        ) : (
+                          <div key={item.id} className="item-fila" style={{ position: "relative", display: "flex", flexDirection: "column", alignItems: "center", gap: "0.35rem", borderRadius: 10, padding: "0.55rem 0.4rem", minWidth: 0, background: "#3A3D3455", border: "1px solid #43463C" }}>
+                            <button onClick={() => borrarItem(fk, key, item.id)} title="Quitar" style={{ position: "absolute", top: 3, right: 3, background: "transparent", border: "none", color: "#7C7F70", cursor: "pointer", padding: 3, zIndex: 1 }}><Icono nombre="x" size={12} /></button>
+                            <button className="celda-btn" onClick={() => empezarEdicionItem(fk, key, item)} style={{ width: "100%", minWidth: 0, display: "flex", flexDirection: "column", alignItems: "center", gap: "0.35rem", background: "transparent", border: "none", color: "#F1EAD8", cursor: "pointer", fontFamily: "inherit", lineHeight: 1.4 }}>
+                              <span style={{ flex: "0 0 auto", width: 44, height: 44, position: "relative", display: "flex", alignItems: "center", justifyContent: "center", background: `${tint}26`, border: `1px solid ${tint}66`, borderRadius: 8, fontSize: 24 }}>
+                                {emojiPlato}
+                                {(() => {
+                                  const catInfo = CATEGORIAS.find((c) => c.key === categoriaEfectiva(item.texto));
+                                  return (
+                                    <span style={{ position: "absolute", bottom: -4, right: -4, width: 14, height: 14, borderRadius: "50%", background: catInfo?.tint || "#8A7FBF", border: "1.5px solid #33362E", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "0.55rem", fontWeight: 700, color: "#1E201C", lineHeight: 1 }} title={`Categoría: ${catInfo?.label || "Otros"}`}>
+                                      {catInfo?.letra || "O"}
+                                    </span>
+                                  );
+                                })()}
+                              </span>
+                              <span style={{ textAlign: "center", minWidth: 0, maxWidth: "100%" }}>
+                                <span style={{ fontSize: "0.74rem", lineHeight: 1.25, whiteSpace: "pre-wrap", overflowWrap: "anywhere", wordBreak: "break-word" }}>{item.texto}</span>
+                                {item.creadoEn && <span style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "0.25rem", fontSize: "0.62rem", color: "#8A8D80", marginTop: "0.15rem" }}><Icono nombre="clock" size={10} />{formatoSello(item.creadoEn)}</span>}
+                              </span>
+                            </button>
+                          </div>
+                        );
+                      })}
+
+                      {editandoNuevoAqui ? (
+                        <div style={{ display: "flex", flexDirection: "column", gap: "0.3rem" }}>
+                          <textarea autoFocus value={borrador} onChange={(e) => setBorrador(e.target.value)} onBlur={confirmarBorrador}
+                            onKeyDown={(e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); e.target.blur(); } if (e.key === "Escape") { e.preventDefault(); cancelarEdicion(); } }}
+                            placeholder={`Añadir ${label.toLowerCase()}...`}
+                            style={{ width: "100%", background: "#3A3D34", border: `1px solid ${tint}`, borderRadius: 6, color: "#F1EAD8", fontSize: "0.82rem", resize: "none", fontFamily: "inherit", padding: "0.3rem 0.4rem", minHeight: 36 }} />
+                          <ListaAutocompletar comida={key} />
+                          {borrador.trim() && <SelectorCategoria texto={borrador} actual={categoriaEfectiva(borrador)} onElegir={asignarCategoria} />}
+                        </div>
+                      ) : (
+                        <button className="btn-anadir" onClick={() => empezarNuevoItem(fk, key)} style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "0.3rem", background: "transparent", border: `1px dashed ${tint}66`, borderRadius: 7, color: tint, fontSize: "0.72rem", padding: "0.35rem", cursor: "pointer" }}>
+                          <Icono nombre="plus" size={12} /> {items.length === 0 ? "Añadir" : "Otra opción"}
+                        </button>
+                      )}
+                    </div>
+                  );
+                })}
+              </Fragment>
+            ))}
+          </div>
+
+          <div style={{ maxWidth: 1180, margin: "1.5rem auto 0", fontSize: "0.75rem", color: "#7C7F70", display: "flex", alignItems: "center", gap: "0.3rem" }}>
+            <Icono nombre="chevron-down" size={12} style={{ transform: "rotate(-90deg)" }} />
+            El calendario avanza solo con la fecha real. Al editar un plato puedes corregir su categoría nutricional (el punto de color junto al icono).
+          </div>
+
+          <div style={{ maxWidth: 1180, margin: "2rem auto 0", borderTop: "1px solid #43463C", paddingTop: "1.4rem" }}>
+            {!hayHistorial ? (
+              <div style={{ background: "#33362E", border: "1px solid #43463C", borderRadius: 12, padding: "2rem", textAlign: "center", color: "#B7B9AC" }}>
+                <Icono nombre="info" size={22} style={{ marginBottom: "0.6rem", color: "#E8A93C" }} />
+                <div style={{ fontSize: "0.95rem" }}>Todavía no hay historial. En cuanto planifiques platos, aquí aparecerán como propuestas rápidas para repetir.</div>
+              </div>
+            ) : (
+              COMIDAS.map(({ key, label, emoji, tint }) => {
+                const lista = sugerenciasPorCategoria[key];
+                if (!lista || lista.length === 0) return null;
+                const abierta = !!sugerenciasAbiertas[key];
+                return (
+                  <div key={key} style={{ marginBottom: "1.2rem" }}>
+                    <button onClick={() => setSugerenciasAbiertas((prev) => ({ ...prev, [key]: !prev[key] }))} style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: abierta ? "0.7rem" : 0, background: "transparent", border: "none", cursor: "pointer", padding: 0, width: "100%", textAlign: "left" }}>
+                      <span style={{ fontSize: 16 }}>{emoji}</span>
+                      <span className="fraunces" style={{ fontSize: "1.15rem", fontWeight: 600, color: "#F1EAD8" }}>{label}</span>
+                      <span style={{ fontSize: "0.75rem", color: "#7C7F70" }}>propuestas según tu historial ({lista.length})</span>
+                      <Icono nombre="chevron-down" size={14} style={{ color: "#7C7F70", marginLeft: "auto", transform: abierta ? "rotate(180deg)" : "none", transition: "transform 0.15s" }} />
+                    </button>
+                    {abierta && (
+                      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(120px, 1fr))", gap: "0.7rem" }}>
+                        {lista.map(([texto, datos]) => {
+                          const emojiPlato = emojiParaTexto(texto);
+                          return (
+                            <div key={texto} className="sug-tile" onClick={() => setEligiendoDia({ comida: key, texto })} style={{ aspectRatio: "1 / 1", background: "#33362E", border: "1px solid #43463C", borderRadius: 12, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "0.35rem", padding: "0.75rem", textAlign: "center", position: "relative" }}>
+                              <span style={{ width: 48, height: 48, borderRadius: 10, background: `${tint}26`, border: `1px solid ${tint}66`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 26 }}>{emojiPlato}</span>
+                              <span style={{ fontSize: "0.74rem", lineHeight: 1.25, color: "#F1EAD8", overflowWrap: "anywhere", wordBreak: "break-word" }}>{texto}</span>
+                              {datos.ultimo && <span style={{ fontSize: "0.62rem", color: "#8A8D80" }}>Última vez: {formatoFechaCorta(datos.ultimo)}</span>}
+                              <span style={{ position: "absolute", top: 4, right: 6, fontSize: "0.62rem", color: "#7C7F70" }}>×{datos.veces}</span>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </div>
+                );
+              })
+            )}
+            <div style={{ fontSize: "0.75rem", color: "#7C7F70", marginTop: "0.5rem" }}>Toca el nombre de la comida para desplegar o plegar sus propuestas. Toca una propuesta para elegir en qué día añadirla.</div>
+          </div>
+        </>
+      ) : pestaña === "estadisticas" ? (
+        <div style={{ maxWidth: 1180, margin: "0 auto" }}>
+          <div style={{ marginBottom: "2.2rem" }}>
+            <div className="fraunces" style={{ fontSize: "1.25rem", fontWeight: 600, marginBottom: "0.3rem" }}>Estimación nutricional aproximada</div>
+            <div style={{ fontSize: "0.78rem", color: "#7C7F70", marginBottom: "1.1rem" }}>Distribución por tipo de plato, calculada según las palabras de cada plato planificado. Es una orientación, no un análisis nutricional real (no calcula calorías ni gramos).</div>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.2rem" }}>
+              <div>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "0.4rem" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.3rem" }}>
+                    <button onClick={() => setSemanaBase((prev) => { const d = new Date(prev); d.setDate(d.getDate() - 7); return d; })} style={{ background: "transparent", border: "1px solid #43463C", borderRadius: 6, padding: "0.2rem", color: "#F1EAD8", cursor: "pointer", display: "flex" }} title="Semana anterior"><Icono nombre="chevron-left" size={13} /></button>
+                    <span style={{ fontSize: "0.78rem", color: "#B7B9AC" }}>Semana ({etiquetaSemana})</span>
+                    <button onClick={() => setSemanaBase((prev) => { const d = new Date(prev); d.setDate(d.getDate() + 7); return d; })} style={{ background: "transparent", border: "1px solid #43463C", borderRadius: 6, padding: "0.2rem", color: "#F1EAD8", cursor: "pointer", display: "flex" }} title="Semana siguiente"><Icono nombre="chevron-right" size={13} /></button>
+                  </div>
+                  {!esSemanaActual && (
+                    <button onClick={() => setSemanaBase(lunesDe(new Date()))} style={{ background: "transparent", border: "none", color: "#E8A93C", fontSize: "0.72rem", cursor: "pointer", padding: 0 }}>Esta semana</button>
+                  )}
+                </div>
+                <BloqueDistribucion titulo="" datos={distribucionSemana} />
+              </div>
+              <div>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "0.4rem" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.3rem" }}>
+                    <button onClick={() => setAñoSeleccionado((a) => a - 1)} style={{ background: "transparent", border: "1px solid #43463C", borderRadius: 6, padding: "0.2rem", color: "#F1EAD8", cursor: "pointer", display: "flex" }} title="Año anterior"><Icono nombre="chevron-left" size={13} /></button>
+                    <span style={{ fontSize: "0.78rem", color: "#B7B9AC" }}>Acumulado {añoSeleccionado}</span>
+                    <button onClick={() => setAñoSeleccionado((a) => a + 1)} style={{ background: "transparent", border: "1px solid #43463C", borderRadius: 6, padding: "0.2rem", color: "#F1EAD8", cursor: "pointer", display: "flex" }} title="Año siguiente"><Icono nombre="chevron-right" size={13} /></button>
+                  </div>
+                  {añoSeleccionado !== new Date().getFullYear() && (
+                    <button onClick={() => setAñoSeleccionado(new Date().getFullYear())} style={{ background: "transparent", border: "none", color: "#E8A93C", fontSize: "0.72rem", cursor: "pointer", padding: 0 }}>Este año</button>
+                  )}
+                </div>
+                <BloqueDistribucion titulo="" datos={distribucionAñoSel} />
+              </div>
+            </div>
+            <div style={{ marginTop: "1.2rem" }}>
+              <GraficoMensual datos={datosPorMes} año={añoSeleccionado} />
+            </div>
+          </div>
+
+          <div style={{ maxWidth: 720, margin: "0 auto", borderTop: "1px solid #43463C", paddingTop: "1.4rem" }}>
+            <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", marginBottom: "0.6rem" }}>
+              <div className="fraunces" style={{ fontSize: "1.1rem", fontWeight: 600 }}>Objetivos de esta semana</div>
+              {trofeoEstaSemana && <span style={{ fontSize: "0.8rem" }}>🏆 ¡Conseguido!</span>}
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+              {objetivosSemanaActual.map((obj) => (
+                <div key={obj.id} style={{ display: "flex", alignItems: "center", gap: "0.6rem", borderRadius: 10, padding: "0.55rem 0.75rem", border: `1px solid ${obj.cumplido ? "#E8A93C" : obj.fallido ? "#C0524A" : "#43463C"}`, background: obj.cumplido ? "#E8A93C1f" : obj.fallido ? "#C0524A1f" : "#33362E" }}>
+                  <span style={{ flex: "0 0 auto", width: 22, height: 22, borderRadius: "50%", border: `1.5px solid ${obj.cumplido ? "#E8A93C" : obj.fallido ? "#C0524A" : "#6E7164"}`, background: obj.cumplido ? "#E8A93C" : obj.fallido ? "#C0524A" : "transparent", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    {obj.cumplido && <Icono nombre="check" size={13} style={{ color: "#1E201C" }} />}
+                    {obj.fallido && <Icono nombre="x" size={13} style={{ color: "#1E201C" }} />}
+                  </span>
+                  <span style={{ fontSize: "0.85rem", color: obj.cumplido ? "#F1EAD8" : obj.fallido ? "#F1EAD8" : "#D9DACC" }}>{obj.texto}{obj.fallido && <span style={{ color: "#C0524A", fontSize: "0.72rem" }}> · ya no se puede cumplir esta semana</span>}</span>
+                </div>
+              ))}
+            </div>
+            <div style={{ fontSize: "0.72rem", color: "#7C7F70", marginTop: "0.5rem" }}>Se eligen solos cada semana y se marcan según lo que vayas planificando. Consigue los 3 para ganar un trofeo.</div>
+
+            <div style={{ marginTop: "1rem", background: "#33362E", border: "1px solid #43463C", borderRadius: 10, padding: "0.7rem 0.85rem" }}>
+              <div style={{ fontSize: "0.78rem", color: "#B7B9AC", marginBottom: "0.5rem" }}>Vista rápida de esta semana ({distribucionSemana.total} platos en total)</div>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
+                {distribucionSemana.categorias.map((c) => (
+                  <span key={c.key} style={{ display: "flex", alignItems: "center", gap: "0.3rem", background: "#3A3D34", border: `1px solid ${c.tint}55`, borderRadius: 20, padding: "0.25rem 0.6rem", fontSize: "0.75rem", color: "#F1EAD8" }}>
+                    <span style={{ width: 8, height: 8, borderRadius: "50%", background: c.tint, flex: "0 0 auto" }} />
+                    {c.label}: {c.cantidad}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div style={{ marginTop: "1.2rem" }}>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "0.5rem", marginBottom: "0.6rem" }}>
+                <div style={{ display: "flex", gap: "0.3rem" }}>
+                  {[{ id: "semana", texto: "Semana" }, { id: "mes", texto: "Mes" }, { id: "año", texto: "Año" }].map((p) => (
+                    <button key={p.id} onClick={() => setPeriodoObjetivo(p.id)} style={{ background: periodoObjetivo === p.id ? "#E8A93C" : "transparent", border: `1px solid ${periodoObjetivo === p.id ? "#E8A93C" : "#43463C"}`, color: periodoObjetivo === p.id ? "#1E201C" : "#B7B9AC", borderRadius: 8, padding: "0.3rem 0.65rem", fontSize: "0.78rem", fontWeight: periodoObjetivo === p.id ? 700 : 400, cursor: "pointer" }}>
+                      {p.texto}
+                    </button>
+                  ))}
+                </div>
+                {periodoObjetivo === "semana" && (
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.3rem" }}>
+                    <button onClick={() => setSemanaBase((prev) => { const d = new Date(prev); d.setDate(d.getDate() - 7); return d; })} style={{ background: "transparent", border: "1px solid #43463C", borderRadius: 6, padding: "0.2rem", color: "#F1EAD8", cursor: "pointer", display: "flex" }} title="Semana anterior"><Icono nombre="chevron-left" size={13} /></button>
+                    <span style={{ fontSize: "0.75rem", color: "#B7B9AC" }}>{etiquetaSemana}</span>
+                    <button onClick={() => setSemanaBase((prev) => { const d = new Date(prev); d.setDate(d.getDate() + 7); return d; })} style={{ background: "transparent", border: "1px solid #43463C", borderRadius: 6, padding: "0.2rem", color: "#F1EAD8", cursor: "pointer", display: "flex" }} title="Semana siguiente"><Icono nombre="chevron-right" size={13} /></button>
+                    {!esSemanaActual && <button onClick={() => setSemanaBase(lunesDe(new Date()))} style={{ background: "transparent", border: "none", color: "#E8A93C", fontSize: "0.7rem", cursor: "pointer", padding: 0 }}>Esta semana</button>}
+                  </div>
+                )}
+                {periodoObjetivo === "mes" && (
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.3rem" }}>
+                    <button onClick={() => setMesSeleccionado((prev) => { const d = new Date(prev); d.setMonth(d.getMonth() - 1); return d; })} style={{ background: "transparent", border: "1px solid #43463C", borderRadius: 6, padding: "0.2rem", color: "#F1EAD8", cursor: "pointer", display: "flex" }} title="Mes anterior"><Icono nombre="chevron-left" size={13} /></button>
+                    <span style={{ fontSize: "0.75rem", color: "#B7B9AC", textTransform: "capitalize" }}>{etiquetaMes}</span>
+                    <button onClick={() => setMesSeleccionado((prev) => { const d = new Date(prev); d.setMonth(d.getMonth() + 1); return d; })} style={{ background: "transparent", border: "1px solid #43463C", borderRadius: 6, padding: "0.2rem", color: "#F1EAD8", cursor: "pointer", display: "flex" }} title="Mes siguiente"><Icono nombre="chevron-right" size={13} /></button>
+                    {!esMesActual && <button onClick={() => { const d = new Date(); d.setDate(1); setMesSeleccionado(d); }} style={{ background: "transparent", border: "none", color: "#E8A93C", fontSize: "0.7rem", cursor: "pointer", padding: 0 }}>Este mes</button>}
+                  </div>
+                )}
+                {periodoObjetivo === "año" && (
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.3rem" }}>
+                    <button onClick={() => setAñoSeleccionado((a) => a - 1)} style={{ background: "transparent", border: "1px solid #43463C", borderRadius: 6, padding: "0.2rem", color: "#F1EAD8", cursor: "pointer", display: "flex" }} title="Año anterior"><Icono nombre="chevron-left" size={13} /></button>
+                    <span style={{ fontSize: "0.75rem", color: "#B7B9AC" }}>{añoSeleccionado}</span>
+                    <button onClick={() => setAñoSeleccionado((a) => a + 1)} style={{ background: "transparent", border: "1px solid #43463C", borderRadius: 6, padding: "0.2rem", color: "#F1EAD8", cursor: "pointer", display: "flex" }} title="Año siguiente"><Icono nombre="chevron-right" size={13} /></button>
+                    {añoSeleccionado !== new Date().getFullYear() && <button onClick={() => setAñoSeleccionado(new Date().getFullYear())} style={{ background: "transparent", border: "none", color: "#E8A93C", fontSize: "0.7rem", cursor: "pointer", padding: 0 }}>Este año</button>}
+                  </div>
+                )}
+              </div>
+              <GraficoDesviacion datos={distribucionObjetivo} etiqueta={etiquetaPeriodoObjetivo} />
+            </div>
+
+            <div style={{ marginTop: "2rem" }}>
+              <div className="fraunces" style={{ fontSize: "1.1rem", fontWeight: 600, marginBottom: "0.6rem" }}>🏆 Trofeos semanales</div>
+              {semanasConTrofeo.length === 0 ? (
+                <div style={{ fontSize: "0.8rem", color: "#7C7F70" }}>Todavía no hay trofeos. Cumple los 3 objetivos de una semana para ganar el primero.</div>
+              ) : (
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "0.6rem" }}>
+                  {semanasConTrofeo.map(({ claveM, mondayDate }) => {
+                    const domingo = new Date(mondayDate);
+                    domingo.setDate(domingo.getDate() + 6);
+                    return (
+                      <div key={claveM} title={`Semana del ${formatoDiaMes(mondayDate)} al ${formatoDiaMes(domingo)}`} style={{ display: "flex", alignItems: "center", gap: "0.4rem", background: "#33362E", border: "1px solid #E8A93C66", borderRadius: 20, padding: "0.4rem 0.8rem", fontSize: "0.78rem" }}>
+                        <span style={{ fontSize: "1rem" }}>🏆</span>
+                        {formatoDiaMes(mondayDate)} – {formatoDiaMes(domingo)}
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div style={{ maxWidth: 720, margin: "0 auto" }}>
+          <div style={{ fontSize: "0.8rem", color: "#7C7F70", marginBottom: "0.8rem" }}>Semana del {etiquetaSemana}</div>
+          {listaCompra.length === 0 ? (
+            <div style={{ background: "#33362E", border: "1px solid #43463C", borderRadius: 12, padding: "2rem", textAlign: "center", color: "#B7B9AC" }}>
+              <Icono nombre="cart" size={22} style={{ marginBottom: "0.6rem", color: "#E8A93C" }} />
+              <div style={{ fontSize: "0.95rem" }}>Todavía no hay nada que comprar esta semana. Planifica algún plato en la primera pestaña y aparecerá aquí automáticamente.</div>
+            </div>
+          ) : (
+            <>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: "1rem" }}>
+                <span className="fraunces" style={{ fontSize: "1.2rem", fontWeight: 600 }}>Para esta semana</span>
+                <div style={{ display: "flex", alignItems: "center", gap: "0.7rem" }}>
+                  <span style={{ fontSize: "0.8rem", color: "#7C7F70" }}>{compraCompletados} de {listaCompra.length} conseguidos</span>
+                  <button onClick={compartirListaCompra} title="Compartir o copiar la lista" style={{ display: "flex", alignItems: "center", gap: "0.3rem", background: "transparent", border: "1px solid #43463C", borderRadius: 8, padding: "0.35rem 0.6rem", fontSize: "0.75rem", color: "#B7B9AC", cursor: "pointer" }}>
+                    <Icono nombre="share" size={13} /> Compartir
+                  </button>
+                </div>
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+                {listaCompra.map((item) => {
+                  const emojiPlato = emojiParaTexto(item.texto);
+                  const hecho = !!marcados[item.claveItem];
+                  const editandoIngredientes = añadiendoIngredientes === item.dishNorm;
+                  const tienda = tiendaPorPlato[item.dishNorm];
+                  const infoTienda = tienda === "aldi" ? { texto: "ALDI", color: "#2E6FDB" } : tienda === "mercadona" ? { texto: "MERCADONA", color: "#3EA35E" } : null;
+                  return (
+                    <div key={item.claveItem} style={{ background: "#33362E", border: "1px solid #43463C", borderLeft: infoTienda ? `4px solid ${infoTienda.color}` : "1px solid #43463C", borderRadius: 12, padding: "0.65rem 0.8rem" }}>
+                      <div className="compra-fila" onClick={() => alternarMarcado(item.claveItem)} style={{ display: "flex", alignItems: "center", gap: "0.75rem", cursor: "pointer", opacity: hecho ? 0.55 : 1, borderRadius: 8 }}>
+                        <span style={{ flex: "0 0 auto", width: 26, height: 26, borderRadius: 7, border: `1.5px solid ${hecho ? "#E8A93C" : "#6E7164"}`, background: hecho ? "#E8A93C" : "transparent", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                          {hecho && <Icono nombre="check" size={16} style={{ color: "#1E201C" }} />}
+                        </span>
+                        <span style={{ flex: "0 0 auto", width: 44, height: 44, borderRadius: 10, background: "#3A3D34", border: "1px solid #4C4F44", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22 }}>{emojiPlato}</span>
+                        <span style={{ flex: "1 1 auto", fontSize: "0.92rem", textDecoration: hecho ? "line-through" : "none", minWidth: 0, overflowWrap: "anywhere", wordBreak: "break-word" }}>{item.texto}</span>
+                        {item.veces > 1 && <span style={{ fontSize: "0.72rem", color: "#7C7F70" }}>×{item.veces}</span>}
+                        <div style={{ display: "flex", gap: "0.3rem", flex: "0 0 auto" }}>
+                          <button onClick={(e) => { e.stopPropagation(); elegirTienda(item.dishNorm, "aldi"); }} title="ALDI" style={{ width: 26, height: 26, borderRadius: 7, border: `1.5px solid ${tienda === "aldi" ? "#2E6FDB" : "#55584E"}`, background: tienda === "aldi" ? "#2E6FDB" : "transparent", color: tienda === "aldi" ? "#F1EAD8" : "#8A8D80", fontSize: "0.68rem", fontWeight: 700, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>A</button>
+                          <button onClick={(e) => { e.stopPropagation(); elegirTienda(item.dishNorm, "mercadona"); }} title="Mercadona" style={{ width: 26, height: 26, borderRadius: 7, border: `1.5px solid ${tienda === "mercadona" ? "#3EA35E" : "#55584E"}`, background: tienda === "mercadona" ? "#3EA35E" : "transparent", color: tienda === "mercadona" ? "#F1EAD8" : "#8A8D80", fontSize: "0.68rem", fontWeight: 700, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>M</button>
+                        </div>
+                      </div>
+
+                      {item.ingredientes.length > 0 && (
+                        <div style={{ display: "flex", flexDirection: "column", gap: "0.3rem", marginTop: "0.5rem", paddingLeft: "2.4rem" }}>
+                          {item.ingredientes.map((ing) => {
+                            const claveIng = `${item.claveItem}::ing::${ing.toLowerCase()}`;
+                            const ingHecho = !!marcados[claveIng];
+                            return (
+                              <div key={ing} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                                <span onClick={() => alternarMarcado(claveIng)} style={{ flex: "0 0 auto", width: 18, height: 18, borderRadius: 5, border: `1.5px solid ${ingHecho ? "#E8A93C" : "#6E7164"}`, background: ingHecho ? "#E8A93C" : "transparent", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}>
+                                  {ingHecho && <Icono nombre="check" size={12} style={{ color: "#1E201C" }} />}
+                                </span>
+                                <span style={{ flex: "1 1 auto", fontSize: "0.82rem", color: "#D9DACC", textDecoration: ingHecho ? "line-through" : "none" }}>{ing}</span>
+                                <button onClick={() => quitarIngrediente(item.dishNorm, ing)} title="Quitar" style={{ background: "transparent", border: "none", color: "#7C7F70", cursor: "pointer", padding: 2 }}>
+                                  <Icono nombre="x" size={11} />
+                                </button>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      )}
+
+                      <div style={{ paddingLeft: "2.4rem", marginTop: "0.4rem" }}>
+                        {editandoIngredientes ? (
+                          <input
+                            autoFocus
+                            value={borradorIngredientes}
+                            onChange={(e) => setBorradorIngredientes(e.target.value)}
+                            onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); confirmarIngredientes(item.dishNorm); } if (e.key === "Escape") { e.preventDefault(); setAñadiendoIngredientes(null); } }}
+                            onBlur={() => confirmarIngredientes(item.dishNorm)}
+                            placeholder="lentejas, chorizo, cebolla..."
+                            style={{ width: "100%", background: "#3A3D34", border: "1px solid #E8A93C", borderRadius: 6, color: "#F1EAD8", fontSize: "0.8rem", padding: "0.3rem 0.5rem" }}
+                          />
+                        ) : (
+                          <button onClick={() => abrirAñadirIngredientes(item.dishNorm)} style={{ display: "flex", alignItems: "center", gap: "0.3rem", background: "transparent", border: "1px dashed #55584E", borderRadius: 7, color: "#8A8D80", fontSize: "0.72rem", padding: "0.3rem 0.5rem", cursor: "pointer" }}>
+                            <Icono nombre="plus" size={11} /> Añadir ingredientes
+                          </button>
+                        )}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+              <div style={{ fontSize: "0.75rem", color: "#7C7F70", marginTop: "1rem" }}>Se genera a partir de los platos planificados en la semana que estés viendo. Puedes desglosar cada plato en sus ingredientes; se recuerdan para la próxima vez que repitas ese plato.</div>
+            </>
+          )}
+        </div>
+      )}
+
+      {eligiendoDia && (
+        <div style={{ position: "fixed", inset: 0, background: "rgba(20,22,18,0.72)", zIndex: 60, display: "flex", alignItems: "center", justifyContent: "center", padding: "1rem" }} onClick={() => setEligiendoDia(null)}>
+          <div onClick={(e) => e.stopPropagation()} style={{ background: "#2B2E28", border: "1px solid #43463C", borderRadius: 14, padding: "1.2rem", maxWidth: 380, width: "100%", boxShadow: "0 10px 40px rgba(0,0,0,0.5)" }}>
+            <div className="fraunces" style={{ fontSize: "1.05rem", fontWeight: 600, marginBottom: "0.2rem" }}>¿En qué día quieres poner "{eligiendoDia.texto}"?</div>
+            <div style={{ fontSize: "0.75rem", color: "#7C7F70", marginBottom: "1rem" }}>{COMIDAS.find((c) => c.key === eligiendoDia.comida)?.label} · semana del {etiquetaSemana}</div>
+            <div style={{ display: "flex", flexDirection: "column", gap: "0.4rem" }}>
+              {fechasSemana.map((d, idx) => {
+                const fk = claveFecha(d);
+                const yaEsta = getSlots(fk)[eligiendoDia.comida].items.some((it) => it.texto.toLowerCase() === eligiendoDia.texto.toLowerCase());
+                const esHoy = fk === hoyClave;
+                return (
+                  <button key={fk} onClick={() => insertarSugerenciaEnDia(eligiendoDia.comida, eligiendoDia.texto, fk)} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", background: "#33362E", border: `1px solid ${esHoy ? "#E8A93C" : "#43463C"}`, borderRadius: 9, padding: "0.55rem 0.8rem", cursor: "pointer", color: "#F1EAD8", fontSize: "0.88rem" }}>
+                    <span>{NOMBRES_DIA[idx]} <span style={{ color: "#7C7F70", fontSize: "0.75rem" }}>{formatoDiaMes(d)}{esHoy ? " · Hoy" : ""}</span></span>
+                    {yaEsta && <span style={{ fontSize: "0.68rem", color: "#8A8D80" }}>ya la tienes ese día</span>}
+                  </button>
+                );
+              })}
+            </div>
+            <button onClick={() => setEligiendoDia(null)} style={{ marginTop: "0.9rem", width: "100%", background: "transparent", border: "1px solid #55584E", color: "#B7B9AC", borderRadius: 9, padding: "0.5rem", cursor: "pointer", fontSize: "0.85rem" }}>Cancelar</button>
+          </div>
+        </div>
+      )}
+
+      {ultimoBorrado && (
+        <div style={{ position: "fixed", bottom: aviso ? 68 : 20, left: "50%", transform: "translateX(-50%)", background: "#3A3D34", border: "1px solid #55584E", color: "#F1EAD8", borderRadius: 10, padding: "0.6rem 0.9rem", fontSize: "0.85rem", boxShadow: "0 6px 20px rgba(0,0,0,0.35)", zIndex: 51, display: "flex", alignItems: "center", gap: "0.7rem" }}>
+          <span>"{ultimoBorrado.item.texto}" eliminado</span>
+          <button onClick={deshacerBorrado} style={{ display: "flex", alignItems: "center", gap: "0.3rem", background: "transparent", border: "none", color: "#E8A93C", fontWeight: 600, cursor: "pointer", fontSize: "0.85rem" }}>
+            <Icono nombre="undo" size={14} /> Deshacer
+          </button>
+        </div>
+      )}
+
+      {aviso && (
+        <div style={{ position: "fixed", bottom: 20, left: "50%", transform: "translateX(-50%)", background: "#3A3D34", border: "1px solid #E8A93C", color: "#F1EAD8", borderRadius: 10, padding: "0.6rem 1rem", fontSize: "0.85rem", boxShadow: "0 6px 20px rgba(0,0,0,0.35)", zIndex: 50 }}>
+          {aviso}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function SelectorCategoria({ texto, actual, onElegir }) {
+  return (
+    <div style={{ display: "flex", gap: "0.3rem", flexWrap: "wrap", padding: "0 0.1rem" }}>
+      {CATEGORIAS.map((cat) => {
+        const activa = actual === cat.key;
+        return (
+          <button key={cat.key} type="button" onMouseDown={(e) => e.preventDefault()} onClick={() => onElegir(texto, cat.key)}
+            style={{ fontSize: "0.62rem", padding: "0.15rem 0.45rem", borderRadius: 20, border: `1px solid ${activa ? cat.tint : cat.tint + "55"}`, background: activa ? cat.tint + "33" : "transparent", color: "#F1EAD8", cursor: "pointer" }}>
+            {cat.label}
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
+function BloqueDistribucion({ titulo, datos }) {
+  return (
+    <div style={{ background: "#33362E", border: "1px solid #43463C", borderRadius: 12, padding: "1.1rem 1.2rem" }}>
+      {titulo && <div style={{ fontSize: "0.85rem", fontWeight: 600, marginBottom: "0.2rem" }}>{titulo}</div>}
+      <div style={{ fontSize: "0.72rem", color: "#7C7F70", marginBottom: "0.9rem" }}>{datos.total > 0 ? `${datos.total} platos planificados` : "Sin datos todavía"}</div>
+      <div style={{ display: "flex", flexDirection: "column", gap: "0.55rem" }}>
+        {datos.categorias.map((c) => (
+          <div key={c.key}>
+            <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.78rem", marginBottom: "0.2rem" }}><span>{c.label}</span><span style={{ color: "#B7B9AC" }}>{c.pct}%</span></div>
+            <div className="barra-fondo"><div className="barra-relleno" style={{ width: `${c.pct}%`, background: c.tint }} /></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+const NOMBRES_MES = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
+
+function GraficoDesviacion({ datos, etiqueta }) {
+  const max = 25;
+  return (
+    <div style={{ background: "#33362E", border: "1px solid #43463C", borderRadius: 12, padding: "1.1rem 1.2rem" }}>
+      <div style={{ fontSize: "0.85rem", fontWeight: 600, marginBottom: "0.2rem" }}>Comparativa con el reparto orientativo — {etiqueta}</div>
+      <div style={{ fontSize: "0.72rem", color: "#7C7F70", marginBottom: "1rem" }}>
+        {datos.total > 0 ? "Verde: por encima de lo orientativo · Naranja: por debajo. Es una referencia general, no un análisis nutricional clínico." : "Todavía no hay datos para este periodo."}
+      </div>
+      <div style={{ display: "flex", flexDirection: "column", gap: "0.65rem" }}>
+        {datos.categorias.map((c) => {
+          const ideal = IDEAL_PCT[c.key] || 0;
+          const desviacion = c.pct - ideal;
+          const magnitud = Math.min(Math.abs(desviacion), max);
+          const anchoPct = (magnitud / max) * 50;
+          const positivo = desviacion >= 0;
+          const colorDesv = positivo ? "#5B8A57" : "#C0524A";
+          return (
+            <div key={c.key} style={{ display: "flex", alignItems: "center", gap: "0.6rem" }}>
+              <div style={{ width: 100, flex: "0 0 auto", fontSize: "0.75rem", color: "#D9DACC", display: "flex", alignItems: "center", gap: "0.3rem" }}>
+                <span style={{ width: 8, height: 8, borderRadius: "50%", background: c.tint, flex: "0 0 auto" }} />
+                {c.label}
+              </div>
+              <div style={{ position: "relative", flex: "1 1 auto", height: 14, background: "#2B2E28", borderRadius: 4, minWidth: 0 }}>
+                <div style={{ position: "absolute", left: "50%", top: 0, bottom: 0, width: 1, background: "#55584E" }} />
+                <div style={{ position: "absolute", top: 0, bottom: 0, left: positivo ? "50%" : `${50 - anchoPct}%`, width: `${anchoPct}%`, background: colorDesv, borderRadius: 3 }} />
+              </div>
+              <div style={{ width: 50, flex: "0 0 auto", textAlign: "right", fontSize: "0.72rem", color: colorDesv, fontWeight: 600 }}>
+                {desviacion > 0 ? "+" : ""}{desviacion} pts
+              </div>
+            </div>
+          );
+        })}
+      </div>
+      <div style={{ fontSize: "0.66rem", color: "#7C7F70", marginTop: "0.9rem" }}>
+        Reparto orientativo: {CATEGORIAS.map((c) => `${c.label} ${IDEAL_PCT[c.key]}%`).join(" · ")}.
+      </div>
+    </div>
+  );
+}
+
+function GraficoMensual({ datos, año }) {
+  const maxTotal = Math.max(1, ...datos.map((d) => d.total));
+  const hayDatos = datos.some((d) => d.total > 0);
+  return (
+    <div style={{ background: "#33362E", border: "1px solid #43463C", borderRadius: 12, padding: "1.1rem 1.2rem" }}>
+      <div style={{ fontSize: "0.85rem", fontWeight: 600, marginBottom: "0.2rem" }}>Comparativa mensual por categoría — {año}</div>
+      <div style={{ fontSize: "0.72rem", color: "#7C7F70", marginBottom: "1rem" }}>
+        {hayDatos ? "Cada barra es un mes; los colores muestran qué categorías lo componen." : "Sin datos todavía para este año."}
+      </div>
+      <div style={{ display: "flex", alignItems: "flex-end", gap: "0.4rem", height: 150, overflowX: "auto" }}>
+        {datos.map((d) => {
+          const alturaTotal = d.total > 0 ? Math.max(6, (d.total / maxTotal) * 130) : 3;
+          return (
+            <div key={d.mes} style={{ flex: "1 1 0", minWidth: 20, display: "flex", flexDirection: "column", alignItems: "center", gap: "0.35rem" }}>
+              <div
+                title={`${NOMBRES_MES[d.mes]}: ${d.total} platos`}
+                style={{ width: "100%", maxWidth: 28, height: alturaTotal, display: "flex", flexDirection: "column-reverse", borderRadius: 4, overflow: "hidden", background: d.total > 0 ? "transparent" : "#3A3D34" }}
+              >
+                {d.categorias.filter((c) => c.cantidad > 0).map((c) => (
+                  <div key={c.key} style={{ width: "100%", height: `${(c.cantidad / d.total) * 100}%`, background: c.tint }} />
+                ))}
+              </div>
+              <span style={{ fontSize: "0.62rem", color: "#8A8D80" }}>{NOMBRES_MES[d.mes]}</span>
+            </div>
+          );
+        })}
+      </div>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: "0.6rem", marginTop: "1rem" }}>
+        {CATEGORIAS.map((c) => (
+          <div key={c.key} style={{ display: "flex", alignItems: "center", gap: "0.3rem", fontSize: "0.68rem", color: "#B7B9AC" }}>
+            <span style={{ width: 8, height: 8, borderRadius: 2, background: c.tint, display: "inline-block" }} />
+            {c.label}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+try {
+  const root = ReactDOM.createRoot(document.getElementById("root"));
+  root.render(<PlanificadorComidas />);
+} catch (errorArranque) {
+  document.getElementById("root").innerHTML =
+    '<div style="font-family: monospace; background:#2B2E28; color:#F1EAD8; padding:2rem; white-space:pre-wrap;">' +
+    "Error al iniciar la app:\n\n" + (errorArranque && errorArranque.message ? errorArranque.message : String(errorArranque)) +
+    "</div>";
+}
+</script>
+
+<script>
+  // Compilamos el JSX manualmente forzando el modo "classic" de Babel,
+  // que compila a React.createElement (sin imports de módulos ES).
+  try {
+    var codigoFuente = document.getElementById("codigo-app").textContent;
+    var resultado = Babel.transform(codigoFuente, {
+      presets: [["react", { runtime: "classic" }]],
+    }).code;
+    var scriptFinal = document.createElement("script");
+    scriptFinal.textContent = resultado;
+    document.body.appendChild(scriptFinal);
+  } catch (errorCompilacion) {
+    document.getElementById("root").innerHTML =
+      '<div style="font-family: monospace; background:#2B2E28; color:#F1EAD8; padding:2rem; white-space:pre-wrap;">' +
+      "Error al compilar la app:\n\n" + (errorCompilacion && errorCompilacion.message ? errorCompilacion.message : String(errorCompilacion)) +
+      "</div>";
+  }
+</script>
+</body>
+</html>
+
