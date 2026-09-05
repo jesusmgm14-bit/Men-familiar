@@ -15,7 +15,7 @@
   * { box-sizing: border-box; }
   html, body, #root { margin: 0; padding: 0; }
   .fraunces { font-family: 'Fraunces', serif; }
-  textarea::placeholder { color: #8A8D80; }
+  textarea::placeholder { color: #A79B7F; }
   .celda-btn:focus-visible, textarea:focus-visible, button:focus-visible {
     outline: 2px solid #E8A93C;
     outline-offset: 2px;
@@ -27,12 +27,12 @@
   .tab-btn { transition: color 0.15s, border-color 0.15s; }
   .sug-tile { transition: transform 0.12s, border-color 0.12s; cursor: pointer; }
   .sug-tile:hover { transform: translateY(-2px); border-color: #E8A93C; }
-  .compra-fila:hover { background: #383B33; }
-  .nav-btn:hover { background: #3A3D34; }
-  .barra-fondo { background: #3A3D34; border-radius: 6px; overflow: hidden; height: 10px; }
+  .compra-fila:hover { background: #F0E9D8; }
+  .nav-btn:hover { background: #F0E9D8; }
+  .barra-fondo { background: #EFE7D4; border-radius: 6px; overflow: hidden; height: 10px; }
   .barra-relleno { height: 100%; border-radius: 6px; transition: width 0.4s ease; }
-  .item-fila:hover { background: #3A3D34; }
-  .btn-anadir:hover { background: #3A3D34; }
+  .item-fila:hover { background: #F0E9D8; }
+  .btn-anadir:hover { background: #F0E9D8; }
 </style>
 </head>
 <body>
@@ -822,10 +822,10 @@ function PlanificadorComidas() {
       <div style={{ display: "flex", flexDirection: "column", gap: "0.2rem", maxHeight: 150, overflowY: "auto" }}>
         {sugs.map(([texto, datos]) => (
           <button key={texto} onMouseDown={(e) => e.preventDefault()} onClick={() => elegirAutocompletado(texto)}
-            style={{ display: "flex", alignItems: "center", gap: "0.4rem", background: "#3A3D34", border: "1px solid #4C4F43", borderRadius: 6, color: "#F1EAD8", fontSize: "0.75rem", padding: "0.32rem 0.45rem", cursor: "pointer", textAlign: "left" }}>
+            style={{ display: "flex", alignItems: "center", gap: "0.4rem", background: "#FFFFFF", border: "1px solid #E2D9C4", borderRadius: 6, color: "#2E2A22", fontSize: "0.75rem", padding: "0.32rem 0.45rem", cursor: "pointer", textAlign: "left" }}>
             <span style={{ fontSize: 14, flex: "0 0 auto" }}>{emojiEfectivo(texto)}</span>
             <span style={{ flex: 1, lineHeight: 1.2, overflowWrap: "anywhere", wordBreak: "break-word", minWidth: 0 }}>{texto}</span>
-            <span style={{ fontSize: "0.6rem", color: "#7C7F70", flex: "0 0 auto" }}>×{datos.veces}</span>
+            <span style={{ fontSize: "0.6rem", color: "#8A7F68", flex: "0 0 auto" }}>×{datos.veces}</span>
           </button>
         ))}
       </div>
@@ -838,19 +838,19 @@ function PlanificadorComidas() {
     const tienda = tiendaPorPlato[item.dishNorm];
     const infoTienda = tienda === "aldi" ? { texto: "ALDI", color: "#2E6FDB" } : tienda === "mercadona" ? { texto: "MERCADONA", color: "#3EA35E" } : null;
     return (
-      <div style={{ background: "#33362E", border: "1px solid #43463C", borderLeft: infoTienda ? `4px solid ${infoTienda.color}` : "1px solid #43463C", borderRadius: 12, padding: "0.65rem 0.8rem", opacity: hecho ? 0.75 : 1 }}>
+      <div style={{ background: "#FBF8F1", border: "1px solid #E2D9C4", borderLeft: infoTienda ? `4px solid ${infoTienda.color}` : "1px solid #E2D9C4", borderRadius: 12, padding: "0.65rem 0.8rem", opacity: hecho ? 0.75 : 1 }}>
         <div className="compra-fila" onClick={() => alternarMarcado(item.claveItem)} style={{ display: "flex", alignItems: "center", gap: "0.75rem", cursor: "pointer", opacity: hecho ? 0.7 : 1, borderRadius: 8 }}>
-          <span style={{ flex: "0 0 auto", width: 26, height: 26, borderRadius: 7, border: `1.5px solid ${hecho ? "#E8A93C" : "#6E7164"}`, background: hecho ? "#E8A93C" : "transparent", display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <span style={{ flex: "0 0 auto", width: 26, height: 26, borderRadius: 7, border: `1.5px solid ${hecho ? "#E8A93C" : "#C9BE9F"}`, background: hecho ? "#E8A93C" : "transparent", display: "flex", alignItems: "center", justifyContent: "center" }}>
             {hecho && <Icono nombre="check" size={16} style={{ color: "#1E201C" }} />}
           </span>
           <span style={{ flex: "0 0 auto", width: 44, height: 44, borderRadius: 10, background: ACENTO_ICONO_PLATO, display: "flex", alignItems: "center", justifyContent: "center" }}><IconoPlato clave={iconoPlatoEfectivo(item.texto)} size={22} /></span>
           <span style={{ flex: "1 1 auto", fontSize: "0.92rem", textDecoration: hecho ? "line-through" : "none", minWidth: 0, overflowWrap: "anywhere", wordBreak: "break-word" }}>{item.texto}</span>
-          {item.veces > 1 && <span style={{ fontSize: "0.72rem", color: "#7C7F70" }}>×{item.veces}</span>}
+          {item.veces > 1 && <span style={{ fontSize: "0.72rem", color: "#8A7F68" }}>×{item.veces}</span>}
           <div style={{ display: "flex", gap: "0.3rem", flex: "0 0 auto" }}>
-            <button onClick={(e) => { e.stopPropagation(); elegirTienda(item.dishNorm, "aldi"); }} title="ALDI" style={{ width: 26, height: 26, borderRadius: 7, border: `1.5px solid ${tienda === "aldi" ? "#2E6FDB" : "#55584E"}`, background: tienda === "aldi" ? "#2E6FDB" : "transparent", color: tienda === "aldi" ? "#F1EAD8" : "#8A8D80", fontSize: "0.68rem", fontWeight: 700, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>A</button>
-            <button onClick={(e) => { e.stopPropagation(); elegirTienda(item.dishNorm, "mercadona"); }} title="Mercadona" style={{ width: 26, height: 26, borderRadius: 7, border: `1.5px solid ${tienda === "mercadona" ? "#3EA35E" : "#55584E"}`, background: tienda === "mercadona" ? "#3EA35E" : "transparent", color: tienda === "mercadona" ? "#F1EAD8" : "#8A8D80", fontSize: "0.68rem", fontWeight: 700, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>M</button>
+            <button onClick={(e) => { e.stopPropagation(); elegirTienda(item.dishNorm, "aldi"); }} title="ALDI" style={{ width: 26, height: 26, borderRadius: 7, border: `1.5px solid ${tienda === "aldi" ? "#2E6FDB" : "#D8CCAE"}`, background: tienda === "aldi" ? "#2E6FDB" : "transparent", color: tienda === "aldi" ? "#2E2A22" : "#A79B7F", fontSize: "0.68rem", fontWeight: 700, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>A</button>
+            <button onClick={(e) => { e.stopPropagation(); elegirTienda(item.dishNorm, "mercadona"); }} title="Mercadona" style={{ width: 26, height: 26, borderRadius: 7, border: `1.5px solid ${tienda === "mercadona" ? "#3EA35E" : "#D8CCAE"}`, background: tienda === "mercadona" ? "#3EA35E" : "transparent", color: tienda === "mercadona" ? "#2E2A22" : "#A79B7F", fontSize: "0.68rem", fontWeight: 700, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>M</button>
             {mostrarBorrar && (
-              <button onClick={(e) => { e.stopPropagation(); borrarDefinitivo(item); }} title="Borrar definitivamente" style={{ width: 26, height: 26, borderRadius: 7, border: "1.5px solid #55584E", background: "transparent", color: "#C0524A", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <button onClick={(e) => { e.stopPropagation(); borrarDefinitivo(item); }} title="Borrar definitivamente" style={{ width: 26, height: 26, borderRadius: 7, border: "1.5px solid #D8CCAE", background: "transparent", color: "#C0524A", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>
                 <Icono nombre="x" size={14} />
               </button>
             )}
@@ -864,11 +864,11 @@ function PlanificadorComidas() {
               const ingHecho = !!marcados[claveIng];
               return (
                 <div key={ing} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                  <span onClick={() => alternarMarcado(claveIng)} style={{ flex: "0 0 auto", width: 18, height: 18, borderRadius: 5, border: `1.5px solid ${ingHecho ? "#E8A93C" : "#6E7164"}`, background: ingHecho ? "#E8A93C" : "transparent", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}>
+                  <span onClick={() => alternarMarcado(claveIng)} style={{ flex: "0 0 auto", width: 18, height: 18, borderRadius: 5, border: `1.5px solid ${ingHecho ? "#E8A93C" : "#C9BE9F"}`, background: ingHecho ? "#E8A93C" : "transparent", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}>
                     {ingHecho && <Icono nombre="check" size={12} style={{ color: "#1E201C" }} />}
                   </span>
-                  <span style={{ flex: "1 1 auto", fontSize: "0.82rem", color: "#D9DACC", textDecoration: ingHecho ? "line-through" : "none" }}>{ing}</span>
-                  <button onClick={() => quitarIngrediente(item.dishNorm, ing)} title="Quitar" style={{ background: "transparent", border: "none", color: "#7C7F70", cursor: "pointer", padding: 2 }}>
+                  <span style={{ flex: "1 1 auto", fontSize: "0.82rem", color: "#3D372B", textDecoration: ingHecho ? "line-through" : "none" }}>{ing}</span>
+                  <button onClick={() => quitarIngrediente(item.dishNorm, ing)} title="Quitar" style={{ background: "transparent", border: "none", color: "#8A7F68", cursor: "pointer", padding: 2 }}>
                     <Icono nombre="x" size={11} />
                   </button>
                 </div>
@@ -886,10 +886,10 @@ function PlanificadorComidas() {
               onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); confirmarIngredientes(item.dishNorm); } if (e.key === "Escape") { e.preventDefault(); setAñadiendoIngredientes(null); } }}
               onBlur={() => confirmarIngredientes(item.dishNorm)}
               placeholder="lentejas, chorizo, cebolla..."
-              style={{ width: "100%", background: "#3A3D34", border: "1px solid #E8A93C", borderRadius: 6, color: "#F1EAD8", fontSize: "0.8rem", padding: "0.3rem 0.5rem" }}
+              style={{ width: "100%", background: "#FFFFFF", border: "1px solid #E8A93C", borderRadius: 6, color: "#2E2A22", fontSize: "0.8rem", padding: "0.3rem 0.5rem" }}
             />
           ) : (
-            <button onClick={() => abrirAñadirIngredientes(item.dishNorm)} style={{ display: "flex", alignItems: "center", gap: "0.3rem", background: "transparent", border: "1px dashed #55584E", borderRadius: 7, color: "#8A8D80", fontSize: "0.72rem", padding: "0.3rem 0.5rem", cursor: "pointer" }}>
+            <button onClick={() => abrirAñadirIngredientes(item.dishNorm)} style={{ display: "flex", alignItems: "center", gap: "0.3rem", background: "transparent", border: "1px dashed #D8CCAE", borderRadius: 7, color: "#A79B7F", fontSize: "0.72rem", padding: "0.3rem 0.5rem", cursor: "pointer" }}>
               <Icono nombre="plus" size={11} /> Añadir ingredientes
             </button>
           )}
@@ -1050,7 +1050,7 @@ function PlanificadorComidas() {
   }, [planesPorFecha, categoriasManuales, cafeDias, acompañamientoDias, frutaDias, frutosSecosDias]);
 
   return (
-    <div style={{ minHeight: "100vh", background: "#191B15", fontFamily: "'IBM Plex Sans', system-ui, sans-serif", color: "#F1EAD8", padding: "clamp(1rem, 4vw, 3rem)" }}>
+    <div style={{ minHeight: "100vh", background: "#FFFFFF", fontFamily: "'IBM Plex Sans', system-ui, sans-serif", color: "#2E2A22", padding: "clamp(1rem, 4vw, 3rem)" }}>
       <div style={{ maxWidth: 1180, margin: "0 auto 1.2rem", position: "relative" }}>
         <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", flexWrap: "wrap", gap: "1rem" }}>
           <div>
@@ -1061,13 +1061,13 @@ function PlanificadorComidas() {
             </div>
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
-            {pestaña === "planificador" && estadoGuardado.ok === false && <div style={{ fontSize: "0.75rem", color: "#E07B5A" }}>⚠ No se ha podido guardar</div>}
+            {pestaña === "planificador" && estadoGuardado.ok === false && <div style={{ fontSize: "0.75rem", color: "#B23B2E" }}>⚠ No se ha podido guardar</div>}
             <div style={{ display: "flex", alignItems: "center", gap: "0.4rem" }}>
               <input ref={inputImportarRef} type="file" accept="application/json" onChange={importarDatos} style={{ display: "none" }} />
-              <button onClick={exportarDatos} title="Descargar una copia de seguridad de todos tus datos" style={{ background: "transparent", border: "1px solid #43463C", borderRadius: 8, padding: "0.5rem", color: "#B7B9AC", cursor: "pointer", display: "flex" }}>
+              <button onClick={exportarDatos} title="Descargar una copia de seguridad de todos tus datos" style={{ background: "transparent", border: "1px solid #E2D9C4", borderRadius: 8, padding: "0.5rem", color: "#9C9480", cursor: "pointer", display: "flex" }}>
                 <Icono nombre="download" size={15} />
               </button>
-              <button onClick={() => inputImportarRef.current?.click()} title="Importar una copia de seguridad" style={{ background: "transparent", border: "1px solid #43463C", borderRadius: 8, padding: "0.5rem", color: "#B7B9AC", cursor: "pointer", display: "flex" }}>
+              <button onClick={() => inputImportarRef.current?.click()} title="Importar una copia de seguridad" style={{ background: "transparent", border: "1px solid #E2D9C4", borderRadius: 8, padding: "0.5rem", color: "#9C9480", cursor: "pointer", display: "flex" }}>
                 <Icono nombre="upload" size={15} />
               </button>
             </div>
@@ -1075,33 +1075,33 @@ function PlanificadorComidas() {
         </div>
 
         <svg width="100%" height="10" style={{ marginTop: "1rem" }} viewBox="0 0 800 10" preserveAspectRatio="none">
-          <path d="M0 5 Q 100 0, 200 5 T 400 5 T 600 5 T 800 5" stroke="#4C4F44" strokeWidth="2" fill="none" />
+          <path d="M0 5 Q 100 0, 200 5 T 400 5 T 600 5 T 800 5" stroke="#D8CCAE" strokeWidth="2" fill="none" />
         </svg>
 
-        <div style={{ maxWidth: 520, display: "flex", background: "#2B2E28", border: "1px solid #43463C", borderRadius: 12, padding: 4, gap: 2, marginTop: "1.1rem" }}>
-          <button className="tab-btn" onClick={() => setPestaña("planificador")} style={{ flex: 1, textAlign: "center", background: pestaña === "planificador" ? "#E8A93C" : "transparent", border: "none", borderRadius: 9, cursor: "pointer", padding: "0.5rem 0.4rem", fontSize: "0.82rem", fontWeight: 600, color: pestaña === "planificador" ? "#1E201C" : "#8A8D80", display: "flex", alignItems: "center", justifyContent: "center", gap: "0.3rem" }}>
+        <div style={{ maxWidth: 520, display: "flex", background: "#F2ECE0", border: "1px solid #E2D9C4", borderRadius: 12, padding: 4, gap: 2, marginTop: "1.1rem" }}>
+          <button className="tab-btn" onClick={() => setPestaña("planificador")} style={{ flex: 1, textAlign: "center", background: pestaña === "planificador" ? "#E8A93C" : "transparent", border: "none", borderRadius: 9, cursor: "pointer", padding: "0.5rem 0.4rem", fontSize: "0.82rem", fontWeight: 600, color: pestaña === "planificador" ? "#1E201C" : "#A79B7F", display: "flex", alignItems: "center", justifyContent: "center", gap: "0.3rem" }}>
             Planificador
           </button>
-          <button className="tab-btn" onClick={() => setPestaña("estadisticas")} style={{ flex: 1, textAlign: "center", background: pestaña === "estadisticas" ? "#E8A93C" : "transparent", border: "none", borderRadius: 9, cursor: "pointer", padding: "0.5rem 0.4rem", fontSize: "0.82rem", fontWeight: 600, color: pestaña === "estadisticas" ? "#1E201C" : "#8A8D80", display: "flex", alignItems: "center", justifyContent: "center", gap: "0.3rem" }}>
+          <button className="tab-btn" onClick={() => setPestaña("estadisticas")} style={{ flex: 1, textAlign: "center", background: pestaña === "estadisticas" ? "#E8A93C" : "transparent", border: "none", borderRadius: 9, cursor: "pointer", padding: "0.5rem 0.4rem", fontSize: "0.82rem", fontWeight: 600, color: pestaña === "estadisticas" ? "#1E201C" : "#A79B7F", display: "flex", alignItems: "center", justifyContent: "center", gap: "0.3rem" }}>
             <Icono nombre="chart" size={14} /> Estadísticas
           </button>
-          <button className="tab-btn" onClick={() => setPestaña("compra")} style={{ flex: 1, textAlign: "center", background: pestaña === "compra" ? "#E8A93C" : "transparent", border: "none", borderRadius: 9, cursor: "pointer", padding: "0.5rem 0.4rem", fontSize: "0.82rem", fontWeight: 600, color: pestaña === "compra" ? "#1E201C" : "#8A8D80", display: "flex", alignItems: "center", justifyContent: "center", gap: "0.3rem" }}>
+          <button className="tab-btn" onClick={() => setPestaña("compra")} style={{ flex: 1, textAlign: "center", background: pestaña === "compra" ? "#E8A93C" : "transparent", border: "none", borderRadius: 9, cursor: "pointer", padding: "0.5rem 0.4rem", fontSize: "0.82rem", fontWeight: 600, color: pestaña === "compra" ? "#1E201C" : "#A79B7F", display: "flex", alignItems: "center", justifyContent: "center", gap: "0.3rem" }}>
             <Icono nombre="cart" size={14} /> Compra
-            {listaCompra.length > 0 && <span style={{ fontSize: "0.65rem", background: pestaña === "compra" ? "#1E201C33" : "#43463C", borderRadius: 10, padding: "0.05rem 0.4rem", color: pestaña === "compra" ? "#1E201C" : "#D9DACC" }}>{compraCompletados}/{listaCompra.length}</span>}
+            {listaCompra.length > 0 && <span style={{ fontSize: "0.65rem", background: pestaña === "compra" ? "#1E201C33" : "#E2D9C4", borderRadius: 10, padding: "0.05rem 0.4rem", color: pestaña === "compra" ? "#1E201C" : "#3D372B" }}>{compraCompletados}/{listaCompra.length}</span>}
           </button>
         </div>
       </div>
 
       {!cargando && pestaña !== "planificador" && (
-        <div style={{ maxWidth: 1180, margin: "0 auto 1.4rem", background: "#33362E", border: "1px solid #43463C", borderRadius: 10, padding: "0.6rem 0.9rem", display: "flex", flexWrap: "wrap", alignItems: "center", gap: "1.1rem", fontSize: "0.82rem" }}>
+        <div style={{ maxWidth: 1180, margin: "0 auto 1.4rem", background: "#FBF8F1", border: "1px solid #E2D9C4", borderRadius: 10, padding: "0.6rem 0.9rem", display: "flex", flexWrap: "wrap", alignItems: "center", gap: "1.1rem", fontSize: "0.82rem" }}>
           <span style={{ color: "#E8A93C", fontWeight: 600 }}>Hoy</span>
           {COMIDAS.map(({ key, label, emoji, tint }) => {
             const items = getSlots(hoyClave)[key].items;
             const texto = items.length ? items.map((it) => it.texto).join(", ") : "sin planificar";
             return (
-              <span key={key} style={{ display: "flex", alignItems: "center", gap: "0.35rem", color: items.length ? "#F1EAD8" : "#7C7F70" }}>
+              <span key={key} style={{ display: "flex", alignItems: "center", gap: "0.35rem", color: items.length ? "#2E2A22" : "#8A7F68" }}>
                 <span style={{ fontSize: 14 }}>{emoji}</span>
-                <strong style={{ color: "#D9DACC", fontWeight: 500 }}>{label}:</strong> {texto}
+                <strong style={{ color: "#3D372B", fontWeight: 500 }}>{label}:</strong> {texto}
               </span>
             );
           })}
@@ -1109,24 +1109,24 @@ function PlanificadorComidas() {
       )}
 
       {cargando ? (
-        <div style={{ maxWidth: 1180, margin: "3rem auto", textAlign: "center", color: "#7C7F70" }}>Cargando tu menú...</div>
+        <div style={{ maxWidth: 1180, margin: "3rem auto", textAlign: "center", color: "#8A7F68" }}>Cargando tu menú...</div>
       ) : pestaña === "planificador" ? (
         <>
           <div style={{ maxWidth: 1180, margin: "0 auto 1rem", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "0.6rem" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "0.4rem" }}>
-              <button className="nav-btn" onClick={() => setSemanaBase((prev) => { const d = new Date(prev); d.setDate(d.getDate() - 7); return d; })} style={{ background: "transparent", border: "1px solid #43463C", borderRadius: 8, padding: "0.4rem", color: "#F1EAD8", cursor: "pointer", display: "flex" }} title="Semana anterior"><Icono nombre="chevron-left" size={16} /></button>
+              <button className="nav-btn" onClick={() => setSemanaBase((prev) => { const d = new Date(prev); d.setDate(d.getDate() - 7); return d; })} style={{ background: "transparent", border: "1px solid #E2D9C4", borderRadius: 8, padding: "0.4rem", color: "#2E2A22", cursor: "pointer", display: "flex" }} title="Semana anterior"><Icono nombre="chevron-left" size={16} /></button>
               <div style={{ display: "flex", alignItems: "center", gap: "0.4rem", fontSize: "0.9rem" }}><Icono nombre="calendar" size={14} style={{ color: "#E8A93C" }} />{etiquetaSemana}</div>
-              <button className="nav-btn" onClick={() => setSemanaBase((prev) => { const d = new Date(prev); d.setDate(d.getDate() + 7); return d; })} style={{ background: "transparent", border: "1px solid #43463C", borderRadius: 8, padding: "0.4rem", color: "#F1EAD8", cursor: "pointer", display: "flex" }} title="Semana siguiente"><Icono nombre="chevron-right" size={16} /></button>
+              <button className="nav-btn" onClick={() => setSemanaBase((prev) => { const d = new Date(prev); d.setDate(d.getDate() + 7); return d; })} style={{ background: "transparent", border: "1px solid #E2D9C4", borderRadius: 8, padding: "0.4rem", color: "#2E2A22", cursor: "pointer", display: "flex" }} title="Semana siguiente"><Icono nombre="chevron-right" size={16} /></button>
             </div>
             {!esSemanaActual && <button onClick={() => setSemanaBase(lunesDe(new Date()))} style={{ background: "transparent", border: "1px solid #E8A93C", color: "#E8A93C", borderRadius: 8, padding: "0.35rem 0.75rem", fontSize: "0.8rem", cursor: "pointer" }}>Ir a esta semana</button>}
           </div>
 
           {borrarAbierto && (
-            <div style={{ maxWidth: 1180, margin: "0 auto 1.5rem", background: "#3A3D34", border: "1px solid #55584E", borderRadius: 12, padding: "1rem 1.2rem", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "0.75rem" }}>
+            <div style={{ maxWidth: 1180, margin: "0 auto 1.5rem", background: "#FBF8F1", border: "1px solid #D8CCAE", borderRadius: 12, padding: "1rem 1.2rem", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "0.75rem" }}>
               <span style={{ fontSize: "0.9rem" }}>¿Vaciar el menú de esta semana ({etiquetaSemana})? No afecta a otras semanas ni al historial.</span>
               <div style={{ display: "flex", gap: "0.5rem" }}>
                 <button onClick={limpiarSemanaVisible} style={{ background: "#C77B4F", border: "none", color: "#1E201C", borderRadius: 8, padding: "0.45rem 0.9rem", fontSize: "0.85rem", cursor: "pointer", fontWeight: 600 }}>Sí, vaciar</button>
-                <button onClick={() => setBorrarAbierto(false)} style={{ background: "transparent", border: "1px solid #55584E", color: "#F1EAD8", borderRadius: 8, padding: "0.45rem 0.9rem", fontSize: "0.85rem", cursor: "pointer" }}>Cancelar</button>
+                <button onClick={() => setBorrarAbierto(false)} style={{ background: "transparent", border: "1px solid #D8CCAE", color: "#2E2A22", borderRadius: 8, padding: "0.45rem 0.9rem", fontSize: "0.85rem", cursor: "pointer" }}>Cancelar</button>
               </div>
             </div>
           )}
@@ -1247,20 +1247,20 @@ function PlanificadorComidas() {
           </div>
 
           <div style={{ maxWidth: 1180, margin: "1.1rem auto 0", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "0.75rem" }}>
-            <div style={{ fontSize: "0.8rem", color: "#B7B9AC" }}>{totalPlatos} platos planificados</div>
-            <button onClick={() => setBorrarAbierto(true)} style={{ display: "flex", alignItems: "center", gap: "0.4rem", background: "transparent", border: "1px solid #55584E", color: "#F1EAD8", borderRadius: 8, padding: "0.5rem 0.8rem", fontSize: "0.85rem", cursor: "pointer" }}>
+            <div style={{ fontSize: "0.8rem", color: "#9C9480" }}>{totalPlatos} platos planificados</div>
+            <button onClick={() => setBorrarAbierto(true)} style={{ display: "flex", alignItems: "center", gap: "0.4rem", background: "transparent", border: "1px solid #D8CCAE", color: "#2E2A22", borderRadius: 8, padding: "0.5rem 0.8rem", fontSize: "0.85rem", cursor: "pointer" }}>
               <Icono nombre="rotate-ccw" size={14} /> Vaciar esta semana
             </button>
           </div>
 
-          <div style={{ maxWidth: 1180, margin: "0.9rem auto 0", fontSize: "0.75rem", color: "#7C7F70", display: "flex", alignItems: "center", gap: "0.3rem" }}>
+          <div style={{ maxWidth: 1180, margin: "0.9rem auto 0", fontSize: "0.75rem", color: "#8A7F68", display: "flex", alignItems: "center", gap: "0.3rem" }}>
             <Icono nombre="chevron-down" size={12} style={{ transform: "rotate(-90deg)" }} />
             El calendario avanza solo con la fecha real. Al editar un plato puedes corregir su categoría nutricional (el punto de color junto al icono).
           </div>
 
-          <div style={{ maxWidth: 1180, margin: "2rem auto 0", borderTop: "1px solid #43463C", paddingTop: "1.4rem" }}>
+          <div style={{ maxWidth: 1180, margin: "2rem auto 0", borderTop: "1px solid #E2D9C4", paddingTop: "1.4rem" }}>
             {!hayHistorial ? (
-              <div style={{ background: "#33362E", border: "1px solid #43463C", borderRadius: 12, padding: "2rem", textAlign: "center", color: "#B7B9AC" }}>
+              <div style={{ background: "#FBF8F1", border: "1px solid #E2D9C4", borderRadius: 12, padding: "2rem", textAlign: "center", color: "#9C9480" }}>
                 <Icono nombre="info" size={22} style={{ marginBottom: "0.6rem", color: "#E8A93C" }} />
                 <div style={{ fontSize: "0.95rem" }}>Todavía no hay historial. En cuanto planifiques platos, aquí aparecerán como propuestas rápidas para repetir.</div>
               </div>
@@ -1273,20 +1273,20 @@ function PlanificadorComidas() {
                   <div key={key} style={{ marginBottom: "1.2rem" }}>
                     <button onClick={() => setSugerenciasAbiertas((prev) => ({ ...prev, [key]: !prev[key] }))} style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: abierta ? "0.7rem" : 0, background: "transparent", border: "none", cursor: "pointer", padding: 0, width: "100%", textAlign: "left" }}>
                       <span style={{ fontSize: 16 }}>{emoji}</span>
-                      <span className="fraunces" style={{ fontSize: "1.15rem", fontWeight: 600, color: "#F1EAD8" }}>{label}</span>
-                      <span style={{ fontSize: "0.75rem", color: "#7C7F70" }}>propuestas según tu historial ({lista.length})</span>
-                      <Icono nombre="chevron-down" size={14} style={{ color: "#7C7F70", marginLeft: "auto", transform: abierta ? "rotate(180deg)" : "none", transition: "transform 0.15s" }} />
+                      <span className="fraunces" style={{ fontSize: "1.15rem", fontWeight: 600, color: "#2E2A22" }}>{label}</span>
+                      <span style={{ fontSize: "0.75rem", color: "#8A7F68" }}>propuestas según tu historial ({lista.length})</span>
+                      <Icono nombre="chevron-down" size={14} style={{ color: "#8A7F68", marginLeft: "auto", transform: abierta ? "rotate(180deg)" : "none", transition: "transform 0.15s" }} />
                     </button>
                     {abierta && (
                       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(120px, 1fr))", gap: "0.7rem" }}>
                         {lista.map(([texto, datos]) => {
                           const emojiPlato = emojiEfectivo(texto);
                           return (
-                            <div key={texto} className="sug-tile" onClick={() => setEligiendoDia({ comida: key, texto })} style={{ aspectRatio: "1 / 1", background: "#33362E", border: "1px solid #43463C", borderRadius: 12, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "0.35rem", padding: "0.75rem", textAlign: "center", position: "relative" }}>
+                            <div key={texto} className="sug-tile" onClick={() => setEligiendoDia({ comida: key, texto })} style={{ aspectRatio: "1 / 1", background: "#FBF8F1", border: "1px solid #E2D9C4", borderRadius: 12, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "0.35rem", padding: "0.75rem", textAlign: "center", position: "relative" }}>
                               <span style={{ width: 48, height: 48, borderRadius: 10, background: `${tint}26`, border: `1px solid ${tint}66`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 26 }}>{emojiPlato}</span>
-                              <span style={{ fontSize: "0.74rem", lineHeight: 1.25, color: "#F1EAD8", overflowWrap: "anywhere", wordBreak: "break-word" }}>{texto}</span>
-                              {datos.ultimo && <span style={{ fontSize: "0.62rem", color: "#8A8D80" }}>Última vez: {formatoFechaCorta(datos.ultimo)}</span>}
-                              <span style={{ position: "absolute", top: 4, right: 6, fontSize: "0.62rem", color: "#7C7F70" }}>×{datos.veces}</span>
+                              <span style={{ fontSize: "0.74rem", lineHeight: 1.25, color: "#2E2A22", overflowWrap: "anywhere", wordBreak: "break-word" }}>{texto}</span>
+                              {datos.ultimo && <span style={{ fontSize: "0.62rem", color: "#A79B7F" }}>Última vez: {formatoFechaCorta(datos.ultimo)}</span>}
+                              <span style={{ position: "absolute", top: 4, right: 6, fontSize: "0.62rem", color: "#8A7F68" }}>×{datos.veces}</span>
                             </div>
                           );
                         })}
@@ -1296,21 +1296,21 @@ function PlanificadorComidas() {
                 );
               })
             )}
-            <div style={{ fontSize: "0.75rem", color: "#7C7F70", marginTop: "0.5rem" }}>Toca el nombre de la comida para desplegar o plegar sus propuestas. Toca una propuesta para elegir en qué día añadirla.</div>
+            <div style={{ fontSize: "0.75rem", color: "#8A7F68", marginTop: "0.5rem" }}>Toca el nombre de la comida para desplegar o plegar sus propuestas. Toca una propuesta para elegir en qué día añadirla.</div>
           </div>
         </>
       ) : pestaña === "estadisticas" ? (
         <div style={{ maxWidth: 1180, margin: "0 auto" }}>
           <div style={{ marginBottom: "2.2rem" }}>
             <div className="fraunces" style={{ fontSize: "1.25rem", fontWeight: 600, marginBottom: "0.3rem" }}>Estimación nutricional aproximada</div>
-            <div style={{ fontSize: "0.78rem", color: "#7C7F70", marginBottom: "1.1rem" }}>Distribución por tipo de plato, calculada según las palabras de cada plato planificado. Es una orientación, no un análisis nutricional real (no calcula calorías ni gramos).</div>
+            <div style={{ fontSize: "0.78rem", color: "#8A7F68", marginBottom: "1.1rem" }}>Distribución por tipo de plato, calculada según las palabras de cada plato planificado. Es una orientación, no un análisis nutricional real (no calcula calorías ni gramos).</div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.2rem" }}>
               <div>
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "0.4rem" }}>
                   <div style={{ display: "flex", alignItems: "center", gap: "0.3rem" }}>
-                    <button onClick={() => setSemanaBase((prev) => { const d = new Date(prev); d.setDate(d.getDate() - 7); return d; })} style={{ background: "transparent", border: "1px solid #43463C", borderRadius: 6, padding: "0.2rem", color: "#F1EAD8", cursor: "pointer", display: "flex" }} title="Semana anterior"><Icono nombre="chevron-left" size={13} /></button>
-                    <span style={{ fontSize: "0.78rem", color: "#B7B9AC" }}>Semana ({etiquetaSemana})</span>
-                    <button onClick={() => setSemanaBase((prev) => { const d = new Date(prev); d.setDate(d.getDate() + 7); return d; })} style={{ background: "transparent", border: "1px solid #43463C", borderRadius: 6, padding: "0.2rem", color: "#F1EAD8", cursor: "pointer", display: "flex" }} title="Semana siguiente"><Icono nombre="chevron-right" size={13} /></button>
+                    <button onClick={() => setSemanaBase((prev) => { const d = new Date(prev); d.setDate(d.getDate() - 7); return d; })} style={{ background: "transparent", border: "1px solid #E2D9C4", borderRadius: 6, padding: "0.2rem", color: "#2E2A22", cursor: "pointer", display: "flex" }} title="Semana anterior"><Icono nombre="chevron-left" size={13} /></button>
+                    <span style={{ fontSize: "0.78rem", color: "#9C9480" }}>Semana ({etiquetaSemana})</span>
+                    <button onClick={() => setSemanaBase((prev) => { const d = new Date(prev); d.setDate(d.getDate() + 7); return d; })} style={{ background: "transparent", border: "1px solid #E2D9C4", borderRadius: 6, padding: "0.2rem", color: "#2E2A22", cursor: "pointer", display: "flex" }} title="Semana siguiente"><Icono nombre="chevron-right" size={13} /></button>
                   </div>
                   {!esSemanaActual && (
                     <button onClick={() => setSemanaBase(lunesDe(new Date()))} style={{ background: "transparent", border: "none", color: "#E8A93C", fontSize: "0.72rem", cursor: "pointer", padding: 0 }}>Esta semana</button>
@@ -1321,9 +1321,9 @@ function PlanificadorComidas() {
               <div>
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "0.4rem" }}>
                   <div style={{ display: "flex", alignItems: "center", gap: "0.3rem" }}>
-                    <button onClick={() => setAñoSeleccionado((a) => a - 1)} style={{ background: "transparent", border: "1px solid #43463C", borderRadius: 6, padding: "0.2rem", color: "#F1EAD8", cursor: "pointer", display: "flex" }} title="Año anterior"><Icono nombre="chevron-left" size={13} /></button>
-                    <span style={{ fontSize: "0.78rem", color: "#B7B9AC" }}>Acumulado {añoSeleccionado}</span>
-                    <button onClick={() => setAñoSeleccionado((a) => a + 1)} style={{ background: "transparent", border: "1px solid #43463C", borderRadius: 6, padding: "0.2rem", color: "#F1EAD8", cursor: "pointer", display: "flex" }} title="Año siguiente"><Icono nombre="chevron-right" size={13} /></button>
+                    <button onClick={() => setAñoSeleccionado((a) => a - 1)} style={{ background: "transparent", border: "1px solid #E2D9C4", borderRadius: 6, padding: "0.2rem", color: "#2E2A22", cursor: "pointer", display: "flex" }} title="Año anterior"><Icono nombre="chevron-left" size={13} /></button>
+                    <span style={{ fontSize: "0.78rem", color: "#9C9480" }}>Acumulado {añoSeleccionado}</span>
+                    <button onClick={() => setAñoSeleccionado((a) => a + 1)} style={{ background: "transparent", border: "1px solid #E2D9C4", borderRadius: 6, padding: "0.2rem", color: "#2E2A22", cursor: "pointer", display: "flex" }} title="Año siguiente"><Icono nombre="chevron-right" size={13} /></button>
                   </div>
                   {añoSeleccionado !== new Date().getFullYear() && (
                     <button onClick={() => setAñoSeleccionado(new Date().getFullYear())} style={{ background: "transparent", border: "none", color: "#E8A93C", fontSize: "0.72rem", cursor: "pointer", padding: 0 }}>Este año</button>
@@ -1337,29 +1337,29 @@ function PlanificadorComidas() {
             </div>
           </div>
 
-          <div style={{ maxWidth: 720, margin: "0 auto", borderTop: "1px solid #43463C", paddingTop: "1.4rem" }}>
+          <div style={{ maxWidth: 720, margin: "0 auto", borderTop: "1px solid #E2D9C4", paddingTop: "1.4rem" }}>
             <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", marginBottom: "0.6rem" }}>
               <div className="fraunces" style={{ fontSize: "1.1rem", fontWeight: 600 }}>Objetivos de esta semana</div>
               {trofeoEstaSemana && <span style={{ fontSize: "0.8rem" }}>🏆 ¡Conseguido!</span>}
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
               {objetivosSemanaActual.map((obj) => (
-                <div key={obj.id} style={{ display: "flex", alignItems: "center", gap: "0.6rem", borderRadius: 10, padding: "0.55rem 0.75rem", border: `1px solid ${obj.cumplido ? "#E8A93C" : obj.fallido ? "#C0524A" : "#43463C"}`, background: obj.cumplido ? "#E8A93C1f" : obj.fallido ? "#C0524A1f" : "#33362E" }}>
-                  <span style={{ flex: "0 0 auto", width: 22, height: 22, borderRadius: "50%", border: `1.5px solid ${obj.cumplido ? "#E8A93C" : obj.fallido ? "#C0524A" : "#6E7164"}`, background: obj.cumplido ? "#E8A93C" : obj.fallido ? "#C0524A" : "transparent", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <div key={obj.id} style={{ display: "flex", alignItems: "center", gap: "0.6rem", borderRadius: 10, padding: "0.55rem 0.75rem", border: `1px solid ${obj.cumplido ? "#E8A93C" : obj.fallido ? "#C0524A" : "#E2D9C4"}`, background: obj.cumplido ? "#E8A93C1f" : obj.fallido ? "#C0524A1f" : "#FBF8F1" }}>
+                  <span style={{ flex: "0 0 auto", width: 22, height: 22, borderRadius: "50%", border: `1.5px solid ${obj.cumplido ? "#E8A93C" : obj.fallido ? "#C0524A" : "#C9BE9F"}`, background: obj.cumplido ? "#E8A93C" : obj.fallido ? "#C0524A" : "transparent", display: "flex", alignItems: "center", justifyContent: "center" }}>
                     {obj.cumplido && <Icono nombre="check" size={13} style={{ color: "#1E201C" }} />}
                     {obj.fallido && <Icono nombre="x" size={13} style={{ color: "#1E201C" }} />}
                   </span>
-                  <span style={{ fontSize: "0.85rem", color: obj.cumplido ? "#F1EAD8" : obj.fallido ? "#F1EAD8" : "#D9DACC" }}>{obj.texto}{obj.fallido && <span style={{ color: "#C0524A", fontSize: "0.72rem" }}> · ya no se puede cumplir esta semana</span>}</span>
+                  <span style={{ fontSize: "0.85rem", color: obj.cumplido ? "#2E2A22" : obj.fallido ? "#2E2A22" : "#3D372B" }}>{obj.texto}{obj.fallido && <span style={{ color: "#C0524A", fontSize: "0.72rem" }}> · ya no se puede cumplir esta semana</span>}</span>
                 </div>
               ))}
             </div>
-            <div style={{ fontSize: "0.72rem", color: "#7C7F70", marginTop: "0.5rem" }}>Se eligen solos cada semana y se marcan según lo que vayas planificando. Consigue los 3 para ganar un trofeo.</div>
+            <div style={{ fontSize: "0.72rem", color: "#8A7F68", marginTop: "0.5rem" }}>Se eligen solos cada semana y se marcan según lo que vayas planificando. Consigue los 3 para ganar un trofeo.</div>
 
-            <div style={{ marginTop: "1rem", background: "#33362E", border: "1px solid #43463C", borderRadius: 10, padding: "0.7rem 0.85rem" }}>
-              <div style={{ fontSize: "0.78rem", color: "#B7B9AC", marginBottom: "0.5rem" }}>Vista rápida de esta semana ({distribucionSemana.total} platos en total)</div>
+            <div style={{ marginTop: "1rem", background: "#FBF8F1", border: "1px solid #E2D9C4", borderRadius: 10, padding: "0.7rem 0.85rem" }}>
+              <div style={{ fontSize: "0.78rem", color: "#9C9480", marginBottom: "0.5rem" }}>Vista rápida de esta semana ({distribucionSemana.total} platos en total)</div>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
                 {distribucionSemana.categorias.map((c) => (
-                  <span key={c.key} style={{ display: "flex", alignItems: "center", gap: "0.3rem", background: "#3A3D34", border: `1px solid ${c.tint}55`, borderRadius: 20, padding: "0.25rem 0.6rem", fontSize: "0.75rem", color: "#F1EAD8" }}>
+                  <span key={c.key} style={{ display: "flex", alignItems: "center", gap: "0.3rem", background: "#FFFFFF", border: `1px solid ${c.tint}55`, borderRadius: 20, padding: "0.25rem 0.6rem", fontSize: "0.75rem", color: "#2E2A22" }}>
                     <span style={{ width: 8, height: 8, borderRadius: "50%", background: c.tint, flex: "0 0 auto" }} />
                     {c.label}: {formatoCantidad(c.cantidad)}
                   </span>
@@ -1371,32 +1371,32 @@ function PlanificadorComidas() {
               <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "0.5rem", marginBottom: "0.6rem" }}>
                 <div style={{ display: "flex", gap: "0.3rem" }}>
                   {[{ id: "semana", texto: "Semana" }, { id: "mes", texto: "Mes" }, { id: "año", texto: "Año" }].map((p) => (
-                    <button key={p.id} onClick={() => setPeriodoObjetivo(p.id)} style={{ background: periodoObjetivo === p.id ? "#E8A93C" : "transparent", border: `1px solid ${periodoObjetivo === p.id ? "#E8A93C" : "#43463C"}`, color: periodoObjetivo === p.id ? "#1E201C" : "#B7B9AC", borderRadius: 8, padding: "0.3rem 0.65rem", fontSize: "0.78rem", fontWeight: periodoObjetivo === p.id ? 700 : 400, cursor: "pointer" }}>
+                    <button key={p.id} onClick={() => setPeriodoObjetivo(p.id)} style={{ background: periodoObjetivo === p.id ? "#E8A93C" : "transparent", border: `1px solid ${periodoObjetivo === p.id ? "#E8A93C" : "#E2D9C4"}`, color: periodoObjetivo === p.id ? "#1E201C" : "#9C9480", borderRadius: 8, padding: "0.3rem 0.65rem", fontSize: "0.78rem", fontWeight: periodoObjetivo === p.id ? 700 : 400, cursor: "pointer" }}>
                       {p.texto}
                     </button>
                   ))}
                 </div>
                 {periodoObjetivo === "semana" && (
                   <div style={{ display: "flex", alignItems: "center", gap: "0.3rem" }}>
-                    <button onClick={() => setSemanaBase((prev) => { const d = new Date(prev); d.setDate(d.getDate() - 7); return d; })} style={{ background: "transparent", border: "1px solid #43463C", borderRadius: 6, padding: "0.2rem", color: "#F1EAD8", cursor: "pointer", display: "flex" }} title="Semana anterior"><Icono nombre="chevron-left" size={13} /></button>
-                    <span style={{ fontSize: "0.75rem", color: "#B7B9AC" }}>{etiquetaSemana}</span>
-                    <button onClick={() => setSemanaBase((prev) => { const d = new Date(prev); d.setDate(d.getDate() + 7); return d; })} style={{ background: "transparent", border: "1px solid #43463C", borderRadius: 6, padding: "0.2rem", color: "#F1EAD8", cursor: "pointer", display: "flex" }} title="Semana siguiente"><Icono nombre="chevron-right" size={13} /></button>
+                    <button onClick={() => setSemanaBase((prev) => { const d = new Date(prev); d.setDate(d.getDate() - 7); return d; })} style={{ background: "transparent", border: "1px solid #E2D9C4", borderRadius: 6, padding: "0.2rem", color: "#2E2A22", cursor: "pointer", display: "flex" }} title="Semana anterior"><Icono nombre="chevron-left" size={13} /></button>
+                    <span style={{ fontSize: "0.75rem", color: "#9C9480" }}>{etiquetaSemana}</span>
+                    <button onClick={() => setSemanaBase((prev) => { const d = new Date(prev); d.setDate(d.getDate() + 7); return d; })} style={{ background: "transparent", border: "1px solid #E2D9C4", borderRadius: 6, padding: "0.2rem", color: "#2E2A22", cursor: "pointer", display: "flex" }} title="Semana siguiente"><Icono nombre="chevron-right" size={13} /></button>
                     {!esSemanaActual && <button onClick={() => setSemanaBase(lunesDe(new Date()))} style={{ background: "transparent", border: "none", color: "#E8A93C", fontSize: "0.7rem", cursor: "pointer", padding: 0 }}>Esta semana</button>}
                   </div>
                 )}
                 {periodoObjetivo === "mes" && (
                   <div style={{ display: "flex", alignItems: "center", gap: "0.3rem" }}>
-                    <button onClick={() => setMesSeleccionado((prev) => { const d = new Date(prev); d.setMonth(d.getMonth() - 1); return d; })} style={{ background: "transparent", border: "1px solid #43463C", borderRadius: 6, padding: "0.2rem", color: "#F1EAD8", cursor: "pointer", display: "flex" }} title="Mes anterior"><Icono nombre="chevron-left" size={13} /></button>
-                    <span style={{ fontSize: "0.75rem", color: "#B7B9AC", textTransform: "capitalize" }}>{etiquetaMes}</span>
-                    <button onClick={() => setMesSeleccionado((prev) => { const d = new Date(prev); d.setMonth(d.getMonth() + 1); return d; })} style={{ background: "transparent", border: "1px solid #43463C", borderRadius: 6, padding: "0.2rem", color: "#F1EAD8", cursor: "pointer", display: "flex" }} title="Mes siguiente"><Icono nombre="chevron-right" size={13} /></button>
+                    <button onClick={() => setMesSeleccionado((prev) => { const d = new Date(prev); d.setMonth(d.getMonth() - 1); return d; })} style={{ background: "transparent", border: "1px solid #E2D9C4", borderRadius: 6, padding: "0.2rem", color: "#2E2A22", cursor: "pointer", display: "flex" }} title="Mes anterior"><Icono nombre="chevron-left" size={13} /></button>
+                    <span style={{ fontSize: "0.75rem", color: "#9C9480", textTransform: "capitalize" }}>{etiquetaMes}</span>
+                    <button onClick={() => setMesSeleccionado((prev) => { const d = new Date(prev); d.setMonth(d.getMonth() + 1); return d; })} style={{ background: "transparent", border: "1px solid #E2D9C4", borderRadius: 6, padding: "0.2rem", color: "#2E2A22", cursor: "pointer", display: "flex" }} title="Mes siguiente"><Icono nombre="chevron-right" size={13} /></button>
                     {!esMesActual && <button onClick={() => { const d = new Date(); d.setDate(1); setMesSeleccionado(d); }} style={{ background: "transparent", border: "none", color: "#E8A93C", fontSize: "0.7rem", cursor: "pointer", padding: 0 }}>Este mes</button>}
                   </div>
                 )}
                 {periodoObjetivo === "año" && (
                   <div style={{ display: "flex", alignItems: "center", gap: "0.3rem" }}>
-                    <button onClick={() => setAñoSeleccionado((a) => a - 1)} style={{ background: "transparent", border: "1px solid #43463C", borderRadius: 6, padding: "0.2rem", color: "#F1EAD8", cursor: "pointer", display: "flex" }} title="Año anterior"><Icono nombre="chevron-left" size={13} /></button>
-                    <span style={{ fontSize: "0.75rem", color: "#B7B9AC" }}>{añoSeleccionado}</span>
-                    <button onClick={() => setAñoSeleccionado((a) => a + 1)} style={{ background: "transparent", border: "1px solid #43463C", borderRadius: 6, padding: "0.2rem", color: "#F1EAD8", cursor: "pointer", display: "flex" }} title="Año siguiente"><Icono nombre="chevron-right" size={13} /></button>
+                    <button onClick={() => setAñoSeleccionado((a) => a - 1)} style={{ background: "transparent", border: "1px solid #E2D9C4", borderRadius: 6, padding: "0.2rem", color: "#2E2A22", cursor: "pointer", display: "flex" }} title="Año anterior"><Icono nombre="chevron-left" size={13} /></button>
+                    <span style={{ fontSize: "0.75rem", color: "#9C9480" }}>{añoSeleccionado}</span>
+                    <button onClick={() => setAñoSeleccionado((a) => a + 1)} style={{ background: "transparent", border: "1px solid #E2D9C4", borderRadius: 6, padding: "0.2rem", color: "#2E2A22", cursor: "pointer", display: "flex" }} title="Año siguiente"><Icono nombre="chevron-right" size={13} /></button>
                     {añoSeleccionado !== new Date().getFullYear() && <button onClick={() => setAñoSeleccionado(new Date().getFullYear())} style={{ background: "transparent", border: "none", color: "#E8A93C", fontSize: "0.7rem", cursor: "pointer", padding: 0 }}>Este año</button>}
                   </div>
                 )}
@@ -1407,7 +1407,7 @@ function PlanificadorComidas() {
             <div style={{ marginTop: "2rem" }}>
               <div className="fraunces" style={{ fontSize: "1.1rem", fontWeight: 600, marginBottom: "0.6rem" }}>🏆 Trofeos semanales</div>
               {semanasConTrofeo.length === 0 ? (
-                <div style={{ fontSize: "0.8rem", color: "#7C7F70" }}>Todavía no hay trofeos. Cumple los 3 objetivos de una semana para ganar el primero.</div>
+                <div style={{ fontSize: "0.8rem", color: "#8A7F68" }}>Todavía no hay trofeos. Cumple los 3 objetivos de una semana para ganar el primero.</div>
               ) : (
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "0.6rem" }}>
                   {semanasConTrofeo.map(({ claveM, mondayDate }) => {
@@ -1415,10 +1415,10 @@ function PlanificadorComidas() {
                     domingo.setDate(domingo.getDate() + 6);
                     const numSemana = numeroSemanaISO(mondayDate);
                     return (
-                      <div key={claveM} title={`Semana del ${formatoDiaMes(mondayDate)} al ${formatoDiaMes(domingo)}`} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "0.35rem", background: "#33362E", border: "1px solid #E8A93C55", borderRadius: 14, padding: "0.7rem 1rem" }}>
+                      <div key={claveM} title={`Semana del ${formatoDiaMes(mondayDate)} al ${formatoDiaMes(domingo)}`} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "0.35rem", background: "#FBF8F1", border: "1px solid #E8A93C55", borderRadius: 14, padding: "0.7rem 1rem" }}>
                         <span style={{ fontSize: "1.9rem", lineHeight: 1 }}>🏆</span>
                         <span style={{ border: "1px solid #E8A93C", borderRadius: 6, padding: "0.12rem 0.55rem", fontSize: "0.72rem", fontWeight: 700, color: "#E8A93C", letterSpacing: "0.03em" }}>SEM{numSemana}</span>
-                        <span style={{ fontSize: "0.6rem", color: "#7C7F70" }}>{formatoDiaMes(mondayDate)} – {formatoDiaMes(domingo)}</span>
+                        <span style={{ fontSize: "0.6rem", color: "#8A7F68" }}>{formatoDiaMes(mondayDate)} – {formatoDiaMes(domingo)}</span>
                       </div>
                     );
                   })}
@@ -1429,9 +1429,9 @@ function PlanificadorComidas() {
         </div>
       ) : (
         <div style={{ maxWidth: 720, margin: "0 auto" }}>
-          <div style={{ fontSize: "0.8rem", color: "#7C7F70", marginBottom: "0.8rem" }}>Semana del {etiquetaSemana}</div>
+          <div style={{ fontSize: "0.8rem", color: "#8A7F68", marginBottom: "0.8rem" }}>Semana del {etiquetaSemana}</div>
           {listaCompra.length === 0 ? (
-            <div style={{ background: "#33362E", border: "1px solid #43463C", borderRadius: 12, padding: "2rem", textAlign: "center", color: "#B7B9AC" }}>
+            <div style={{ background: "#FBF8F1", border: "1px solid #E2D9C4", borderRadius: 12, padding: "2rem", textAlign: "center", color: "#9C9480" }}>
               <Icono nombre="cart" size={22} style={{ marginBottom: "0.6rem", color: "#E8A93C" }} />
               <div style={{ fontSize: "0.95rem" }}>Todavía no hay nada que comprar esta semana. Planifica algún plato en la primera pestaña, o añade un producto suelto abajo.</div>
             </div>
@@ -1440,8 +1440,8 @@ function PlanificadorComidas() {
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: "1rem" }}>
               <span className="fraunces" style={{ fontSize: "1.2rem", fontWeight: 600 }}>Para esta semana</span>
               <div style={{ display: "flex", alignItems: "center", gap: "0.7rem" }}>
-                <span style={{ fontSize: "0.8rem", color: "#7C7F70" }}>{compraCompletados} de {listaCompra.length} conseguidos</span>
-                <button onClick={compartirListaCompra} title="Compartir o copiar la lista" style={{ display: "flex", alignItems: "center", gap: "0.3rem", background: "transparent", border: "1px solid #43463C", borderRadius: 8, padding: "0.35rem 0.6rem", fontSize: "0.75rem", color: "#B7B9AC", cursor: "pointer" }}>
+                <span style={{ fontSize: "0.8rem", color: "#8A7F68" }}>{compraCompletados} de {listaCompra.length} conseguidos</span>
+                <button onClick={compartirListaCompra} title="Compartir o copiar la lista" style={{ display: "flex", alignItems: "center", gap: "0.3rem", background: "transparent", border: "1px solid #E2D9C4", borderRadius: 8, padding: "0.35rem 0.6rem", fontSize: "0.75rem", color: "#9C9480", cursor: "pointer" }}>
                   <Icono nombre="share" size={13} /> Compartir
                 </button>
               </div>
@@ -1462,20 +1462,20 @@ function PlanificadorComidas() {
                 onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); añadirExtraCompra(borradorExtra); } if (e.key === "Escape") { e.preventDefault(); setAñadiendoExtra(false); setBorradorExtra(""); } }}
                 onBlur={() => { if (borradorExtra.trim()) añadirExtraCompra(borradorExtra); else setAñadiendoExtra(false); }}
                 placeholder="Nombre del producto (papel higiénico, detergente...)"
-                style={{ width: "100%", background: "#3A3D34", border: "1px solid #E8A93C", borderRadius: 8, color: "#F1EAD8", fontSize: "0.85rem", padding: "0.55rem 0.7rem" }}
+                style={{ width: "100%", background: "#FFFFFF", border: "1px solid #E8A93C", borderRadius: 8, color: "#2E2A22", fontSize: "0.85rem", padding: "0.55rem 0.7rem" }}
               />
             ) : (
-              <button onClick={() => setAñadiendoExtra(true)} style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: "0.4rem", background: "transparent", border: "1px dashed #55584E", borderRadius: 10, color: "#B7B9AC", fontSize: "0.82rem", padding: "0.6rem", cursor: "pointer" }}>
+              <button onClick={() => setAñadiendoExtra(true)} style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: "0.4rem", background: "transparent", border: "1px dashed #D8CCAE", borderRadius: 10, color: "#9C9480", fontSize: "0.82rem", padding: "0.6rem", cursor: "pointer" }}>
                 <Icono nombre="plus" size={14} /> Añadir producto
               </button>
             )}
           </div>
 
           {itemsCompletados.length > 0 && (
-            <div style={{ marginTop: "1.8rem", borderTop: "1px solid #43463C", paddingTop: "1.1rem" }}>
+            <div style={{ marginTop: "1.8rem", borderTop: "1px solid #E2D9C4", paddingTop: "1.1rem" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: "0.8rem" }}>
-                <span className="fraunces" style={{ fontSize: "1.05rem", fontWeight: 600, color: "#B7B9AC" }}>✅ Completado ({itemsCompletados.length})</span>
-                <button onClick={() => vaciarCompletados(itemsCompletados)} style={{ display: "flex", alignItems: "center", gap: "0.3rem", background: "transparent", border: "1px solid #55584E", borderRadius: 8, padding: "0.3rem 0.6rem", fontSize: "0.72rem", color: "#8A8D80", cursor: "pointer" }}>
+                <span className="fraunces" style={{ fontSize: "1.05rem", fontWeight: 600, color: "#9C9480" }}>✅ Completado ({itemsCompletados.length})</span>
+                <button onClick={() => vaciarCompletados(itemsCompletados)} style={{ display: "flex", alignItems: "center", gap: "0.3rem", background: "transparent", border: "1px solid #D8CCAE", borderRadius: 8, padding: "0.3rem 0.6rem", fontSize: "0.72rem", color: "#A79B7F", cursor: "pointer" }}>
                   <Icono nombre="x" size={12} /> Borrar todos
                 </button>
               </div>
@@ -1484,41 +1484,41 @@ function PlanificadorComidas() {
                   <TarjetaCompra key={item.claveItem} item={item} mostrarBorrar={true} />
                 ))}
               </div>
-              <div style={{ fontSize: "0.7rem", color: "#7C7F70", marginTop: "0.6rem" }}>Los productos completados se borran solos a los {DIAS_PARA_PURGAR} días, o puedes borrarlos ahora con la "x" de cada uno o "Borrar todos".</div>
+              <div style={{ fontSize: "0.7rem", color: "#8A7F68", marginTop: "0.6rem" }}>Los productos completados se borran solos a los {DIAS_PARA_PURGAR} días, o puedes borrarlos ahora con la "x" de cada uno o "Borrar todos".</div>
             </div>
           )}
 
           {listaCompra.length > 0 && (
-            <div style={{ fontSize: "0.75rem", color: "#7C7F70", marginTop: "1rem" }}>Se genera a partir de los platos planificados en la semana que estés viendo, más lo que añadas a mano. Puedes desglosar cada producto en ingredientes; se recuerdan para la próxima vez.</div>
+            <div style={{ fontSize: "0.75rem", color: "#8A7F68", marginTop: "1rem" }}>Se genera a partir de los platos planificados en la semana que estés viendo, más lo que añadas a mano. Puedes desglosar cada producto en ingredientes; se recuerdan para la próxima vez.</div>
           )}
         </div>
       )}
 
       {eligiendoDia && (
         <div style={{ position: "fixed", inset: 0, background: "rgba(20,22,18,0.72)", zIndex: 60, display: "flex", alignItems: "center", justifyContent: "center", padding: "1rem" }} onClick={() => setEligiendoDia(null)}>
-          <div onClick={(e) => e.stopPropagation()} style={{ background: "#191B15", border: "1px solid #43463C", borderRadius: 14, padding: "1.2rem", maxWidth: 380, width: "100%", boxShadow: "0 10px 40px rgba(0,0,0,0.5)" }}>
+          <div onClick={(e) => e.stopPropagation()} style={{ background: "#FFFFFF", border: "1px solid #E2D9C4", borderRadius: 14, padding: "1.2rem", maxWidth: 380, width: "100%", boxShadow: "0 10px 40px rgba(0,0,0,0.5)" }}>
             <div className="fraunces" style={{ fontSize: "1.05rem", fontWeight: 600, marginBottom: "0.2rem" }}>¿En qué día quieres poner "{eligiendoDia.texto}"?</div>
-            <div style={{ fontSize: "0.75rem", color: "#7C7F70", marginBottom: "1rem" }}>{COMIDAS.find((c) => c.key === eligiendoDia.comida)?.label} · semana del {etiquetaSemana}</div>
+            <div style={{ fontSize: "0.75rem", color: "#8A7F68", marginBottom: "1rem" }}>{COMIDAS.find((c) => c.key === eligiendoDia.comida)?.label} · semana del {etiquetaSemana}</div>
             <div style={{ display: "flex", flexDirection: "column", gap: "0.4rem" }}>
               {fechasSemana.map((d, idx) => {
                 const fk = claveFecha(d);
                 const yaEsta = getSlots(fk)[eligiendoDia.comida].items.some((it) => it.texto.toLowerCase() === eligiendoDia.texto.toLowerCase());
                 const esHoy = fk === hoyClave;
                 return (
-                  <button key={fk} onClick={() => insertarSugerenciaEnDia(eligiendoDia.comida, eligiendoDia.texto, fk)} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", background: "#33362E", border: `1px solid ${esHoy ? "#E8A93C" : "#43463C"}`, borderRadius: 9, padding: "0.55rem 0.8rem", cursor: "pointer", color: "#F1EAD8", fontSize: "0.88rem" }}>
-                    <span>{NOMBRES_DIA[idx]} <span style={{ color: "#7C7F70", fontSize: "0.75rem" }}>{formatoDiaMes(d)}{esHoy ? " · Hoy" : ""}</span></span>
-                    {yaEsta && <span style={{ fontSize: "0.68rem", color: "#8A8D80" }}>ya la tienes ese día</span>}
+                  <button key={fk} onClick={() => insertarSugerenciaEnDia(eligiendoDia.comida, eligiendoDia.texto, fk)} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", background: "#FBF8F1", border: `1px solid ${esHoy ? "#E8A93C" : "#E2D9C4"}`, borderRadius: 9, padding: "0.55rem 0.8rem", cursor: "pointer", color: "#2E2A22", fontSize: "0.88rem" }}>
+                    <span>{NOMBRES_DIA[idx]} <span style={{ color: "#8A7F68", fontSize: "0.75rem" }}>{formatoDiaMes(d)}{esHoy ? " · Hoy" : ""}</span></span>
+                    {yaEsta && <span style={{ fontSize: "0.68rem", color: "#A79B7F" }}>ya la tienes ese día</span>}
                   </button>
                 );
               })}
             </div>
-            <button onClick={() => setEligiendoDia(null)} style={{ marginTop: "0.9rem", width: "100%", background: "transparent", border: "1px solid #55584E", color: "#B7B9AC", borderRadius: 9, padding: "0.5rem", cursor: "pointer", fontSize: "0.85rem" }}>Cancelar</button>
+            <button onClick={() => setEligiendoDia(null)} style={{ marginTop: "0.9rem", width: "100%", background: "transparent", border: "1px solid #D8CCAE", color: "#9C9480", borderRadius: 9, padding: "0.5rem", cursor: "pointer", fontSize: "0.85rem" }}>Cancelar</button>
           </div>
         </div>
       )}
 
       {ultimoBorrado && (
-        <div style={{ position: "fixed", bottom: aviso ? 68 : 20, left: "50%", transform: "translateX(-50%)", background: "#3A3D34", border: "1px solid #55584E", color: "#F1EAD8", borderRadius: 10, padding: "0.6rem 0.9rem", fontSize: "0.85rem", boxShadow: "0 6px 20px rgba(0,0,0,0.35)", zIndex: 51, display: "flex", alignItems: "center", gap: "0.7rem" }}>
+        <div style={{ position: "fixed", bottom: aviso ? 68 : 20, left: "50%", transform: "translateX(-50%)", background: "#FBF8F1", border: "1px solid #D8CCAE", color: "#2E2A22", borderRadius: 10, padding: "0.6rem 0.9rem", fontSize: "0.85rem", boxShadow: "0 6px 20px rgba(0,0,0,0.18)", zIndex: 51, display: "flex", alignItems: "center", gap: "0.7rem" }}>
           <span>"{ultimoBorrado.item.texto}" eliminado</span>
           <button onClick={deshacerBorrado} style={{ display: "flex", alignItems: "center", gap: "0.3rem", background: "transparent", border: "none", color: "#E8A93C", fontWeight: 600, cursor: "pointer", fontSize: "0.85rem" }}>
             <Icono nombre="undo" size={14} /> Deshacer
@@ -1527,7 +1527,7 @@ function PlanificadorComidas() {
       )}
 
       {aviso && (
-        <div style={{ position: "fixed", bottom: 20, left: "50%", transform: "translateX(-50%)", background: "#3A3D34", border: "1px solid #E8A93C", color: "#F1EAD8", borderRadius: 10, padding: "0.6rem 1rem", fontSize: "0.85rem", boxShadow: "0 6px 20px rgba(0,0,0,0.35)", zIndex: 50 }}>
+        <div style={{ position: "fixed", bottom: 20, left: "50%", transform: "translateX(-50%)", background: "#FBF8F1", border: "1px solid #E8A93C", color: "#2E2A22", borderRadius: 10, padding: "0.6rem 1rem", fontSize: "0.85rem", boxShadow: "0 6px 20px rgba(0,0,0,0.18)", zIndex: 50 }}>
           {aviso}
         </div>
       )}
@@ -1601,7 +1601,7 @@ function SelectorIcono({ texto, actual, esManual, onElegir }) {
         const activo = actual === emoji;
         return (
           <button key={emoji} type="button" onMouseDown={(e) => e.preventDefault()} onClick={() => onElegir(texto, emoji)}
-            style={{ fontSize: "1rem", width: 30, height: 30, display: "flex", alignItems: "center", justifyContent: "center", borderRadius: 8, border: `1px solid ${activo ? "#E8A93C" : "#43463C"}`, background: activo ? "#E8A93C26" : "#3A3D34", cursor: "pointer" }}>
+            style={{ fontSize: "1rem", width: 30, height: 30, display: "flex", alignItems: "center", justifyContent: "center", borderRadius: 8, border: `1px solid ${activo ? "#E8A93C" : "#E2D9C4"}`, background: activo ? "#E8A93C26" : "#F2ECE0", cursor: "pointer" }}>
             {emoji}
           </button>
         );
@@ -1618,13 +1618,13 @@ function SelectorIcono({ texto, actual, esManual, onElegir }) {
 
 function BloqueDistribucion({ titulo, datos }) {
   return (
-    <div style={{ background: "#33362E", border: "1px solid #43463C", borderRadius: 12, padding: "1.1rem 1.2rem" }}>
+    <div style={{ background: "#FBF8F1", border: "1px solid #E2D9C4", borderRadius: 12, padding: "1.1rem 1.2rem" }}>
       {titulo && <div style={{ fontSize: "0.85rem", fontWeight: 600, marginBottom: "0.2rem" }}>{titulo}</div>}
-      <div style={{ fontSize: "0.72rem", color: "#7C7F70", marginBottom: "0.9rem" }}>{datos.total > 0 ? `${datos.total} platos planificados` : "Sin datos todavía"}</div>
+      <div style={{ fontSize: "0.72rem", color: "#8A7F68", marginBottom: "0.9rem" }}>{datos.total > 0 ? `${datos.total} platos planificados` : "Sin datos todavía"}</div>
       <div style={{ display: "flex", flexDirection: "column", gap: "0.55rem" }}>
         {datos.categorias.map((c) => (
           <div key={c.key}>
-            <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.78rem", marginBottom: "0.2rem" }}><span>{c.label}</span><span style={{ color: "#B7B9AC" }}>{c.pct}%</span></div>
+            <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.78rem", marginBottom: "0.2rem" }}><span>{c.label}</span><span style={{ color: "#9C9480" }}>{c.pct}%</span></div>
             <div className="barra-fondo"><div className="barra-relleno" style={{ width: `${c.pct}%`, background: c.tint }} /></div>
           </div>
         ))}
@@ -1638,9 +1638,9 @@ const NOMBRES_MES = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Se
 function GraficoDesviacion({ datos, etiqueta }) {
   const max = 25;
   return (
-    <div style={{ background: "#33362E", border: "1px solid #43463C", borderRadius: 12, padding: "1.1rem 1.2rem" }}>
+    <div style={{ background: "#FBF8F1", border: "1px solid #E2D9C4", borderRadius: 12, padding: "1.1rem 1.2rem" }}>
       <div style={{ fontSize: "0.85rem", fontWeight: 600, marginBottom: "0.2rem" }}>Comparativa con el reparto orientativo — {etiqueta}</div>
-      <div style={{ fontSize: "0.72rem", color: "#7C7F70", marginBottom: "1rem" }}>
+      <div style={{ fontSize: "0.72rem", color: "#8A7F68", marginBottom: "1rem" }}>
         {datos.total > 0 ? "Verde: por encima de lo orientativo · Naranja: por debajo. Es una referencia general, no un análisis nutricional clínico." : "Todavía no hay datos para este periodo."}
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: "0.65rem" }}>
@@ -1653,12 +1653,12 @@ function GraficoDesviacion({ datos, etiqueta }) {
           const colorDesv = positivo ? "#5B8A57" : "#C0524A";
           return (
             <div key={c.key} style={{ display: "flex", alignItems: "center", gap: "0.6rem" }}>
-              <div style={{ width: 100, flex: "0 0 auto", fontSize: "0.75rem", color: "#D9DACC", display: "flex", alignItems: "center", gap: "0.3rem" }}>
+              <div style={{ width: 100, flex: "0 0 auto", fontSize: "0.75rem", color: "#3D372B", display: "flex", alignItems: "center", gap: "0.3rem" }}>
                 <span style={{ width: 8, height: 8, borderRadius: "50%", background: c.tint, flex: "0 0 auto" }} />
                 {c.label}
               </div>
-              <div style={{ position: "relative", flex: "1 1 auto", height: 14, background: "#191B15", borderRadius: 4, minWidth: 0 }}>
-                <div style={{ position: "absolute", left: "50%", top: 0, bottom: 0, width: 1, background: "#55584E" }} />
+              <div style={{ position: "relative", flex: "1 1 auto", height: 14, background: "#EFE7D4", borderRadius: 4, minWidth: 0 }}>
+                <div style={{ position: "absolute", left: "50%", top: 0, bottom: 0, width: 1, background: "#D8CCAE" }} />
                 <div style={{ position: "absolute", top: 0, bottom: 0, left: positivo ? "50%" : `${50 - anchoPct}%`, width: `${anchoPct}%`, background: colorDesv, borderRadius: 3 }} />
               </div>
               <div style={{ width: 50, flex: "0 0 auto", textAlign: "right", fontSize: "0.72rem", color: colorDesv, fontWeight: 600 }}>
@@ -1668,7 +1668,7 @@ function GraficoDesviacion({ datos, etiqueta }) {
           );
         })}
       </div>
-      <div style={{ fontSize: "0.66rem", color: "#7C7F70", marginTop: "0.9rem" }}>
+      <div style={{ fontSize: "0.66rem", color: "#8A7F68", marginTop: "0.9rem" }}>
         Reparto orientativo: {CATEGORIAS.map((c) => `${c.label} ${IDEAL_PCT[c.key]}%`).join(" · ")}.
       </div>
     </div>
@@ -1679,9 +1679,9 @@ function GraficoMensual({ datos, año }) {
   const maxTotal = Math.max(1, ...datos.map((d) => d.total));
   const hayDatos = datos.some((d) => d.total > 0);
   return (
-    <div style={{ background: "#33362E", border: "1px solid #43463C", borderRadius: 12, padding: "1.1rem 1.2rem" }}>
+    <div style={{ background: "#FBF8F1", border: "1px solid #E2D9C4", borderRadius: 12, padding: "1.1rem 1.2rem" }}>
       <div style={{ fontSize: "0.85rem", fontWeight: 600, marginBottom: "0.2rem" }}>Comparativa mensual por categoría — {año}</div>
-      <div style={{ fontSize: "0.72rem", color: "#7C7F70", marginBottom: "1rem" }}>
+      <div style={{ fontSize: "0.72rem", color: "#8A7F68", marginBottom: "1rem" }}>
         {hayDatos ? "Cada barra es un mes; los colores muestran qué categorías lo componen." : "Sin datos todavía para este año."}
       </div>
       <div style={{ display: "flex", alignItems: "flex-end", gap: "0.4rem", height: 150, overflowX: "auto" }}>
@@ -1691,20 +1691,20 @@ function GraficoMensual({ datos, año }) {
             <div key={d.mes} style={{ flex: "1 1 0", minWidth: 20, display: "flex", flexDirection: "column", alignItems: "center", gap: "0.35rem" }}>
               <div
                 title={`${NOMBRES_MES[d.mes]}: ${d.total} platos`}
-                style={{ width: "100%", maxWidth: 28, height: alturaTotal, display: "flex", flexDirection: "column-reverse", borderRadius: 4, overflow: "hidden", background: d.total > 0 ? "transparent" : "#3A3D34" }}
+                style={{ width: "100%", maxWidth: 28, height: alturaTotal, display: "flex", flexDirection: "column-reverse", borderRadius: 4, overflow: "hidden", background: d.total > 0 ? "transparent" : "#EFE7D4" }}
               >
                 {d.categorias.filter((c) => c.cantidad > 0).map((c) => (
                   <div key={c.key} style={{ width: "100%", height: `${(c.cantidad / d.total) * 100}%`, background: c.tint }} />
                 ))}
               </div>
-              <span style={{ fontSize: "0.62rem", color: "#8A8D80" }}>{NOMBRES_MES[d.mes]}</span>
+              <span style={{ fontSize: "0.62rem", color: "#A79B7F" }}>{NOMBRES_MES[d.mes]}</span>
             </div>
           );
         })}
       </div>
       <div style={{ display: "flex", flexWrap: "wrap", gap: "0.6rem", marginTop: "1rem" }}>
         {CATEGORIAS.map((c) => (
-          <div key={c.key} style={{ display: "flex", alignItems: "center", gap: "0.3rem", fontSize: "0.68rem", color: "#B7B9AC" }}>
+          <div key={c.key} style={{ display: "flex", alignItems: "center", gap: "0.3rem", fontSize: "0.68rem", color: "#9C9480" }}>
             <span style={{ width: 8, height: 8, borderRadius: 2, background: c.tint, display: "inline-block" }} />
             {c.label}
           </div>
@@ -1719,7 +1719,7 @@ try {
   root.render(<PlanificadorComidas />);
 } catch (errorArranque) {
   document.getElementById("root").innerHTML =
-    '<div style="font-family: monospace; background:#191B15; color:#F1EAD8; padding:2rem; white-space:pre-wrap;">' +
+    '<div style="font-family: monospace; background:#FFFFFF; color:#2E2A22; padding:2rem; white-space:pre-wrap;">' +
     "Error al iniciar la app:\n\n" + (errorArranque && errorArranque.message ? errorArranque.message : String(errorArranque)) +
     "</div>";
 }
@@ -1738,7 +1738,7 @@ try {
     document.body.appendChild(scriptFinal);
   } catch (errorCompilacion) {
     document.getElementById("root").innerHTML =
-      '<div style="font-family: monospace; background:#191B15; color:#F1EAD8; padding:2rem; white-space:pre-wrap;">' +
+      '<div style="font-family: monospace; background:#FFFFFF; color:#2E2A22; padding:2rem; white-space:pre-wrap;">' +
       "Error al compilar la app:\n\n" + (errorCompilacion && errorCompilacion.message ? errorCompilacion.message : String(errorCompilacion)) +
       "</div>";
   }
